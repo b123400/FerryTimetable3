@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */; };
+		CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */; };
+		CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */; };
+		CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805624AB7AE000DC3C63 /* DetailViewController.swift */; };
+		CFB5805A24AB7AE000DC3C63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805824AB7AE000DC3C63 /* Main.storyboard */; };
+		CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */; };
+		CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */; };
+		CFB5806A24AB7AE200DC3C63 /* FerryTimeTable3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */; };
+		CFB5807524AB7AE200DC3C63 /* FerryTimeTable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFB5806624AB7AE200DC3C63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFB5804C24AB7AE000DC3C63;
+			remoteInfo = FerryTimeTable3;
+		};
+		CFB5807124AB7AE200DC3C63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFB5804C24AB7AE000DC3C63;
+			remoteInfo = FerryTimeTable3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimeTable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		CFB5805624AB7AE000DC3C63 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CFB5805924AB7AE000DC3C63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFB5805E24AB7AE200DC3C63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFB5806024AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimeTable3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimeTable3Tests.swift; sourceTree = "<group>"; };
+		CFB5806B24AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimeTable3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimeTable3UITests.swift; sourceTree = "<group>"; };
+		CFB5807624AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFB5804A24AB7AE000DC3C63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806224AB7AE200DC3C63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806D24AB7AE200DC3C63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFB5804424AB7AE000DC3C63 = {
+			isa = PBXGroup;
+			children = (
+				CFB5804F24AB7AE000DC3C63 /* FerryTimeTable3 */,
+				CFB5806824AB7AE200DC3C63 /* FerryTimeTable3Tests */,
+				CFB5807324AB7AE200DC3C63 /* FerryTimeTable3UITests */,
+				CFB5804E24AB7AE000DC3C63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFB5804E24AB7AE000DC3C63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */,
+				CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */,
+				CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFB5804F24AB7AE000DC3C63 /* FerryTimeTable3 */ = {
+			isa = PBXGroup;
+			children = (
+				CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */,
+				CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */,
+				CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */,
+				CFB5805624AB7AE000DC3C63 /* DetailViewController.swift */,
+				CFB5805824AB7AE000DC3C63 /* Main.storyboard */,
+				CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */,
+				CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */,
+				CFB5806024AB7AE200DC3C63 /* Info.plist */,
+			);
+			path = FerryTimeTable3;
+			sourceTree = "<group>";
+		};
+		CFB5806824AB7AE200DC3C63 /* FerryTimeTable3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */,
+				CFB5806B24AB7AE200DC3C63 /* Info.plist */,
+			);
+			path = FerryTimeTable3Tests;
+			sourceTree = "<group>";
+		};
+		CFB5807324AB7AE200DC3C63 /* FerryTimeTable3UITests */ = {
+			isa = PBXGroup;
+			children = (
+				CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */,
+				CFB5807624AB7AE200DC3C63 /* Info.plist */,
+			);
+			path = FerryTimeTable3UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3" */;
+			buildPhases = (
+				CFB5804924AB7AE000DC3C63 /* Sources */,
+				CFB5804A24AB7AE000DC3C63 /* Frameworks */,
+				CFB5804B24AB7AE000DC3C63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FerryTimeTable3;
+			productName = FerryTimeTable3;
+			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFB5806424AB7AE200DC3C63 /* FerryTimeTable3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3Tests" */;
+			buildPhases = (
+				CFB5806124AB7AE200DC3C63 /* Sources */,
+				CFB5806224AB7AE200DC3C63 /* Frameworks */,
+				CFB5806324AB7AE200DC3C63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFB5806724AB7AE200DC3C63 /* PBXTargetDependency */,
+			);
+			name = FerryTimeTable3Tests;
+			productName = FerryTimeTable3Tests;
+			productReference = CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CFB5806F24AB7AE200DC3C63 /* FerryTimeTable3UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3UITests" */;
+			buildPhases = (
+				CFB5806C24AB7AE200DC3C63 /* Sources */,
+				CFB5806D24AB7AE200DC3C63 /* Frameworks */,
+				CFB5806E24AB7AE200DC3C63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFB5807224AB7AE200DC3C63 /* PBXTargetDependency */,
+			);
+			name = FerryTimeTable3UITests;
+			productName = FerryTimeTable3UITests;
+			productReference = CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFB5804524AB7AE000DC3C63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = b123400;
+				TargetAttributes = {
+					CFB5804C24AB7AE000DC3C63 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					CFB5806424AB7AE200DC3C63 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = CFB5804C24AB7AE000DC3C63;
+					};
+					CFB5806F24AB7AE200DC3C63 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = CFB5804C24AB7AE000DC3C63;
+					};
+				};
+			};
+			buildConfigurationList = CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimeTable3" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFB5804424AB7AE000DC3C63;
+			productRefGroup = CFB5804E24AB7AE000DC3C63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */,
+				CFB5806424AB7AE200DC3C63 /* FerryTimeTable3Tests */,
+				CFB5806F24AB7AE200DC3C63 /* FerryTimeTable3UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFB5804B24AB7AE000DC3C63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */,
+				CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */,
+				CFB5805A24AB7AE000DC3C63 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806324AB7AE200DC3C63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806E24AB7AE200DC3C63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFB5804924AB7AE000DC3C63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */,
+				CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */,
+				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,
+				CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806124AB7AE200DC3C63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB5806A24AB7AE200DC3C63 /* FerryTimeTable3Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB5806C24AB7AE200DC3C63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB5807524AB7AE200DC3C63 /* FerryTimeTable3UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFB5806724AB7AE200DC3C63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */;
+			targetProxy = CFB5806624AB7AE200DC3C63 /* PBXContainerItemProxy */;
+		};
+		CFB5807224AB7AE200DC3C63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */;
+			targetProxy = CFB5807124AB7AE200DC3C63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFB5805824AB7AE000DC3C63 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB5805924AB7AE000DC3C63 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB5805E24AB7AE200DC3C63 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFB5807724AB7AE200DC3C63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFB5807824AB7AE200DC3C63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFB5807A24AB7AE200DC3C63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFB5807B24AB7AE200DC3C63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CFB5807D24AB7AE200DC3C63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimeTable3.app/FerryTimeTable3";
+			};
+			name = Debug;
+		};
+		CFB5807E24AB7AE200DC3C63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimeTable3.app/FerryTimeTable3";
+			};
+			name = Release;
+		};
+		CFB5808024AB7AE200DC3C63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FerryTimeTable3;
+			};
+			name = Debug;
+		};
+		CFB5808124AB7AE200DC3C63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = FerryTimeTable3UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FerryTimeTable3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimeTable3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB5807724AB7AE200DC3C63 /* Debug */,
+				CFB5807824AB7AE200DC3C63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB5807A24AB7AE200DC3C63 /* Debug */,
+				CFB5807B24AB7AE200DC3C63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB5807D24AB7AE200DC3C63 /* Debug */,
+				CFB5807E24AB7AE200DC3C63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB5808024AB7AE200DC3C63 /* Debug */,
+				CFB5808124AB7AE200DC3C63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFB5804524AB7AE000DC3C63 /* Project object */;
+}

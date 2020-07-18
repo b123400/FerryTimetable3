@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		CF547F8324C339F9007DCF39 /* raws.json in Resources */ = {isa = PBXBuildFile; fileRef = CF547F8224C339F9007DCF39 /* raws.json */; };
+		CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8424C33C46007DCF39 /* Schedule.swift */; };
+		CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8724C359A0007DCF39 /* MenuCell.swift */; };
+		CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */; };
+		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
+		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
 		CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */; };
 		CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */; };
 		CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */; };
@@ -16,6 +23,7 @@
 		CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */; };
 		CFB5806A24AB7AE200DC3C63 /* FerryTimeTable3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */; };
 		CFB5807524AB7AE200DC3C63 /* FerryTimeTable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */; };
+		CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		CF547F8224C339F9007DCF39 /* raws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = raws.json; sourceTree = "<group>"; };
+		CF547F8424C33C46007DCF39 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		CF547F8724C359A0007DCF39 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimeTable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +65,7 @@
 		CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimeTable3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimeTable3UITests.swift; sourceTree = "<group>"; };
 		CFB5807624AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +94,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF547F8624C3598A007DCF39 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF547F8724C359A0007DCF39 /* MenuCell.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF6B6EE924AF1A5300C18FD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF8CABCB24ACEBE500E7FCB4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CF6B6EE924AF1A5300C18FD2 /* Model */,
+				CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */,
+				CF547F8424C33C46007DCF39 /* Schedule.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		CFB5804424AB7AE000DC3C63 = {
 			isa = PBXGroup;
 			children = (
@@ -105,10 +147,14 @@
 				CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */,
 				CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */,
 				CFB5805624AB7AE000DC3C63 /* DetailViewController.swift */,
+				CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */,
+				CF8CABCB24ACEBE500E7FCB4 /* Core */,
+				CFB5808424AB8C1C00DC3C63 /* UI Components */,
 				CFB5805824AB7AE000DC3C63 /* Main.storyboard */,
 				CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */,
 				CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */,
 				CFB5806024AB7AE200DC3C63 /* Info.plist */,
+				CF547F8224C339F9007DCF39 /* raws.json */,
 			);
 			path = FerryTimeTable3;
 			sourceTree = "<group>";
@@ -131,6 +177,15 @@
 			path = FerryTimeTable3UITests;
 			sourceTree = "<group>";
 		};
+		CFB5808424AB8C1C00DC3C63 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				CF547F8624C3598A007DCF39 /* ViewModel */,
+				CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +202,9 @@
 			dependencies = (
 			);
 			name = FerryTimeTable3;
+			packageProductDependencies = (
+				CF9C10EF24AE58F8001D13EC /* Alamofire */,
+			);
 			productName = FerryTimeTable3;
 			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */;
 			productType = "com.apple.product-type.application";
@@ -219,6 +277,9 @@
 				Base,
 			);
 			mainGroup = CFB5804424AB7AE000DC3C63;
+			packageReferences = (
+				CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = CFB5804E24AB7AE000DC3C63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */,
+				CF547F8324C339F9007DCF39 /* raws.json in Resources */,
 				CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */,
 				CFB5805A24AB7AE000DC3C63 /* Main.storyboard in Resources */,
 			);
@@ -263,9 +325,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */,
+				CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */,
 				CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */,
+				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
+				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,
+				CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */,
+				CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */,
 				CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */,
+				CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,11 +509,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
 				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,11 +528,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
 				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -594,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF9C10EF24AE58F8001D13EC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CFB5804524AB7AE000DC3C63 /* Project object */;
 }

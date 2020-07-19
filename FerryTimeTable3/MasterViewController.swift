@@ -65,65 +65,16 @@ class MasterViewController: UICollectionViewController {
     }
 
     func prepareObjects() {
-        self.objects = [
-            self.menuCellForIsland(island: .centralCheungChau)
-        ]
+        self.objects = Island.allCases.map(self.menuCellForIsland)
         self.collectionView.reloadData()
     }
 
     func menuCellForIsland(island: Island) -> MenuCell {
         let raws = ModelManager.shared.getRaws()
         let schedule = Schedule(raws: raws)
-
         let fromFerries = schedule.upcomingFerries(island: island, direction: .fromPrimary, count: 2)
         let toFerries = schedule.upcomingFerries(island: island, direction: .toPrimary, count: 2)
-        let df = DateFormatter()
-        df.dateStyle = .none
-        df.timeStyle = .short
-
-        // TODO
-        var primaryLocation = island.rawValue
-        var secondaryLocation = ""
-
-        var fromPrimary1 = ""
-        var fromPrimarySub1 = ""
-        var fromPrimary2 = ""
-        var fromPrimarySub2 = ""
-
-        var toPrimary1 = ""
-        var toPrimarySub1 = ""
-        var toPrimary2 = ""
-        var toPrimarySub2 = ""
-
-        if fromFerries.count >= 1 {
-            fromPrimary1 = df.string(from: fromFerries[0].time)
-            fromPrimarySub1 = "3 mins left"
-        }
-        if fromFerries.count >= 2 {
-            fromPrimary2 = df.string(from: fromFerries[1].time)
-            fromPrimarySub2 = "3 mins left"
-        }
-        if toFerries.count >= 1 {
-            toPrimary1 = df.string(from: toFerries[0].time)
-            toPrimarySub1 = "3 mins left"
-        }
-        if toFerries.count >= 2 {
-            toPrimary2 = df.string(from: toFerries[1].time)
-            toPrimarySub2 = "3 mins left"
-        }
-
-        return MenuCell(
-            primaryLocation: primaryLocation,
-            secondaryLocation: secondaryLocation,
-            fromPrimary1: fromPrimary1,
-            fromPrimarySub1: fromPrimarySub1,
-            fromPrimary2: fromPrimary2,
-            fromPrimarySub2: fromPrimarySub2,
-            toPrimary1: toPrimary1,
-            toPrimarySub1: toPrimarySub1,
-            toPrimary2: toPrimary2,
-            toPrimarySub2: toPrimarySub2
-        )
+        return MenuCell(island: island, fromFerries: fromFerries, toFerries: toFerries)
     }
 
     // MARK: - Table View

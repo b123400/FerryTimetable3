@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Island: String, Codable {
+enum Island: String, Codable, CaseIterable {
     case centralCheungChau = "central-cheungchau"
     case centralMuiWo = "central-muiwo"
     case centralPengChau = "central-pengchau"
@@ -23,6 +23,65 @@ enum Island: String, Codable {
     case saiWanHoKwunTong = "saiwanho-kwuntong"
     case saiWanHoSamKaTsuen = "saiwanho-samkatsuen"
     case samKaTsuenTungLungIsland = "samkatsuen-tunglungisland"
+    
+    var primaryName: String {
+        // TODO localisation
+        switch self {
+        case .centralCheungChau: fallthrough
+        case .centralMuiWo: fallthrough
+        case .centralPengChau: fallthrough
+        case .centralYungShueWan: fallthrough
+        case .centralSokKwuWan: fallthrough
+        case .centralDiscoveryBay:
+            return "Central"
+        case .northPointHungHom: fallthrough
+        case .northPointKowloonCity:
+            return "North Point"
+        case .pengChauHeiLingChau:
+            return "Peng Chau"
+        case .aberdeenSokKwuWan:
+            return "Aberdeen"
+        case .maWanTsuenWan:
+            return "Ma Wan"
+        case .saiWanHoKwunTong: fallthrough
+        case .saiWanHoSamKaTsuen:
+            return "Sai Wan Ho"
+        case .samKaTsuenTungLungIsland:
+            return "Sam Ka Tsuen"
+        }
+    }
+    var secondaryName: String {
+        // TODO localisation
+        switch self {
+        case .centralCheungChau:
+            return "Cheung Chau"
+        case .centralMuiWo:
+            return "Mui Wo"
+        case .centralPengChau:
+            return "Peng Chau"
+        case .centralYungShueWan:
+            return "Yung Shue Wan"
+        case .centralSokKwuWan: fallthrough
+        case .aberdeenSokKwuWan:
+            return "Sok Kwu Wan"
+        case .centralDiscoveryBay:
+            return "Discovery Bay"
+        case .northPointHungHom:
+            return "Hung Hom"
+        case .northPointKowloonCity:
+            return "Kowloon City"
+        case .pengChauHeiLingChau:
+            return "Hei Ling Chau"
+        case .maWanTsuenWan:
+            return "Tsuen Wan"
+        case .saiWanHoKwunTong:
+            return "Kwun Tong"
+        case .saiWanHoSamKaTsuen:
+            return "Sam Ka Tsuen"
+        case .samKaTsuenTungLungIsland:
+            return "Tung Lung Island"
+        }
+    }
 }
 
 enum Direction: String, Codable {

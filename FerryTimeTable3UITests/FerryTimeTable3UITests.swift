@@ -1,6 +1,6 @@
 //
-//  FerryTimeTable3UITests.swift
-//  FerryTimeTable3UITests
+//  FerryTimetable3UITests.swift
+//  FerryTimetable3UITests
 //
 //  Created by b123400 on 2020/06/30.
 //  Copyright © 2020 b123400. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class FerryTimeTable3UITests: XCTestCase {
+class FerryTimetable3UITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

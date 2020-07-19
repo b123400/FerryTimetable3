@@ -1,6 +1,6 @@
 //
 //  LeftAlignedCollectionViewFlowLayout.swift
-//  FerryTimeTable3
+//  FerryTimetable3
 //
 //  Created by b123400 on 2020/07/02.
 //  Copyright © 2020 b123400. All rights reserved.

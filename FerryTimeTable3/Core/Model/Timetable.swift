@@ -1,6 +1,6 @@
 //
 //  Route.swift
-//  FerryTimeTable3
+//  FerryTimetable3
 //
 //  Created by b123400 on 2020/07/03.
 //  Copyright © 2020 b123400. All rights reserved.
@@ -33,7 +33,7 @@ enum Direction: String, Codable {
 struct Route<T: Codable>: Codable {
     let island: Island
     let timetables: [Timetable<T>]
-    
+
     func map<U>(_ transform: (T) throws -> U) rethrows -> Route<U> {
         return Route<U>(
             island: island,
@@ -46,7 +46,7 @@ struct Timetable<T: Codable>: Codable {
     let direction : Direction
     let ferries: [Ferry<T>]
     let days: Set<Day>
-    
+
     func map<U>(_ transform: (T) throws -> U) rethrows -> Timetable<U> {
         return Timetable<U>(
             direction: direction,
@@ -59,7 +59,7 @@ struct Timetable<T: Codable>: Codable {
 struct Ferry<T: Codable>: Codable {
     let time: T
     let modifiers: Set<Modifier>
-    
+
     func map<U>(_ transform: (T) throws -> U) rethrows -> Ferry<U> {
         return Ferry<U>(
             time: try transform(self.time),
@@ -88,7 +88,7 @@ enum DayOfWeek: String, Codable {
 enum Day: Hashable, Codable {
     case weekday(DayOfWeek)
     case holiday
-    
+
     init(from decoder: Decoder) throws {
         if let dayOfWeek = try? DayOfWeek.init(from: decoder) {
             self = .weekday(dayOfWeek)
@@ -102,7 +102,7 @@ enum Day: Hashable, Codable {
         }
         throw DecodingError.dataCorruptedError(in: container, debugDescription: "Value is not holiday or weekday")
     }
-    
+
     func encode(to encoder: Encoder) throws {
         switch self {
         case .holiday:
@@ -111,7 +111,7 @@ enum Day: Hashable, Codable {
         case .weekday(let dow):
             return try dow.encode(to: encoder)
         }
-        
+
     }
 }
 

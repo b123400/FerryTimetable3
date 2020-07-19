@@ -1,6 +1,6 @@
 //
 //  MasterViewController.swift
-//  FerryTimeTable3
+//  FerryTimetable3
 //
 //  Created by b123400 on 2020/06/30.
 //  Copyright © 2020 b123400. All rights reserved.
@@ -21,13 +21,13 @@ class MasterViewController: UICollectionViewController {
 
         self.title = "HK Ferries"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+
         if let layout = self.collectionViewLayout as? LeftAlignedCollectionViewFlowLayout {
             layout.itemSize = CGSize(width: 296, height: 200)
             layout.sectionInset.left = 12
             layout.minimumInteritemSpacing = 30
         }
-        
+
 //        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
 //        navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
@@ -63,38 +63,38 @@ class MasterViewController: UICollectionViewController {
 //            }
         }
     }
-    
+
     func prepareObjects() {
         self.objects = [
             self.menuCellForIsland(island: .centralCheungChau)
         ]
         self.collectionView.reloadData()
     }
-    
+
     func menuCellForIsland(island: Island) -> MenuCell {
         let raws = ModelManager.shared.getRaws()
         let schedule = Schedule(raws: raws)
-        
+
         let fromFerries = schedule.upcomingFerries(island: island, direction: .fromPrimary, count: 2)
         let toFerries = schedule.upcomingFerries(island: island, direction: .toPrimary, count: 2)
         let df = DateFormatter()
         df.dateStyle = .none
         df.timeStyle = .short
-        
+
         // TODO
         var primaryLocation = island.rawValue
         var secondaryLocation = ""
-        
+
         var fromPrimary1 = ""
         var fromPrimarySub1 = ""
         var fromPrimary2 = ""
         var fromPrimarySub2 = ""
-        
+
         var toPrimary1 = ""
         var toPrimarySub1 = ""
         var toPrimary2 = ""
         var toPrimarySub2 = ""
-        
+
         if fromFerries.count >= 1 {
             fromPrimary1 = df.string(from: fromFerries[0].time)
             fromPrimarySub1 = "3 mins left"
@@ -127,11 +127,11 @@ class MasterViewController: UICollectionViewController {
     }
 
     // MARK: - Table View
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.objects.count
     }

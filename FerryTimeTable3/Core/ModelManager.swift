@@ -1,6 +1,6 @@
 //
 //  Downloader.swift
-//  FerryTimeTable3
+//  FerryTimetable3
 //
 //  Created by b123400 on 2020/07/02.
 //  Copyright © 2020 b123400. All rights reserved.
@@ -11,22 +11,22 @@ import Alamofire
 
 class ModelManager {
     static let shared = ModelManager()
-    
+
     private init() {
         saveRaws()
     }
-    
+
     var documentURL: URL {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let docURL = URL(fileURLWithPath: documentsDirectory)
         return docURL
     }
-    
+
     var rawsURL: URL {
         self.documentURL.appendingPathComponent("raws.json")
     }
-    
+
     func getRaws() -> [Route<Int>] {
         do {
             let fm = FileManager.default
@@ -42,7 +42,7 @@ class ModelManager {
         }
         return []
     }
-    
+
     func saveRaws() {
         fetchRaws { (routes) in
             do {
@@ -55,7 +55,7 @@ class ModelManager {
             }
         }
     }
-    
+
     func fetchRaws(callback: @escaping ([Route<Int>])-> Void) {
         AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [Route<Int>].self) { (response) in
             switch response.result {

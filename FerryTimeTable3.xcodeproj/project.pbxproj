@@ -21,8 +21,8 @@
 		CFB5805A24AB7AE000DC3C63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805824AB7AE000DC3C63 /* Main.storyboard */; };
 		CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */; };
 		CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */; };
-		CFB5806A24AB7AE200DC3C63 /* FerryTimeTable3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */; };
-		CFB5807524AB7AE200DC3C63 /* FerryTimeTable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */; };
+		CFB5806A24AB7AE200DC3C63 /* FerryTimetable3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5806924AB7AE200DC3C63 /* FerryTimetable3Tests.swift */; };
+		CFB5807524AB7AE200DC3C63 /* FerryTimetable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */; };
 		CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,14 +32,14 @@
 			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CFB5804C24AB7AE000DC3C63;
-			remoteInfo = FerryTimeTable3;
+			remoteInfo = FerryTimetable3;
 		};
 		CFB5807124AB7AE200DC3C63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CFB5804C24AB7AE000DC3C63;
-			remoteInfo = FerryTimeTable3;
+			remoteInfo = FerryTimetable3;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,7 +50,7 @@
 		CF547F8724C359A0007DCF39 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimeTable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimetable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -59,11 +59,11 @@
 		CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFB5805E24AB7AE200DC3C63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFB5806024AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimeTable3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimeTable3Tests.swift; sourceTree = "<group>"; };
+		CFB5806524AB7AE200DC3C63 /* FerryTimetable3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimetable3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5806924AB7AE200DC3C63 /* FerryTimetable3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimetable3Tests.swift; sourceTree = "<group>"; };
 		CFB5806B24AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimeTable3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimeTable3UITests.swift; sourceTree = "<group>"; };
+		CFB5807024AB7AE200DC3C63 /* FerryTimetable3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FerryTimetable3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimetable3UITests.swift; sourceTree = "<group>"; };
 		CFB5807624AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,9 +123,9 @@
 		CFB5804424AB7AE000DC3C63 = {
 			isa = PBXGroup;
 			children = (
-				CFB5804F24AB7AE000DC3C63 /* FerryTimeTable3 */,
-				CFB5806824AB7AE200DC3C63 /* FerryTimeTable3Tests */,
-				CFB5807324AB7AE200DC3C63 /* FerryTimeTable3UITests */,
+				CFB5804F24AB7AE000DC3C63 /* FerryTimetable3 */,
+				CFB5806824AB7AE200DC3C63 /* FerryTimetable3Tests */,
+				CFB5807324AB7AE200DC3C63 /* FerryTimetable3UITests */,
 				CFB5804E24AB7AE000DC3C63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,14 +133,14 @@
 		CFB5804E24AB7AE000DC3C63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */,
-				CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */,
-				CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */,
+				CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */,
+				CFB5806524AB7AE200DC3C63 /* FerryTimetable3Tests.xctest */,
+				CFB5807024AB7AE200DC3C63 /* FerryTimetable3UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CFB5804F24AB7AE000DC3C63 /* FerryTimeTable3 */ = {
+		CFB5804F24AB7AE000DC3C63 /* FerryTimetable3 */ = {
 			isa = PBXGroup;
 			children = (
 				CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */,
@@ -156,25 +156,25 @@
 				CFB5806024AB7AE200DC3C63 /* Info.plist */,
 				CF547F8224C339F9007DCF39 /* raws.json */,
 			);
-			path = FerryTimeTable3;
+			path = FerryTimetable3;
 			sourceTree = "<group>";
 		};
-		CFB5806824AB7AE200DC3C63 /* FerryTimeTable3Tests */ = {
+		CFB5806824AB7AE200DC3C63 /* FerryTimetable3Tests */ = {
 			isa = PBXGroup;
 			children = (
-				CFB5806924AB7AE200DC3C63 /* FerryTimeTable3Tests.swift */,
+				CFB5806924AB7AE200DC3C63 /* FerryTimetable3Tests.swift */,
 				CFB5806B24AB7AE200DC3C63 /* Info.plist */,
 			);
-			path = FerryTimeTable3Tests;
+			path = FerryTimetable3Tests;
 			sourceTree = "<group>";
 		};
-		CFB5807324AB7AE200DC3C63 /* FerryTimeTable3UITests */ = {
+		CFB5807324AB7AE200DC3C63 /* FerryTimetable3UITests */ = {
 			isa = PBXGroup;
 			children = (
-				CFB5807424AB7AE200DC3C63 /* FerryTimeTable3UITests.swift */,
+				CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */,
 				CFB5807624AB7AE200DC3C63 /* Info.plist */,
 			);
-			path = FerryTimeTable3UITests;
+			path = FerryTimetable3UITests;
 			sourceTree = "<group>";
 		};
 		CFB5808424AB8C1C00DC3C63 /* UI Components */ = {
@@ -189,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */ = {
+		CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3" */;
+			buildConfigurationList = CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3" */;
 			buildPhases = (
 				CFB5804924AB7AE000DC3C63 /* Sources */,
 				CFB5804A24AB7AE000DC3C63 /* Frameworks */,
@@ -201,17 +201,17 @@
 			);
 			dependencies = (
 			);
-			name = FerryTimeTable3;
+			name = FerryTimetable3;
 			packageProductDependencies = (
 				CF9C10EF24AE58F8001D13EC /* Alamofire */,
 			);
-			productName = FerryTimeTable3;
-			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimeTable3.app */;
+			productName = FerryTimetable3;
+			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CFB5806424AB7AE200DC3C63 /* FerryTimeTable3Tests */ = {
+		CFB5806424AB7AE200DC3C63 /* FerryTimetable3Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3Tests" */;
+			buildConfigurationList = CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3Tests" */;
 			buildPhases = (
 				CFB5806124AB7AE200DC3C63 /* Sources */,
 				CFB5806224AB7AE200DC3C63 /* Frameworks */,
@@ -222,14 +222,14 @@
 			dependencies = (
 				CFB5806724AB7AE200DC3C63 /* PBXTargetDependency */,
 			);
-			name = FerryTimeTable3Tests;
-			productName = FerryTimeTable3Tests;
-			productReference = CFB5806524AB7AE200DC3C63 /* FerryTimeTable3Tests.xctest */;
+			name = FerryTimetable3Tests;
+			productName = FerryTimetable3Tests;
+			productReference = CFB5806524AB7AE200DC3C63 /* FerryTimetable3Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CFB5806F24AB7AE200DC3C63 /* FerryTimeTable3UITests */ = {
+		CFB5806F24AB7AE200DC3C63 /* FerryTimetable3UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3UITests" */;
+			buildConfigurationList = CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3UITests" */;
 			buildPhases = (
 				CFB5806C24AB7AE200DC3C63 /* Sources */,
 				CFB5806D24AB7AE200DC3C63 /* Frameworks */,
@@ -240,9 +240,9 @@
 			dependencies = (
 				CFB5807224AB7AE200DC3C63 /* PBXTargetDependency */,
 			);
-			name = FerryTimeTable3UITests;
-			productName = FerryTimeTable3UITests;
-			productReference = CFB5807024AB7AE200DC3C63 /* FerryTimeTable3UITests.xctest */;
+			name = FerryTimetable3UITests;
+			productName = FerryTimetable3UITests;
+			productReference = CFB5807024AB7AE200DC3C63 /* FerryTimetable3UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimeTable3" */;
+			buildConfigurationList = CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimetable3" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -284,9 +284,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */,
-				CFB5806424AB7AE200DC3C63 /* FerryTimeTable3Tests */,
-				CFB5806F24AB7AE200DC3C63 /* FerryTimeTable3UITests */,
+				CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */,
+				CFB5806424AB7AE200DC3C63 /* FerryTimetable3Tests */,
+				CFB5806F24AB7AE200DC3C63 /* FerryTimetable3UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB5806A24AB7AE200DC3C63 /* FerryTimeTable3Tests.swift in Sources */,
+				CFB5806A24AB7AE200DC3C63 /* FerryTimetable3Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB5807524AB7AE200DC3C63 /* FerryTimeTable3UITests.swift in Sources */,
+				CFB5807524AB7AE200DC3C63 /* FerryTimetable3UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,12 +358,12 @@
 /* Begin PBXTargetDependency section */
 		CFB5806724AB7AE200DC3C63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */;
+			target = CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */;
 			targetProxy = CFB5806624AB7AE200DC3C63 /* PBXContainerItemProxy */;
 		};
 		CFB5807224AB7AE200DC3C63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CFB5804C24AB7AE000DC3C63 /* FerryTimeTable3 */;
+			target = CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */;
 			targetProxy = CFB5807124AB7AE200DC3C63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -508,14 +508,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FerryTimetable3;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -527,14 +527,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FerryTimetable3;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -547,18 +547,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3Tests/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimetable3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimeTable3.app/FerryTimeTable3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimetable3.app/FerryTimetable3";
 			};
 			name = Debug;
 		};
@@ -569,18 +569,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3Tests/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimetable3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimeTable3.app/FerryTimeTable3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FerryTimetable3.app/FerryTimetable3";
 			};
 			name = Release;
 		};
@@ -590,17 +590,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3UITests/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimetable3UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FerryTimeTable3;
+				TEST_TARGET_NAME = FerryTimetable3;
 			};
 			name = Debug;
 		};
@@ -610,24 +610,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
-				INFOPLIST_FILE = FerryTimeTable3UITests/Info.plist;
+				INFOPLIST_FILE = FerryTimetable3UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimeTable3UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.FerryTimetable3UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FerryTimeTable3;
+				TEST_TARGET_NAME = FerryTimetable3;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimeTable3" */ = {
+		CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimetable3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFB5807724AB7AE200DC3C63 /* Debug */,
@@ -636,7 +636,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3" */ = {
+		CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFB5807A24AB7AE200DC3C63 /* Debug */,
@@ -645,7 +645,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3Tests" */ = {
+		CFB5807C24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFB5807D24AB7AE200DC3C63 /* Debug */,
@@ -654,7 +654,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimeTable3UITests" */ = {
+		CFB5807F24AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFB5808024AB7AE200DC3C63 /* Debug */,

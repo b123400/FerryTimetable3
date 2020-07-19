@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FerryTimeTable3
+//  FerryTimetable3
 //
 //  Created by b123400 on 2020/06/30.
 //  Copyright © 2020 b123400. All rights reserved.

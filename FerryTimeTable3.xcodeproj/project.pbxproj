@@ -12,6 +12,7 @@
 		CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8424C33C46007DCF39 /* Schedule.swift */; };
 		CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8724C359A0007DCF39 /* MenuCell.swift */; };
 		CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */; };
+		CF716EC524C72A43007EA415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF716EC424C72A43007EA415 /* SnapKit */; };
 		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
 		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
 		CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */,
+				CF716EC524C72A43007EA415 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +206,7 @@
 			name = FerryTimetable3;
 			packageProductDependencies = (
 				CF9C10EF24AE58F8001D13EC /* Alamofire */,
+				CF716EC424C72A43007EA415 /* SnapKit */,
 			);
 			productName = FerryTimetable3;
 			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */;
@@ -279,6 +282,7 @@
 			mainGroup = CFB5804424AB7AE000DC3C63;
 			packageReferences = (
 				CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = CFB5804E24AB7AE000DC3C63 /* Products */;
 			projectDirPath = "";
@@ -666,6 +670,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -677,6 +689,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CF716EC424C72A43007EA415 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		CF9C10EF24AE58F8001D13EC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */;

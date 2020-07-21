@@ -27,6 +27,7 @@ class MasterViewController: UICollectionViewController {
             layout.sectionInset.left = 12
             layout.minimumInteritemSpacing = 30
         }
+        self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 
 //        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
 //        navigationItem.rightBarButtonItem = addButton

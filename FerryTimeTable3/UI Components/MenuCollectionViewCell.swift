@@ -29,14 +29,12 @@ class MenuCollectionViewCell: UICollectionViewCell {
     lazy var fromPrimaryLabel1: UILabel = {
         let l = UILabel()
         l.font = titleFont
-        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     lazy var fromPrimarySubLabel1: UILabel = {
         let l = UILabel()
-        l.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        l.font = subheadFont
         l.textColor = UIColor.secondaryLabel
-        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     lazy var fromPrimaryColorView1: UIView = {
@@ -48,14 +46,12 @@ class MenuCollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.font = subheadFont
         l.textAlignment = .right
-        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     lazy var fromPrimarySubLabel2: UILabel = {
         let l = UILabel()
         l.font = subheadFont
         l.textColor = UIColor.secondaryLabel
-        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     lazy var fromPrimaryColorView2: UIView = {
@@ -112,7 +108,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     private lazy var subheadFont: UIFont = {
         let subhead = UIFontMetrics(forTextStyle: .subheadline)
-        return subhead.scaledFont(for: UIFont.monospacedDigitSystemFont(ofSize: 15, weight: .regular))
+        return subhead.scaledFont(for: UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .regular))
     }()
 
     required init?(coder: NSCoder) {
@@ -158,11 +154,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
         fromPrimaryColorView1.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(fromPrimaryLabel1)
             make.width.equalTo(5)
-            make.right.equalToSuperview()
+            make.left.equalTo(fromPrimaryLabel1.snp.right).offset(8)
         }
         fromPrimaryLabel2.snp.makeConstraints { (make) in
             make.top.equalTo(fromPrimaryLabel1.snp.bottom).offset(8)
-            make.left.equalToSuperview()
             make.right.equalTo(fromPrimaryLabel1.snp.right)
         }
         fromPrimarySubLabel2.snp.makeConstraints { (make) in
@@ -172,7 +167,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         fromPrimaryColorView2.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(fromPrimaryLabel2)
             make.width.equalTo(5)
-            make.right.equalToSuperview()
+            make.left.equalTo(fromPrimaryLabel2.snp.right).offset(8)
         }
         toPrimaryArrow.snp.makeConstraints { (make) in
             make.top.equalTo(fromPrimarySubLabel2.snp.bottom).offset(8)
@@ -189,11 +184,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
         toPrimaryColorView1.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(toPrimaryLabel1)
             make.width.equalTo(5)
-            make.right.equalToSuperview()
+            make.left.equalTo(toPrimaryLabel1.snp.right).offset(8)
         }
         toPrimaryLabel2.snp.makeConstraints { (make) in
             make.top.equalTo(toPrimaryLabel1.snp.bottom).offset(8)
-            make.left.equalToSuperview()
             make.right.equalTo(toPrimaryLabel1.snp.right)
         }
         toPrimarySubLabel2.snp.makeConstraints { (make) in
@@ -203,7 +197,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         toPrimaryColorView2.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(toPrimaryLabel2)
             make.width.equalTo(5)
-            make.right.equalToSuperview()
+            make.left.equalTo(toPrimaryLabel2.snp.right).offset(8)
         }
     }
 

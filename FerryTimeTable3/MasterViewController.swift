@@ -30,6 +30,9 @@ class MasterViewController: UICollectionViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
+            self?.prepareObjects()
+        }
         prepareObjects()
     }
 
@@ -47,25 +50,15 @@ class MasterViewController: UICollectionViewController {
         }
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-//        objects.insert(NSDate(), at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-//
-//    // MARK: - Segues
-//
+    // MARK: - Segues
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let object = objects[indexPath.row] as! NSDate
-//                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-//                controller.detailItem = object
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
-//                detailViewController = controller
-//            }
+            if let indexPath = collectionView.indexPathsForSelectedItems?.last {
+                let i = Island.allCases[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.island = i
+            }
         }
     }
 
@@ -98,6 +91,10 @@ class MasterViewController: UICollectionViewController {
             c.apply(model: self.objects[indexPath.row])
         }
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
 }
 

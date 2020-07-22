@@ -27,16 +27,16 @@ class ModelManager {
         self.documentURL.appendingPathComponent("raws.json")
     }
 
-    func getRaws() -> [Route<Int>] {
+    func getRaws() -> [Route<TimeInterval>] {
         do {
             let fm = FileManager.default
             if fm.fileExists(atPath: self.rawsURL.absoluteString) {
                 let data = try Data(contentsOf: self.rawsURL)
-                return try JSONDecoder().decode([Route<Int>].self, from: data)
+                return try JSONDecoder().decode([Route<TimeInterval>].self, from: data)
             }
             let url = Bundle.main.url(forResource: "raws", withExtension: "json")!
             let data = try Data(contentsOf: url)
-            return try JSONDecoder().decode([Route<Int>].self, from: data)
+            return try JSONDecoder().decode([Route<TimeInterval>].self, from: data)
         } catch {
             print(error.localizedDescription)
         }
@@ -56,8 +56,8 @@ class ModelManager {
         }
     }
 
-    func fetchRaws(callback: @escaping ([Route<Int>])-> Void) {
-        AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [Route<Int>].self) { (response) in
+    func fetchRaws(callback: @escaping ([Route<TimeInterval>])-> Void) {
+        AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [Route<TimeInterval>].self) { (response) in
             switch response.result {
             case .failure(let error):
                 print(error.localizedDescription)

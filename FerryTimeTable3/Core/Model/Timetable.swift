@@ -90,7 +90,7 @@ enum Direction: String, Codable {
     case toPrimary = "ToPrimary"
 }
 
-struct Route<T: Codable>: Codable {
+struct Route<T> {
     let island: Island
     let timetables: [Timetable<T>]
 
@@ -102,7 +102,7 @@ struct Route<T: Codable>: Codable {
     }
 }
 
-struct Timetable<T: Codable>: Codable {
+struct Timetable<T> {
     let direction : Direction
     let ferries: [Ferry<T>]
     let days: Set<Day>
@@ -116,7 +116,7 @@ struct Timetable<T: Codable>: Codable {
     }
 }
 
-struct Ferry<T: Codable>: Codable {
+struct Ferry<T> {
     let time: T
     let modifiers: Set<Modifier>
 
@@ -133,15 +133,17 @@ struct Ferry<T: Codable>: Codable {
         }
         if modifiers.contains(.fastFerry) {
             return UIColor.systemRed
-            return UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
         }
         if modifiers.contains(.slowFerry) {
             return UIColor.systemGreen
-            return UIColor(red: 0, green: 0.5, blue: 0, alpha: 1)
         }
         return .clear
     }
 }
+
+extension Ferry: Codable where T: Codable {}
+extension Timetable: Codable where T: Codable {}
+extension Route: Codable where T: Codable {}
 
 enum Modifier: String, Codable {
     case fastFerry = "FastFerry"
@@ -200,12 +202,70 @@ func midnight(date: Date) -> Date {
     return cal.date(from: components)!
 }
 
-func timeOffsetToAbsolute(offset: Int, baseDate: Date) -> Date {
-    midnight(date: baseDate).addingTimeInterval(TimeInterval(offset))
+func timeOffsetToAbsolute(offset: TimeInterval, baseDate: Date) -> Date {
+    let x = midnight(date: baseDate)
+    return x.addingTimeInterval(offset)
 }
 
-extension Ferry where T == Int {
+extension Ferry where T == TimeInterval {
     func toAbsolute(date: Date) -> Ferry<Date> {
         self.map { timeOffsetToAbsolute(offset: $0, baseDate: date) }
     }
+}
+
+protocol RenderTime {
+    var hourString: String { get }
+    var minuteString: String { get }
+    func getTimeIntervalSince(_ date: Date) -> TimeInterval?
+}
+
+extension Date: RenderTime {
+    var hourString: String {
+        let cal = Calendar.init(identifier: .gregorian)
+        let components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: self)
+        return String(format: "%02d", components.hour ?? 0)
+    }
+    var minuteString: String {
+        let cal = Calendar.init(identifier: .gregorian)
+        let components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: self)
+        return String(format: "%02d", components.minute ?? 0)
+    }
+    func getTimeIntervalSince(_ date: Date) -> TimeInterval? {
+        self.timeIntervalSince(date)
+    }
+}
+
+extension TimeInterval: RenderTime {
+    var hourString: String {
+        return String(format: "%02d", Int(self/60/60))
+    }
+    var minuteString: String {
+        let min = self / 60
+        return String(format: "%02d", Int(min) % 60)
+    }
+    func getTimeIntervalSince(_ date: Date) -> TimeInterval? {
+        .none
+    }
+}
+
+func timeLeft(date: Date) -> String {
+    let now = Date()
+    let interval = date.timeIntervalSince(now)
+    return timeLeft(interval: interval)
+}
+func timeLeft(interval: TimeInterval) -> String {
+    
+    let min = interval / 60
+    if min < 1 {
+        return "now"
+    }
+    if min < 60 {
+        return "In \(Int(min)) min"
+    }
+    let hour = min / 60
+    if hour < 24 {
+        return "In \(Int(hour)) hours"
+    }
+    let day = hour / 24
+    return "In \(Int(day)) days"
 }

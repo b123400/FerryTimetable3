@@ -9,8 +9,8 @@
 import Foundation
 
 class Schedule {
-    let raws: [Route<Int>]
-    init(raws: [Route<Int>]) {
+    let raws: [Route<TimeInterval>]
+    init(raws: [Route<TimeInterval>]) {
         self.raws = raws
     }
 
@@ -66,7 +66,7 @@ class Schedule {
         return fs + upcoming
     }
 
-    private func routesForIsland(island: Island) -> [Route<Int>] {
+    private func routesForIsland(island: Island) -> [Route<TimeInterval>] {
         raws.filter { $0.island == island }
     }
 

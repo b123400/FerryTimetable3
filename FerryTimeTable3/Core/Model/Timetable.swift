@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Island: String, Codable, CaseIterable {
     case centralCheungChau = "central-cheungchau"
@@ -125,6 +126,21 @@ struct Ferry<T: Codable>: Codable {
             modifiers: modifiers
         )
     }
+    
+    var color: UIColor {
+        if modifiers.contains(.optionalFerry) {
+            return .systemYellow
+        }
+        if modifiers.contains(.fastFerry) {
+            return UIColor.systemRed
+            return UIColor(red: 0.9, green: 0, blue: 0, alpha: 1)
+        }
+        if modifiers.contains(.slowFerry) {
+            return UIColor.systemGreen
+            return UIColor(red: 0, green: 0.5, blue: 0, alpha: 1)
+        }
+        return .clear
+    }
 }
 
 enum Modifier: String, Codable {
@@ -155,7 +171,7 @@ enum Day: Hashable, Codable {
         }
         let container = try decoder.singleValueContainer()
         let str = try container.decode(String.self)
-        if (str == "holiday") {
+        if str == "holiday" {
             self = .holiday
             return
         }

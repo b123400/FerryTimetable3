@@ -30,7 +30,7 @@ class ModelManager {
     func getRaws() -> [Route<Int>] {
         do {
             let fm = FileManager.default
-            if (fm.fileExists(atPath: self.rawsURL.absoluteString)) {
+            if fm.fileExists(atPath: self.rawsURL.absoluteString) {
                 let data = try Data(contentsOf: self.rawsURL)
                 return try JSONDecoder().decode([Route<Int>].self, from: data)
             }

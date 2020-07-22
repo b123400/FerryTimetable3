@@ -22,11 +22,6 @@ class MasterViewController: UICollectionViewController {
         self.title = "HK Ferries"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
-        if let layout = self.collectionViewLayout as? LeftAlignedCollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: 296, height: 200)
-            layout.sectionInset.left = 12
-            layout.minimumInteritemSpacing = 30
-        }
         self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 
 //        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
@@ -41,6 +36,15 @@ class MasterViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let layout = self.collectionViewLayout as? LeftAlignedCollectionViewFlowLayout {
+            layout.itemSize = CGSize(width: self.view.frame.width - 24, height: 200)
+            layout.sectionInset.left = 12
+            layout.minimumInteritemSpacing = 30
+        }
     }
 
     @objc

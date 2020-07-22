@@ -29,10 +29,10 @@ class Schedule {
         let futureFerriesFromYesterday = yesterdaysFerries.map { $0.toAbsolute(date: yesterday) }.filter { $0.time >= date }
 
         let nextCount = count - futureFerriesFromYesterday.count
-        if (nextCount == 0) {
+        if nextCount == 0 {
             return futureFerriesFromYesterday
         }
-        if (nextCount < 0) {
+        if nextCount < 0 {
             return Array(futureFerriesFromYesterday[0..<count])
         }
         let upcoming = upcomingFerriesWithoutYesterday(date: date, island: island, direction: direction, count: nextCount)
@@ -54,10 +54,10 @@ class Schedule {
         let fs = todaysFerries.map { $0.toAbsolute(date: date) }.filter { $0.time >= date }
 
         let nextCount = count - fs.count
-        if (nextCount == 0) {
+        if nextCount == 0 {
             return fs
         }
-        if (nextCount < 0) {
+        if nextCount < 0 {
             return Array(fs[0..<count])
         }
 

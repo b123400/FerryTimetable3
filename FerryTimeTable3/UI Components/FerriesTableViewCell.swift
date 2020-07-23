@@ -37,7 +37,8 @@ class FerriesTableViewCell: UITableViewCell {
         
         colorView.snp.makeConstraints { (make) in
             make.width.equalTo(5)
-            make.top.left.bottom.equalToSuperview().inset(8)
+            make.top.bottom.equalToSuperview().inset(8)
+            make.left.equalToSuperview().offset(20)
         }
         
         timeLabel.snp.makeConstraints { (make) in
@@ -70,6 +71,17 @@ class FerriesTableViewCell: UITableViewCell {
             subLabel.text = ""
         }
         colorView.backgroundColor = model.color
+        if model.color == .clear {
+            colorView.snp.updateConstraints { (make) in
+                make.width.equalTo(0)
+                make.left.equalToSuperview().offset(12)
+            }
+        } else {
+            colorView.snp.updateConstraints { (make) in
+                make.width.equalTo(5)
+                make.left.equalToSuperview().offset(20)
+            }
+        }
     }
 
 }

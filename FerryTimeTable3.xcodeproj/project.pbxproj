@@ -26,6 +26,7 @@
 		CFB5807524AB7AE200DC3C63 /* FerryTimetable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */; };
 		CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */; };
 		CFCC219224C83D370007ECA5 /* DatedFerriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */; };
+		CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */; };
 		CFD7A77C24C814E20082D9A3 /* FerriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */; };
 		CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */; };
 		CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77F24C81A340082D9A3 /* FerryCell.swift */; };
@@ -72,6 +73,7 @@
 		CFB5807624AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatedFerriesTableViewController.swift; sourceTree = "<group>"; };
+		CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionSwitchingView.swift; sourceTree = "<group>"; };
 		CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesViewController.swift; sourceTree = "<group>"; };
 		CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesTableViewCell.swift; sourceTree = "<group>"; };
 		CFD7A77F24C81A340082D9A3 /* FerryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryCell.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				CF547F8624C3598A007DCF39 /* ViewModel */,
 				CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */,
 				CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */,
+				CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */,
 				CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */,
 				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
+				CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */,
 				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */,
 				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,

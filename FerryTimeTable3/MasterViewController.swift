@@ -21,6 +21,7 @@ class MasterViewController: UICollectionViewController {
 
         self.title = "HK Ferries"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
 
         self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 

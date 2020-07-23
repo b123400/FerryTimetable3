@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     var island: Island? {
         didSet {
             configureView()
@@ -18,16 +18,20 @@ class DetailViewController: UIViewController {
     var fromVC: UIViewController?
     var toVC: UIViewController?
     
+    lazy var titleView = DirectionSwitchingView()
+    
     lazy var scrollView: UIScrollView = {
         let v = UIScrollView()
         v.isPagingEnabled = true
+        v.showsHorizontalScrollIndicator = false
+        v.clipsToBounds = false
+        v.delegate = self
         return v
     }()
 
     func configureView() {
-        if let i = island {
-            self.title = i.primaryName + " ↔︎ " + i.secondaryName
-        }
+        self.title = ""
+        titleView.island = island
         
         for child in Array(self.children) {
             child.view.removeFromSuperview()
@@ -52,11 +56,11 @@ class DetailViewController: UIViewController {
                 make.edges.equalTo(self.scrollView)
             }
             fromVC.view.snp.makeConstraints { (make) in
-                make.width.equalTo(self.scrollView.snp.width).multipliedBy(0.8)
+                make.width.equalTo(self.scrollView.snp.width)
                 make.height.equalTo(400)
             }
             toVC.view.snp.makeConstraints { (make) in
-                make.width.equalTo(self.scrollView.snp.width).multipliedBy(0.8)
+                make.width.equalTo(self.scrollView.snp.width)
                 make.height.equalTo(400)
             }
             self.fromVC = fromVC
@@ -67,10 +71,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.navigationItem.largeTitleDisplayMode = .never
+        let a = UINavigationBarAppearance()
+        a.configureWithTransparentBackground()
+        self.navigationItem.standardAppearance = a
+        self.view.addSubview(titleView)
         self.view.addSubview(scrollView)
+        
+        titleView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(4)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(20)
+            make.right.equalToSuperview()
+        }
         scrollView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.equalTo(titleView.snp.bottom)
+            make.bottom.left.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.85)
         }
         
         configureView()
@@ -88,6 +104,12 @@ class DetailViewController: UIViewController {
                 make.height.equalTo(self.scrollView.frame.height - self.scrollView.adjustedContentInset.bottom - self.scrollView.adjustedContentInset.top)
             }
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.width)
+//        self.tabTitleView.moveToIndex(index: Double(index))
+        self.titleView.progress = index
     }
 }
 

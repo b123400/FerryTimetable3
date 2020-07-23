@@ -12,7 +12,7 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
     let direction: Direction
     let island: Island
     
-    // No date = now, date = the "day", not related to times
+    // No date = now, date = the "day", not related to time
     var date: Date? {
         didSet {
             configureFerries()

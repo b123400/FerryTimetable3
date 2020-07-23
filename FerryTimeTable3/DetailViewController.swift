@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BottomHalfModal
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
     var island: Island? {
@@ -15,8 +16,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    var fromVC: UIViewController?
-    var toVC: UIViewController?
+    var fromVC: DatedFerriesTableViewController?
+    var toVC: DatedFerriesTableViewController?
     
     lazy var titleView = DirectionSwitchingView()
     
@@ -75,6 +76,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let a = UINavigationBarAppearance()
         a.configureWithTransparentBackground()
         self.navigationItem.standardAppearance = a
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(showDatePicker))
+        
         self.view.addSubview(titleView)
         self.view.addSubview(scrollView)
         
@@ -110,6 +114,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let index = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.width)
 //        self.tabTitleView.moveToIndex(index: Double(index))
         self.titleView.progress = index
+    }
+    
+    @objc func showDatePicker() {
+        let vc = FerryDatePickerViewController()
+        vc.callback = { [weak self] date in
+            self?.fromVC?.date = date
+            self?.toVC?.date = date
+        }
+        let nav = BottomHalfModalNavigationController(rootViewController: vc)
+        presentBottomHalfModal(nav, animated: true, completion: nil)
     }
 }
 

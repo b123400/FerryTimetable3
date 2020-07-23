@@ -254,8 +254,10 @@ func timeLeft(date: Date) -> String {
     return timeLeft(interval: interval)
 }
 func timeLeft(interval: TimeInterval) -> String {
-    
     let min = interval / 60
+    if min < 0 {
+        return ""
+    }
     if min < 1 {
         return "now"
     }

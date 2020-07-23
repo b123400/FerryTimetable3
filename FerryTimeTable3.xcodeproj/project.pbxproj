@@ -27,9 +27,11 @@
 		CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */; };
 		CFCC219224C83D370007ECA5 /* DatedFerriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */; };
 		CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */; };
+		CFCC219A24C9C90D0007ECA5 /* FerryDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */; };
 		CFD7A77C24C814E20082D9A3 /* FerriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */; };
 		CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */; };
 		CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77F24C81A340082D9A3 /* FerryCell.swift */; };
+		CFF854E524C9E1C6000AB3FA /* BottomHalfModal in Frameworks */ = {isa = PBXBuildFile; productRef = CFF854E424C9E1C6000AB3FA /* BottomHalfModal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,7 @@
 		CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatedFerriesTableViewController.swift; sourceTree = "<group>"; };
 		CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionSwitchingView.swift; sourceTree = "<group>"; };
+		CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryDatePickerViewController.swift; sourceTree = "<group>"; };
 		CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesViewController.swift; sourceTree = "<group>"; };
 		CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesTableViewCell.swift; sourceTree = "<group>"; };
 		CFD7A77F24C81A340082D9A3 /* FerryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryCell.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */,
+				CFF854E524C9E1C6000AB3FA /* BottomHalfModal in Frameworks */,
 				CF716EC524C72A43007EA415 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +203,7 @@
 				CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */,
 				CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */,
 				CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */,
+				CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			packageProductDependencies = (
 				CF9C10EF24AE58F8001D13EC /* Alamofire */,
 				CF716EC424C72A43007EA415 /* SnapKit */,
+				CFF854E424C9E1C6000AB3FA /* BottomHalfModal */,
 			);
 			productName = FerryTimetable3;
 			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */;
@@ -298,6 +304,7 @@
 			packageReferences = (
 				CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CFF854E324C9E1C6000AB3FA /* XCRemoteSwiftPackageReference "BottomHalfModal" */,
 			);
 			productRefGroup = CFB5804E24AB7AE000DC3C63 /* Products */;
 			projectDirPath = "";
@@ -350,6 +357,7 @@
 				CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */,
 				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
 				CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */,
+				CFCC219A24C9C90D0007ECA5 /* FerryDatePickerViewController.swift in Sources */,
 				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */,
 				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,
@@ -706,6 +714,14 @@
 				minimumVersion = 5.2.1;
 			};
 		};
+		CFF854E324C9E1C6000AB3FA /* XCRemoteSwiftPackageReference "BottomHalfModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/b123400/BottomHalfModal.git";
+			requirement = {
+				branch = "swift-package";
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -718,6 +734,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CFF854E424C9E1C6000AB3FA /* BottomHalfModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFF854E324C9E1C6000AB3FA /* XCRemoteSwiftPackageReference "BottomHalfModal" */;
+			productName = BottomHalfModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

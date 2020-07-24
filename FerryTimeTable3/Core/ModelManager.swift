@@ -9,11 +9,51 @@
 import Foundation
 import Alamofire
 
+extension Notification.Name {
+    static let islandsUpdated = Notification.Name("islandUpdated")
+}
+
 class ModelManager {
     static let shared = ModelManager()
-
     private init() {
         saveRaws()
+    }
+    
+    private var _islands: [Island]?
+    var islands: [Island] {
+        get {
+            if let i = _islands {
+                return i
+            }
+            do {
+                let data = try Data(contentsOf: self.islandsURL)
+                let j = JSONDecoder()
+                var islands = try j.decode([Island].self, from: data)
+                
+                // In case when we add new islands
+                let newIslands = Island.allCases.filter { !islands.contains($0) }
+                if !newIslands.isEmpty {
+                    islands.append(contentsOf: newIslands)
+                    self.islands = islands
+                }
+                return islands
+            } catch {
+                return Island.allCases
+            }
+        }
+        set {
+            _islands = newValue
+            NotificationCenter.default.post(Notification(name: .islandsUpdated))
+            DispatchQueue.global().async {
+                do {
+                    let j = JSONEncoder()
+                    let data = try j.encode(newValue)
+                    try data.write(to: self.islandsURL)
+                } catch {
+                    // whatever
+                }
+            }
+        }
     }
 
     var documentURL: URL {
@@ -25,6 +65,10 @@ class ModelManager {
 
     var rawsURL: URL {
         self.documentURL.appendingPathComponent("raws.json")
+    }
+    
+    var islandsURL: URL {
+        self.documentURL.appendingPathComponent("islands.json")
     }
 
     func getRaws() -> [Route<TimeInterval>] {

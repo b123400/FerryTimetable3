@@ -112,7 +112,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.width)
-//        self.tabTitleView.moveToIndex(index: Double(index))
         self.titleView.progress = index
     }
     

@@ -26,12 +26,36 @@ struct SettingsView: View {
                 Colour(text: NSLocalizedString("Optional ferry", comment: ""), colour: Color.yellow)
             }
             
+            NavigationLink(destination: ReorderFerryView()) {
+                Text(NSLocalizedString("Reorder routes", comment: ""))
+            }
+            
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(NSLocalizedString("Info", comment: ""))
     }
 }
 
+struct ReorderFerryView: View {
+    @State var islands = ModelManager.shared.islands
+    
+    var body: some View {
+        List {
+            ForEach(islands) { island in
+                Text(island.fullName)
+            }
+            .onMove(perform: onMove)
+        }
+        .listStyle(GroupedListStyle())
+        .environment(\.editMode, .constant(.active))
+        .navigationBarTitle(NSLocalizedString("Reorder routes", comment: ""))
+    }
+    
+    private func onMove(source: IndexSet, destination: Int) {
+        islands.move(fromOffsets: source, toOffset: destination)
+        ModelManager.shared.islands = islands
+    }
+}
 
 struct Colour: View {
     let text: String
@@ -58,5 +82,11 @@ struct SettingsView_Previews: PreviewProvider {
 struct SettingsNav_Previews: PreviewProvider {
     static var previews: some View {
         SettingsNav()
+    }
+}
+
+struct Reorder_Previews: PreviewProvider {
+    static var previews: some View {
+        ReorderFerryView()
     }
 }

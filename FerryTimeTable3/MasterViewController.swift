@@ -15,8 +15,6 @@ class MasterViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        navigationItem.leftBarButtonItem = editButtonItem
 
         self.title = "HK Ferries"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -33,6 +31,11 @@ class MasterViewController: UICollectionViewController {
         }
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
             self?.prepareObjects()
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.islandsUpdated,
+                                               object: nil,
+                                               queue: OperationQueue.main) { [weak self] (_) in
+                                                self?.prepareObjects()
         }
         prepareObjects()
     }
@@ -62,7 +65,7 @@ class MasterViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = collectionView.indexPathsForSelectedItems?.last {
-                let i = Island.allCases[indexPath.row]
+                let i = ModelManager.shared.islands[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.island = i
             }
@@ -70,7 +73,7 @@ class MasterViewController: UICollectionViewController {
     }
 
     func prepareObjects() {
-        self.objects = Island.allCases.map(self.menuCellForIsland)
+        self.objects = ModelManager.shared.islands.map(self.menuCellForIsland)
         self.collectionView.reloadData()
     }
 

@@ -28,12 +28,6 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
         self.tableView.register(FerriesTableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableView.automaticDimension
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func reloadSections() {

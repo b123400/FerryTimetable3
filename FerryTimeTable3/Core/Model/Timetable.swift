@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-enum Island: String, Codable, CaseIterable {
+enum Island: String, Codable, CaseIterable, Identifiable {
+    var id: String { rawValue }
+    
     case centralCheungChau = "central-cheungchau"
     case centralMuiWo = "central-muiwo"
     case centralPengChau = "central-pengchau"
@@ -24,6 +26,10 @@ enum Island: String, Codable, CaseIterable {
     case saiWanHoKwunTong = "saiwanho-kwuntong"
     case saiWanHoSamKaTsuen = "saiwanho-samkatsuen"
     case samKaTsuenTungLungIsland = "samkatsuen-tunglungisland"
+    
+    var fullName: String {
+        self.primaryName + " ↔︎ " + self.secondaryName
+    }
     
     var primaryName: String {
         // TODO localisation

@@ -19,10 +19,6 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
         }
     }
     
-    lazy var schedule: Schedule = {
-        Schedule(raws: ModelManager.shared.getRaws())
-    }()
-    
     init(
         style: UITableView.Style,
         direction: Direction,
@@ -43,6 +39,7 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
     }
     
     func configureFerries() {
+        let schedule = Schedule(raws: ModelManager.shared.getRaws())
         let count = 50
         let ferries: [Ferry<Date>]
         if let d = date {
@@ -54,6 +51,7 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
     }
     
     func loadMoreFerries() {
+        let schedule = Schedule(raws: ModelManager.shared.getRaws())
         let count = 50
         let d = self.ferries.last.map { $0.time.addingTimeInterval(1) } ?? Date()
         let newFerries = schedule.upcomingFerries(date: d, island: island, direction: direction, count: count)

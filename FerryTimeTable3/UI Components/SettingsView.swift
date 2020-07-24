@@ -18,6 +18,8 @@ struct SettingsNav: View {
 }
 
 struct SettingsView: View {
+    @State var updating = false
+
     var body: some View {
         List {
             Section {
@@ -30,9 +32,35 @@ struct SettingsView: View {
                 Text(NSLocalizedString("Reorder routes", comment: ""))
             }
             
+            Section(footer: Text("Last updated: \(lastUpdateString)")) {
+                Button(action: {
+                    self.updating = true
+                    ModelManager.shared.saveRaws { _ in
+                        self.updating = false
+                    }
+                }) {
+                    Text(
+                        self.updating
+                            ? NSLocalizedString("Loading", comment: "")
+                            : NSLocalizedString("Update timetable data", comment: "")
+                    )
+                }
+                .disabled(self.updating)
+            }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle(NSLocalizedString("Info", comment: ""))
+    }
+    
+    var lastUpdateString: String {
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
+        if let d = ModelManager.shared.lastUpdate {
+            return df.string(from: d)
+        } else {
+            return "never"
+        }
     }
 }
 
@@ -70,12 +98,6 @@ struct Colour: View {
                 .foregroundColor(colour)
             Text(self.text)
         }
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
     }
 }
 

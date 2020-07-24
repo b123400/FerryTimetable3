@@ -37,6 +37,11 @@ class MasterViewController: UICollectionViewController {
                                                queue: OperationQueue.main) { [weak self] (_) in
                                                 self?.prepareObjects()
         }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.timetableUpdated,
+                                               object: nil,
+                                               queue: OperationQueue.main) { [weak self] (_) in
+                                                self?.prepareObjects()
+        }
         prepareObjects()
     }
 

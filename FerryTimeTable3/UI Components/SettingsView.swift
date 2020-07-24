@@ -31,6 +31,9 @@ struct SettingsView: View {
             NavigationLink(destination: ReorderFerryView()) {
                 Text(NSLocalizedString("Reorder routes", comment: ""))
             }
+            NavigationLink(destination: WidgetRouteSelectionView()) {
+                Text(NSLocalizedString("Widget", comment: ""))
+            }
             
             Section(footer: Text("Last updated: \(lastUpdateString)")) {
                 Button(action: {
@@ -85,6 +88,38 @@ struct ReorderFerryView: View {
     }
 }
 
+struct WidgetRouteSelectionView: View {
+    @State var islands = ModelManager.shared.islands
+    
+    @State var _selectedIsland: Island?
+    func selectedIsland() -> Island {
+        self._selectedIsland ??
+        sharedUserDefaults()?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+    }
+    
+    var body: some View {
+        List(islands) { island in
+            Button(action: {
+                let userDefaults = sharedUserDefaults()
+                userDefaults?.setValue(island.rawValue, forKey: "widget-island")
+                userDefaults?.synchronize()
+                self._selectedIsland = island
+            }) {
+                HStack {
+                    Text(island.fullName)
+                        .foregroundColor(Color(UIColor.label))
+                    Spacer()
+                    if island == self.selectedIsland() {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+        }
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle(NSLocalizedString("Widget", comment: ""))
+    }
+}
+
 struct Colour: View {
     let text: String
     let colour: Color
@@ -111,4 +146,8 @@ struct Reorder_Previews: PreviewProvider {
     static var previews: some View {
         ReorderFerryView()
     }
+}
+
+func sharedUserDefaults()-> UserDefaults? {
+    return UserDefaults(suiteName: "group.net.b123400.ferriestimetable")
 }

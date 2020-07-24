@@ -74,7 +74,7 @@ class ModelManager {
     func getRaws() -> [Route<TimeInterval>] {
         do {
             let fm = FileManager.default
-            if fm.fileExists(atPath: self.rawsURL.absoluteString) {
+            if fm.fileExists(atPath: self.rawsURL.path) {
                 let data = try Data(contentsOf: self.rawsURL)
                 return try JSONDecoder().decode([Route<TimeInterval>].self, from: data)
             }
@@ -101,12 +101,18 @@ class ModelManager {
     }
 
     func fetchRaws(callback: @escaping ([Route<TimeInterval>])-> Void) {
-        AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [Route<TimeInterval>].self) { (response) in
+        AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [FailableJson<Route<TimeInterval>>].self) { (response) in
             switch response.result {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let routes):
-                callback(routes)
+                let okRoutes = routes.compactMap { (r) -> Route<TimeInterval>? in
+                    switch r {
+                        case .success(let x): return x
+                        case .fail(_): return .none
+                    }
+                }
+                callback(okRoutes)
             }
         }
     }

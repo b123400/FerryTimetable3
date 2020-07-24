@@ -33,6 +33,7 @@
 		CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */; };
 		CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77F24C81A340082D9A3 /* FerryCell.swift */; };
 		CFE1044C24CAB69B00AB1B80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */; };
+		CFEF2C1424CADCCE00DA70A4 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF2C1324CADCCE00DA70A4 /* Json.swift */; };
 		CFF854E524C9E1C6000AB3FA /* BottomHalfModal in Frameworks */ = {isa = PBXBuildFile; productRef = CFF854E424C9E1C6000AB3FA /* BottomHalfModal */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesTableViewCell.swift; sourceTree = "<group>"; };
 		CFD7A77F24C81A340082D9A3 /* FerryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryCell.swift; sourceTree = "<group>"; };
 		CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CFEF2C1324CADCCE00DA70A4 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */,
+				CFEF2C1324CADCCE00DA70A4 /* Json.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */,
 				CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */,
 				CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */,
+				CFEF2C1424CADCCE00DA70A4 /* Json.swift in Sources */,
 				CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */,
 				CFCC219224C83D370007ECA5 /* DatedFerriesTableViewController.swift in Sources */,
 			);

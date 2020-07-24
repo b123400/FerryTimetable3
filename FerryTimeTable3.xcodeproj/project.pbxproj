@@ -7,10 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0FF14124CAEE5300CB9676 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0FF14024CAEE5300CB9676 /* NotificationCenter.framework */; };
+		CF0FF14424CAEE5300CB9676 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0FF14324CAEE5300CB9676 /* TodayViewController.swift */; };
+		CF0FF14724CAEE5300CB9676 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0FF14524CAEE5300CB9676 /* MainInterface.storyboard */; };
+		CF0FF14B24CAEE5300CB9676 /* Ferry Timetable.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CF0FF13E24CAEE5300CB9676 /* Ferry Timetable.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		CF547F8324C339F9007DCF39 /* raws.json in Resources */ = {isa = PBXBuildFile; fileRef = CF547F8224C339F9007DCF39 /* raws.json */; };
 		CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8424C33C46007DCF39 /* Schedule.swift */; };
 		CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8724C359A0007DCF39 /* MenuCell.swift */; };
+		CF5A5AD424CAFA2500DDF6BB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8724C359A0007DCF39 /* MenuCell.swift */; };
+		CF5A5AD524CAFA6D00DDF6BB /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
+		CF5A5AD624CAFA7000DDF6BB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF547F8424C33C46007DCF39 /* Schedule.swift */; };
+		CF5A5AD724CAFA8900DDF6BB /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */; };
+		CF5A5AD824CAFB2000DDF6BB /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF2C1324CADCCE00DA70A4 /* Json.swift */; };
+		CF5A5ADA24CAFBE200DDF6BB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF5A5AD924CAFBE200DDF6BB /* Alamofire */; };
+		CF5A5ADC24CAFBE600DDF6BB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF5A5ADB24CAFBE600DDF6BB /* SnapKit */; };
+		CF5A5ADD24CAFC3200DDF6BB /* raws.json in Resources */ = {isa = PBXBuildFile; fileRef = CF547F8224C339F9007DCF39 /* raws.json */; };
+		CF5A5ADF24CB033000DDF6BB /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A5ADE24CB033000DDF6BB /* WidgetView.swift */; };
+		CF5A5AE324CB757300DDF6BB /* CurrentScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */; };
+		CF5A5AE424CB757300DDF6BB /* CurrentScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */; };
 		CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */; };
 		CF716EC524C72A43007EA415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF716EC424C72A43007EA415 /* SnapKit */; };
 		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
@@ -38,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CF0FF14924CAEE5300CB9676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF0FF13D24CAEE5300CB9676;
+			remoteInfo = "Ferry widget";
+		};
 		CFB5806624AB7AE200DC3C63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CFB5804524AB7AE000DC3C63 /* Project object */;
@@ -54,11 +76,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CF0FF14C24CAEE5300CB9676 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CF0FF14B24CAEE5300CB9676 /* Ferry Timetable.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CF0FF13E24CAEE5300CB9676 /* Ferry Timetable.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ferry Timetable.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0FF14024CAEE5300CB9676 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		CF0FF14324CAEE5300CB9676 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		CF0FF14624CAEE5300CB9676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		CF0FF14824CAEE5300CB9676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		CF547F8224C339F9007DCF39 /* raws.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = raws.json; sourceTree = "<group>"; };
 		CF547F8424C33C46007DCF39 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		CF547F8724C359A0007DCF39 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		CF5A5ADE24CB033000DDF6BB /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		CF5A5AE024CB706400DDF6BB /* FerryTimetable3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FerryTimetable3.entitlements; sourceTree = "<group>"; };
+		CF5A5AE124CB70D700DDF6BB /* Ferry Timetable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ferry Timetable.entitlements"; sourceTree = "<group>"; };
+		CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScheduleView.swift; sourceTree = "<group>"; };
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimetable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +134,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CF0FF13B24CAEE5300CB9676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5A5ADC24CAFBE600DDF6BB /* SnapKit in Frameworks */,
+				CF0FF14124CAEE5300CB9676 /* NotificationCenter.framework in Frameworks */,
+				CF5A5ADA24CAFBE200DDF6BB /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFB5804A24AB7AE000DC3C63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,6 +171,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF0FF13F24CAEE5300CB9676 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF0FF14024CAEE5300CB9676 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF0FF14224CAEE5300CB9676 /* Ferry widget */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A5AE124CB70D700DDF6BB /* Ferry Timetable.entitlements */,
+				CF0FF14324CAEE5300CB9676 /* TodayViewController.swift */,
+				CF0FF14524CAEE5300CB9676 /* MainInterface.storyboard */,
+				CF0FF14824CAEE5300CB9676 /* Info.plist */,
+				CF5A5ADE24CB033000DDF6BB /* WidgetView.swift */,
+			);
+			path = "Ferry widget";
+			sourceTree = "<group>";
+		};
 		CF547F8624C3598A007DCF39 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +225,8 @@
 				CFB5804F24AB7AE000DC3C63 /* FerryTimetable3 */,
 				CFB5806824AB7AE200DC3C63 /* FerryTimetable3Tests */,
 				CFB5807324AB7AE200DC3C63 /* FerryTimetable3UITests */,
+				CF0FF14224CAEE5300CB9676 /* Ferry widget */,
+				CF0FF13F24CAEE5300CB9676 /* Frameworks */,
 				CFB5804E24AB7AE000DC3C63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,6 +237,7 @@
 				CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */,
 				CFB5806524AB7AE200DC3C63 /* FerryTimetable3Tests.xctest */,
 				CFB5807024AB7AE200DC3C63 /* FerryTimetable3UITests.xctest */,
+				CF0FF13E24CAEE5300CB9676 /* Ferry Timetable.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +245,7 @@
 		CFB5804F24AB7AE000DC3C63 /* FerryTimetable3 */ = {
 			isa = PBXGroup;
 			children = (
+				CF5A5AE024CB706400DDF6BB /* FerryTimetable3.entitlements */,
 				CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */,
 				CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */,
 				CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */,
@@ -213,6 +292,7 @@
 				CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */,
 				CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */,
 				CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */,
+				CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -220,6 +300,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CF0FF13D24CAEE5300CB9676 /* Ferry widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0FF14F24CAEE5300CB9676 /* Build configuration list for PBXNativeTarget "Ferry widget" */;
+			buildPhases = (
+				CF0FF13A24CAEE5300CB9676 /* Sources */,
+				CF0FF13B24CAEE5300CB9676 /* Frameworks */,
+				CF0FF13C24CAEE5300CB9676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ferry widget";
+			packageProductDependencies = (
+				CF5A5AD924CAFBE200DDF6BB /* Alamofire */,
+				CF5A5ADB24CAFBE600DDF6BB /* SnapKit */,
+			);
+			productName = "Ferry widget";
+			productReference = CF0FF13E24CAEE5300CB9676 /* Ferry Timetable.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFB5807924AB7AE200DC3C63 /* Build configuration list for PBXNativeTarget "FerryTimetable3" */;
@@ -227,10 +328,12 @@
 				CFB5804924AB7AE000DC3C63 /* Sources */,
 				CFB5804A24AB7AE000DC3C63 /* Frameworks */,
 				CFB5804B24AB7AE000DC3C63 /* Resources */,
+				CF0FF14C24CAEE5300CB9676 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CF0FF14A24CAEE5300CB9676 /* PBXTargetDependency */,
 			);
 			name = FerryTimetable3;
 			packageProductDependencies = (
@@ -284,10 +387,13 @@
 		CFB5804524AB7AE000DC3C63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = b123400;
 				TargetAttributes = {
+					CF0FF13D24CAEE5300CB9676 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					CFB5804C24AB7AE000DC3C63 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -322,11 +428,21 @@
 				CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */,
 				CFB5806424AB7AE200DC3C63 /* FerryTimetable3Tests */,
 				CFB5806F24AB7AE200DC3C63 /* FerryTimetable3UITests */,
+				CF0FF13D24CAEE5300CB9676 /* Ferry widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CF0FF13C24CAEE5300CB9676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5A5ADD24CAFC3200DDF6BB /* raws.json in Resources */,
+				CF0FF14724CAEE5300CB9676 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFB5804B24AB7AE000DC3C63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,6 +471,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CF0FF13A24CAEE5300CB9676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5A5AD824CAFB2000DDF6BB /* Json.swift in Sources */,
+				CF0FF14424CAEE5300CB9676 /* TodayViewController.swift in Sources */,
+				CF5A5ADF24CB033000DDF6BB /* WidgetView.swift in Sources */,
+				CF5A5AD524CAFA6D00DDF6BB /* ModelManager.swift in Sources */,
+				CF5A5AD624CAFA7000DDF6BB /* Schedule.swift in Sources */,
+				CF5A5AD424CAFA2500DDF6BB /* MenuCell.swift in Sources */,
+				CF5A5AD724CAFA8900DDF6BB /* Timetable.swift in Sources */,
+				CF5A5AE424CB757300DDF6BB /* CurrentScheduleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CFB5804924AB7AE000DC3C63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +503,7 @@
 				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */,
 				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,
+				CF5A5AE324CB757300DDF6BB /* CurrentScheduleView.swift in Sources */,
 				CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */,
 				CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */,
 				CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */,
@@ -400,6 +532,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CF0FF14A24CAEE5300CB9676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF0FF13D24CAEE5300CB9676 /* Ferry widget */;
+			targetProxy = CF0FF14924CAEE5300CB9676 /* PBXContainerItemProxy */;
+		};
 		CFB5806724AB7AE200DC3C63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CFB5804C24AB7AE000DC3C63 /* FerryTimetable3 */;
@@ -413,6 +550,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CF0FF14524CAEE5300CB9676 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF0FF14624CAEE5300CB9676 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		CFB5805824AB7AE000DC3C63 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +577,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CF0FF14D24CAEE5300CB9676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Ferry widget/Ferry Timetable.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = "Ferry widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.b123400.ferriestimetable.Ferry-widget";
+				PRODUCT_NAME = "Ferry Timetable";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF0FF14E24CAEE5300CB9676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Ferry widget/Ferry Timetable.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CC63FD9H8S;
+				INFOPLIST_FILE = "Ferry widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.b123400.ferriestimetable.Ferry-widget";
+				PRODUCT_NAME = "Ferry Timetable";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CFB5807724AB7AE200DC3C63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -482,7 +669,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -536,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -549,7 +736,9 @@
 		CFB5807A24AB7AE200DC3C63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FerryTimetable3/FerryTimetable3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
 				INFOPLIST_FILE = FerryTimetable3/Info.plist;
@@ -568,7 +757,9 @@
 		CFB5807B24AB7AE200DC3C63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FerryTimetable3/FerryTimetable3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC63FD9H8S;
 				INFOPLIST_FILE = FerryTimetable3/Info.plist;
@@ -671,6 +862,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF0FF14F24CAEE5300CB9676 /* Build configuration list for PBXNativeTarget "Ferry widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0FF14D24CAEE5300CB9676 /* Debug */,
+				CF0FF14E24CAEE5300CB9676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CFB5804824AB7AE000DC3C63 /* Build configuration list for PBXProject "FerryTimetable3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -737,6 +937,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CF5A5AD924CAFBE200DDF6BB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF9C10EE24AE58F8001D13EC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CF5A5ADB24CAFBE600DDF6BB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		CF716EC424C72A43007EA415 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CF716EC324C72A43007EA415 /* XCRemoteSwiftPackageReference "SnapKit" */;

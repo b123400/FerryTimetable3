@@ -27,6 +27,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             make.edges.equalToSuperview()
         }
         
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(openApp))
+        self.scheduleView.addGestureRecognizer(tap)
+        
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
@@ -45,6 +49,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let expanded = activeDisplayMode == .expanded
         preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
         reload()
+    }
+    
+    @objc func openApp() {
+        self.extensionContext?.open(URL(string: "ferriestimetable://widget")!, completionHandler: nil)
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

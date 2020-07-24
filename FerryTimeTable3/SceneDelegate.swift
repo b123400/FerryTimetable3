@@ -52,6 +52,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let urlContext = URLContexts.first {
+            if urlContext.url.host == "widget" {
+                let shared = sharedUserDefaults()
+                let island = shared?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+                
+                if let root = window?.rootViewController as? UISplitViewController,
+                    let nav = root.viewControllers.last as? UINavigationController {
+                    let master = nav.viewControllers.compactMap { $0 as? MasterViewController }.first
+                    
+                    if let m = master {
+                        m.showIsland(island: island)
+                    }
+                }
+            }
+        }
+    }
 
     // MARK: - Split view
 

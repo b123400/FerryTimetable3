@@ -111,5 +111,13 @@ class MasterViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showDetail", sender: self)
     }
+    
+    func showIsland(island: Island) {
+        if let index = ModelManager.shared.islands.firstIndex(of: island) {
+            let indexPath =  IndexPath(row: index, section: 0)
+            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+        }
+    }
 }
 

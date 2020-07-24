@@ -32,6 +32,10 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
         self.island = island
         super.init(style: style)
         configureFerries()
+        
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
+            self?.configureFerries()
+        }
     }
     
     required init?(coder: NSCoder) {

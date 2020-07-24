@@ -23,9 +23,10 @@ class MasterViewController: UICollectionViewController {
         self.navigationItem.largeTitleDisplayMode = .always
 
         self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-//        navigationItem.rightBarButtonItem = addButton
+        
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(openSettings))
+        navigationItem.rightBarButtonItem = settingsButton
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -48,6 +49,12 @@ class MasterViewController: UICollectionViewController {
             layout.sectionInset.left = 12
             layout.minimumInteritemSpacing = 30
         }
+    }
+    
+    @objc func openSettings() {
+        let vc = SettingsViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
 
     // MARK: - Segues

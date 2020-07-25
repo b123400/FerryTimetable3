@@ -9,8 +9,6 @@
 import UIKit
 
 class MasterViewController: UICollectionViewController {
-
-    var detailViewController: DetailViewController? = nil
     var objects = [MenuCell]()
 
     override func viewDidLoad() {
@@ -24,11 +22,7 @@ class MasterViewController: UICollectionViewController {
         
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.rightBarButtonItem = settingsButton
-        
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
             self?.prepareObjects()
         }
@@ -62,6 +56,7 @@ class MasterViewController: UICollectionViewController {
     @objc func openSettings() {
         let vc = SettingsViewController()
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .formSheet
         present(nav, animated: true, completion: nil)
     }
 

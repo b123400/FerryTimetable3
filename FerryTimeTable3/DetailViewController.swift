@@ -121,8 +121,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             self?.fromVC?.date = date
             self?.toVC?.date = date
         }
-        let nav = BottomHalfModalNavigationController(rootViewController: vc)
-        presentBottomHalfModal(nav, animated: true, completion: nil)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .popover
+            nav.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+            self.present(nav, animated: true, completion: nil)
+        } else {
+            let nav = BottomHalfModalNavigationController(rootViewController: vc)
+            presentBottomHalfModal(nav, animated: true, completion: nil)
+        }
     }
 }
 

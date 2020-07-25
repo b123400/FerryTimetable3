@@ -25,6 +25,10 @@ class FerryDatePickerViewController: UIViewController, SheetContentHeightModifia
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            preferredContentSize = CGSize(width: 320, height: 216)
+        }
+        
         self.view.backgroundColor = .systemBackground
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(close))
         navigationItem.rightBarButtonItem = closeButton

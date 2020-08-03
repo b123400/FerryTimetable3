@@ -197,7 +197,7 @@ enum Day: Hashable, Codable {
 }
 
 func midnight(date: Date) -> Date {
-    let cal = Calendar.init(identifier: .gregorian)
+    let cal = Calendar(identifier: .gregorian)
     var components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: date)
     components.hour = 0
     components.minute = 0
@@ -225,12 +225,12 @@ protocol RenderTime {
 
 extension Date: RenderTime {
     var hourString: String {
-        let cal = Calendar.init(identifier: .gregorian)
+        let cal = Calendar(identifier: .gregorian)
         let components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: self)
         return String(format: "%02d", components.hour ?? 0)
     }
     var minuteString: String {
-        let cal = Calendar.init(identifier: .gregorian)
+        let cal = Calendar(identifier: .gregorian)
         let components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: self)
         return String(format: "%02d", components.minute ?? 0)
     }

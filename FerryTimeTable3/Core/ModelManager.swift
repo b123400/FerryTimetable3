@@ -54,6 +54,44 @@ class ModelManager {
             }
         }
     }
+    
+    private var _holidays: [Holiday]?
+    var holidays: [Holiday] {
+        get {
+            if let h = _holidays {
+                return h
+            }
+            do {
+                let fm = FileManager.default
+                if fm.fileExists(atPath: self.holidaysURL.path) {
+                    let data = try Data(contentsOf: self.holidaysURL)
+                    let h = try JSONDecoder().decode([Holiday].self, from: data)
+                    _holidays = h
+                    return h
+                }
+                let url = Bundle.main.url(forResource: "holidays", withExtension: "json")!
+                let data = try Data(contentsOf: url)
+                let h = try JSONDecoder().decode([Holiday].self, from: data)
+                _holidays = h
+                return h
+            } catch {
+                print(error.localizedDescription)
+            }
+            return []
+        }
+        set {
+            _holidays = newValue
+            DispatchQueue.global().async {
+                do {
+                    let j = JSONEncoder()
+                    let data = try j.encode(newValue)
+                    try data.write(to: self.holidaysURL)
+                } catch {
+                    // whatever
+                }
+            }
+        }
+    }
 
     var documentURL: URL {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -68,6 +106,10 @@ class ModelManager {
     
     var islandsURL: URL {
         self.documentURL.appendingPathComponent("islands.json")
+    }
+    
+    var holidaysURL: URL {
+        self.documentURL.appendingPathComponent("holidays.json")
     }
 
     private var _raws: [Route<TimeInterval>]?
@@ -126,6 +168,24 @@ class ModelManager {
                 }
                 callback(okRoutes)
             }
+        }
+    }
+    
+    func fetchHolidays(callback: @escaping ([Holiday])-> Void) {
+        AF.request("https://ferry.b123400.net/holidays").responseDecodable(of: [Holiday].self) { (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let holidays):
+                callback(holidays)
+            }
+        }
+    }
+    
+    func saveHolidays(callback: (([Holiday])-> Void)? = nil) {
+        fetchHolidays { (holidays) in
+            self.holidays = holidays
+            callback?(holidays)
         }
     }
     

@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         guard let splitViewController = window.rootViewController as? UISplitViewController else { return }
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .allVisible
+        ModelManager.shared.saveHolidays()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -71,6 +71,14 @@ class Schedule {
     }
 
     private func dateToModelDay(date: Date) -> Day {
+        let dayStart = midnight(date: date)
+        let isHoliday = ModelManager.shared.holidays.contains { (holiday) -> Bool in
+            holiday.day.midnight == dayStart
+        }
+        if isHoliday {
+            return .holiday
+        }
+        
         let cal = Calendar(identifier: .gregorian)
         let weekday = cal.component(.weekday, from: date)
         switch weekday {
@@ -91,7 +99,7 @@ class Schedule {
         default:
             print("Invalid weekday")
         }
-        // TODO:
-        return .holiday
+        // Shouldn't happen, but if it's then we use monday cuz it sounds safer
+        return .weekday(.monday)
     }
 }

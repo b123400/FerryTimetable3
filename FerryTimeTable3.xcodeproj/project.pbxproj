@@ -30,6 +30,10 @@
 		CF716EC524C72A43007EA415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF716EC424C72A43007EA415 /* SnapKit */; };
 		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
 		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
+		CFADD6BD24D875E900473F8D /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD6BC24D875E900473F8D /* Holiday.swift */; };
+		CFADD6BE24D8780000473F8D /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD6BC24D875E900473F8D /* Holiday.swift */; };
+		CFADD6C024D878D500473F8D /* holidays.json in Resources */ = {isa = PBXBuildFile; fileRef = CFADD6BF24D878D500473F8D /* holidays.json */; };
+		CFADD6C124D878D500473F8D /* holidays.json in Resources */ = {isa = PBXBuildFile; fileRef = CFADD6BF24D878D500473F8D /* holidays.json */; };
 		CFB5805124AB7AE000DC3C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */; };
 		CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */; };
 		CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */; };
@@ -110,6 +114,8 @@
 		CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScheduleView.swift; sourceTree = "<group>"; };
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		CFADD6BC24D875E900473F8D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		CFADD6BF24D878D500473F8D /* holidays.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = holidays.json; sourceTree = "<group>"; };
 		CFB5804D24AB7AE000DC3C63 /* HK Ferry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HK Ferry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +230,7 @@
 			children = (
 				CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */,
 				CFEF2C1324CADCCE00DA70A4 /* Json.swift */,
+				CFADD6BC24D875E900473F8D /* Holiday.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +289,7 @@
 				CFC73E6A24D8391A00CA4F41 /* InfoPlist.strings */,
 				CFC73E6124D8336E00CA4F41 /* Localizable.strings */,
 				CF547F8224C339F9007DCF39 /* raws.json */,
+				CFADD6BF24D878D500473F8D /* holidays.json */,
 			);
 			path = FerryTimetable3;
 			sourceTree = "<group>";
@@ -465,6 +473,7 @@
 				CFC73E6624D8369B00CA4F41 /* InfoPlist.strings in Resources */,
 				CFC73E6024D8336E00CA4F41 /* Localizable.strings in Resources */,
 				CF0FF14724CAEE5300CB9676 /* MainInterface.storyboard in Resources */,
+				CFADD6C124D878D500473F8D /* holidays.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +486,7 @@
 				CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */,
 				CF547F8324C339F9007DCF39 /* raws.json in Resources */,
 				CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */,
+				CFADD6C024D878D500473F8D /* holidays.json in Resources */,
 				CFB5805A24AB7AE000DC3C63 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +515,7 @@
 				CF5A5AD824CAFB2000DDF6BB /* Json.swift in Sources */,
 				CF0FF14424CAEE5300CB9676 /* TodayViewController.swift in Sources */,
 				CF5A5ADF24CB033000DDF6BB /* WidgetView.swift in Sources */,
+				CFADD6BE24D8780000473F8D /* Holiday.swift in Sources */,
 				CF5A5AD524CAFA6D00DDF6BB /* ModelManager.swift in Sources */,
 				CF5A5AD624CAFA7000DDF6BB /* Schedule.swift in Sources */,
 				CF5A5AD424CAFA2500DDF6BB /* MenuCell.swift in Sources */,
@@ -526,6 +537,7 @@
 				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
 				CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */,
 				CFCC219824C9A9EF0007ECA5 /* SettingsViewController.swift in Sources */,
+				CFADD6BD24D875E900473F8D /* Holiday.swift in Sources */,
 				CFCC219A24C9C90D0007ECA5 /* FerryDatePickerViewController.swift in Sources */,
 				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */,

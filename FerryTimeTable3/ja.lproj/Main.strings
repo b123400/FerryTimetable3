@@ -1,0 +1,9 @@
+/* Class = "UINavigationItem"; title = "Detail"; ObjectID = "mOI-FS-AaM"; */
+"mOI-FS-AaM.title" = "Detail";
+
+/* Class = "UINavigationController"; title = "Master"; ObjectID = "RMx-3f-FxP"; */
+"RMx-3f-FxP.title" = "Master";
+
+/* Class = "UILabel"; text = "No Route Selected"; ObjectID = "VrN-fw-04V"; */
+"VrN-fw-04V.text" = "ルートを選択してください";
+

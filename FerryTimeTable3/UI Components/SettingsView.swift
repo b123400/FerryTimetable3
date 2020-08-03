@@ -22,7 +22,7 @@ struct SettingsView: View {
 
     var body: some View {
         List {
-            Section {
+            Section(header: Text(NSLocalizedString("Colour legend", comment: ""))) {
                 Colour(text: NSLocalizedString("Slow ferry", comment: ""), colour: Color.green)
                 Colour(text: NSLocalizedString("Fast ferry", comment: ""), colour: Color.red)
                 Colour(text: NSLocalizedString("Optional ferry", comment: ""), colour: Color.yellow)
@@ -35,7 +35,7 @@ struct SettingsView: View {
                 Text(NSLocalizedString("Widget", comment: ""))
             }
             
-            Section(footer: Text("Last updated: \(lastUpdateString)")) {
+            Section(footer: Text(String(format: NSLocalizedString("Last updated: %@", comment: ""), lastUpdateString))) {
                 Button(action: {
                     self.updating = true
                     ModelManager.shared.saveRaws { _ in
@@ -62,7 +62,7 @@ struct SettingsView: View {
         if let d = ModelManager.shared.lastUpdate {
             return df.string(from: d)
         } else {
-            return "never"
+            return NSLocalizedString("Never", comment: "Last update: never")
         }
     }
 }

@@ -14,7 +14,7 @@ class MasterViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "HK Ferries"
+        self.title = NSLocalizedString("HK Ferries", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
 

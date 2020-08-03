@@ -32,7 +32,6 @@ enum Island: String, Codable, CaseIterable, Identifiable {
     }
     
     var primaryName: String {
-        // TODO localisation
         switch self {
         case .centralCheungChau: fallthrough
         case .centralMuiWo: fallthrough
@@ -40,53 +39,52 @@ enum Island: String, Codable, CaseIterable, Identifiable {
         case .centralYungShueWan: fallthrough
         case .centralSokKwuWan: fallthrough
         case .centralDiscoveryBay:
-            return "Central"
+            return NSLocalizedString("Central", comment: "")
         case .northPointHungHom: fallthrough
         case .northPointKowloonCity:
-            return "North Point"
+            return NSLocalizedString("North Point", comment: "")
         case .pengChauHeiLingChau:
-            return "Peng Chau"
+            return NSLocalizedString("Peng Chau", comment: "")
         case .aberdeenSokKwuWan:
-            return "Aberdeen"
+            return NSLocalizedString("Aberdeen", comment: "")
         case .maWanTsuenWan:
-            return "Ma Wan"
+            return NSLocalizedString("Ma Wan", comment: "")
         case .saiWanHoKwunTong: fallthrough
         case .saiWanHoSamKaTsuen:
-            return "Sai Wan Ho"
+            return NSLocalizedString("Sai Wan Ho", comment: "")
         case .samKaTsuenTungLungIsland:
-            return "Sam Ka Tsuen"
+            return NSLocalizedString("Sam Ka Tsuen", comment: "")
         }
     }
     var secondaryName: String {
-        // TODO localisation
         switch self {
         case .centralCheungChau:
-            return "Cheung Chau"
+            return NSLocalizedString("Cheung Chau", comment: "")
         case .centralMuiWo:
-            return "Mui Wo"
+            return NSLocalizedString("Mui Wo", comment: "")
         case .centralPengChau:
-            return "Peng Chau"
+            return NSLocalizedString("Peng Chau", comment: "")
         case .centralYungShueWan:
-            return "Yung Shue Wan"
+            return NSLocalizedString("Yung Shue Wan", comment: "")
         case .centralSokKwuWan: fallthrough
         case .aberdeenSokKwuWan:
-            return "Sok Kwu Wan"
+            return NSLocalizedString("Sok Kwu Wan", comment: "")
         case .centralDiscoveryBay:
-            return "Discovery Bay"
+            return NSLocalizedString("Discovery Bay", comment: "")
         case .northPointHungHom:
-            return "Hung Hom"
+            return NSLocalizedString("Hung Hom", comment: "")
         case .northPointKowloonCity:
-            return "Kowloon City"
+            return NSLocalizedString("Kowloon City", comment: "")
         case .pengChauHeiLingChau:
-            return "Hei Ling Chau"
+            return NSLocalizedString("Hei Ling Chau", comment: "")
         case .maWanTsuenWan:
-            return "Tsuen Wan"
+            return NSLocalizedString("Tsuen Wan", comment: "")
         case .saiWanHoKwunTong:
-            return "Kwun Tong"
+            return NSLocalizedString("Kwun Tong", comment: "")
         case .saiWanHoSamKaTsuen:
-            return "Sam Ka Tsuen"
+            return NSLocalizedString("Sam Ka Tsuen", comment: "")
         case .samKaTsuenTungLungIsland:
-            return "Tung Lung Island"
+            return NSLocalizedString("Tung Lung Island", comment: "")
         }
     }
 }
@@ -265,15 +263,16 @@ func timeLeft(interval: TimeInterval) -> String {
         return ""
     }
     if min < 1 {
-        return "now"
+        return NSLocalizedString("Now", comment: "")
     }
     if min < 60 {
-        return "In \(Int(min)) min"
+        // TODO use stringsdict
+        return String(format: NSLocalizedString("In %d mins", comment: ""), Int(min))
     }
     let hour = min / 60
     if hour < 24 {
-        return "In \(Int(hour)) hours"
+        return String(format: NSLocalizedString("In %d hours", comment: ""), Int(hour))
     }
     let day = hour / 24
-    return "In \(Int(day)) days"
+    return String(format: NSLocalizedString("In %d days", comment: ""), Int(day))
 }

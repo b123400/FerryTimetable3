@@ -40,6 +40,10 @@
 		CFB5806A24AB7AE200DC3C63 /* FerryTimetable3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5806924AB7AE200DC3C63 /* FerryTimetable3Tests.swift */; };
 		CFB5807524AB7AE200DC3C63 /* FerryTimetable3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */; };
 		CFB5808324AB884F00DC3C63 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */; };
+		CFC73E6024D8336E00CA4F41 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFC73E5E24D8336E00CA4F41 /* Localizable.strings */; };
+		CFC73E6324D8336E00CA4F41 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFC73E6124D8336E00CA4F41 /* Localizable.strings */; };
+		CFC73E6624D8369B00CA4F41 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFC73E6424D8369B00CA4F41 /* InfoPlist.strings */; };
+		CFC73E6C24D8391A00CA4F41 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFC73E6A24D8391A00CA4F41 /* InfoPlist.strings */; };
 		CFCC219224C83D370007ECA5 /* DatedFerriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */; };
 		CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */; };
 		CFCC219824C9A9EF0007ECA5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC219724C9A9EF0007ECA5 /* SettingsViewController.swift */; };
@@ -106,7 +110,7 @@
 		CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScheduleView.swift; sourceTree = "<group>"; };
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FerryTimetable3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB5804D24AB7AE000DC3C63 /* HK Ferry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HK Ferry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CFB5805424AB7AE000DC3C63 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,19 @@
 		CFB5807424AB7AE200DC3C63 /* FerryTimetable3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTimetable3UITests.swift; sourceTree = "<group>"; };
 		CFB5807624AB7AE200DC3C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		CFC73E5824D8308700CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Main.strings"; sourceTree = "<group>"; };
+		CFC73E5924D8308700CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		CFC73E5A24D8308700CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		CFC73E5F24D8336E00CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CFC73E6224D8336E00CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CFC73E6524D8369B00CA4F41 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		CFC73E6724D8376B00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		CFC73E6824D8376C00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CFC73E6924D8376C00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		CFC73E6B24D8391A00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFC73E6D24D8391A00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFC73E6E24D8391A00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CFC73E6F24D8391A00CA4F41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatedFerriesTableViewController.swift; sourceTree = "<group>"; };
 		CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionSwitchingView.swift; sourceTree = "<group>"; };
 		CFCC219724C9A9EF0007ECA5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +203,8 @@
 				CF0FF14324CAEE5300CB9676 /* TodayViewController.swift */,
 				CF0FF14524CAEE5300CB9676 /* MainInterface.storyboard */,
 				CF0FF14824CAEE5300CB9676 /* Info.plist */,
+				CFC73E6424D8369B00CA4F41 /* InfoPlist.strings */,
+				CFC73E5E24D8336E00CA4F41 /* Localizable.strings */,
 				CF5A5ADE24CB033000DDF6BB /* WidgetView.swift */,
 			);
 			path = "Ferry widget";
@@ -234,7 +253,7 @@
 		CFB5804E24AB7AE000DC3C63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */,
+				CFB5804D24AB7AE000DC3C63 /* HK Ferry.app */,
 				CFB5806524AB7AE200DC3C63 /* FerryTimetable3Tests.xctest */,
 				CFB5807024AB7AE200DC3C63 /* FerryTimetable3UITests.xctest */,
 				CF0FF13E24CAEE5300CB9676 /* Ferry Timetable.appex */,
@@ -260,6 +279,8 @@
 				CFB5805B24AB7AE200DC3C63 /* Assets.xcassets */,
 				CFB5805D24AB7AE200DC3C63 /* LaunchScreen.storyboard */,
 				CFB5806024AB7AE200DC3C63 /* Info.plist */,
+				CFC73E6A24D8391A00CA4F41 /* InfoPlist.strings */,
+				CFC73E6124D8336E00CA4F41 /* Localizable.strings */,
 				CF547F8224C339F9007DCF39 /* raws.json */,
 			);
 			path = FerryTimetable3;
@@ -342,7 +363,7 @@
 				CFF854E424C9E1C6000AB3FA /* BottomHalfModal */,
 			);
 			productName = FerryTimetable3;
-			productReference = CFB5804D24AB7AE000DC3C63 /* FerryTimetable3.app */;
+			productReference = CFB5804D24AB7AE000DC3C63 /* HK Ferry.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CFB5806424AB7AE200DC3C63 /* FerryTimetable3Tests */ = {
@@ -414,6 +435,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-HK",
+				ja,
 			);
 			mainGroup = CFB5804424AB7AE000DC3C63;
 			packageReferences = (
@@ -439,6 +462,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF5A5ADD24CAFC3200DDF6BB /* raws.json in Resources */,
+				CFC73E6624D8369B00CA4F41 /* InfoPlist.strings in Resources */,
+				CFC73E6024D8336E00CA4F41 /* Localizable.strings in Resources */,
 				CF0FF14724CAEE5300CB9676 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +472,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC73E6324D8336E00CA4F41 /* Localizable.strings in Resources */,
+				CFC73E6C24D8391A00CA4F41 /* InfoPlist.strings in Resources */,
 				CFB5805F24AB7AE200DC3C63 /* LaunchScreen.storyboard in Resources */,
 				CF547F8324C339F9007DCF39 /* raws.json in Resources */,
 				CFB5805C24AB7AE200DC3C63 /* Assets.xcassets in Resources */,
@@ -554,6 +581,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CF0FF14624CAEE5300CB9676 /* Base */,
+				CFC73E5A24D8308700CA4F41 /* zh-HK */,
+				CFC73E6924D8376C00CA4F41 /* ja */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -562,6 +591,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CFB5805924AB7AE000DC3C63 /* Base */,
+				CFC73E5824D8308700CA4F41 /* zh-HK */,
+				CFC73E6724D8376B00CA4F41 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -570,8 +601,45 @@
 			isa = PBXVariantGroup;
 			children = (
 				CFB5805E24AB7AE200DC3C63 /* Base */,
+				CFC73E5924D8308700CA4F41 /* zh-HK */,
+				CFC73E6824D8376C00CA4F41 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CFC73E5E24D8336E00CA4F41 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFC73E5F24D8336E00CA4F41 /* zh-HK */,
+				CFC73E6E24D8391A00CA4F41 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CFC73E6124D8336E00CA4F41 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFC73E6224D8336E00CA4F41 /* zh-HK */,
+				CFC73E6F24D8391A00CA4F41 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CFC73E6424D8369B00CA4F41 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFC73E6524D8369B00CA4F41 /* zh-HK */,
+				CFC73E6D24D8391A00CA4F41 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CFC73E6A24D8391A00CA4F41 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFC73E6B24D8391A00CA4F41 /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -623,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -683,6 +752,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -748,7 +818,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
-				PRODUCT_NAME = FerryTimetable3;
+				PRODUCT_NAME = "HK Ferry";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -769,7 +839,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.b123400.ferriestimetable;
-				PRODUCT_NAME = FerryTimetable3;
+				PRODUCT_NAME = "HK Ferry";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

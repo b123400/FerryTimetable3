@@ -117,6 +117,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @objc func showDatePicker() {
         let vc = FerryDatePickerViewController()
+        if let d = self.fromVC?.date {
+            vc.datePicker.date = d
+        }
         vc.callback = { [weak self] date in
             self?.fromVC?.date = date
             self?.toVC?.date = date

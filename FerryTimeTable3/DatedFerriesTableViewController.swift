@@ -45,7 +45,7 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
         if let d = date {
             ferries = schedule.upcomingFerries(date: midnight(date: d), island: island, direction: direction, count: count)
         } else {
-            ferries = schedule.upcomingFerries(island: island, direction: .fromPrimary, count: 20)
+            ferries = schedule.upcomingFerries(island: island, direction: direction, count: 20)
         }
         self.ferries = ferries
     }

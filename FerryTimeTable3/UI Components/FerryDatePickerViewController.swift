@@ -16,6 +16,9 @@ protocol FerryDatePickerViewControllerDelegate {
 
 class FerryDatePickerViewController: PDTSimpleCalendarViewController, PDTSimpleCalendarViewDelegate {
     var calendarDelegate: FerryDatePickerViewControllerDelegate?
+    lazy var holidayDates: [Date] = {
+        ModelManager.shared.holidays.map { $0.day.midnight }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +67,7 @@ class FerryDatePickerViewController: PDTSimpleCalendarViewController, PDTSimpleC
     
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, circleColorFor date: Date!) -> UIColor! {
         let dayStart = midnight(date: date)
-        let isHoliday = ModelManager.shared.holidays.contains { (holiday) -> Bool in
-            holiday.day.midnight == dayStart
-        }
+        let isHoliday = self.holidayDates.contains(dayStart)
         if isHoliday {
             return UIColor.systemRed
         }
@@ -79,9 +80,7 @@ class FerryDatePickerViewController: PDTSimpleCalendarViewController, PDTSimpleC
     
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, textColorFor date: Date!) -> UIColor! {
         let dayStart = midnight(date: date)
-        let isHoliday = ModelManager.shared.holidays.contains { (holiday) -> Bool in
-            holiday.day.midnight == dayStart
-        }
+        let isHoliday = self.holidayDates.contains(dayStart)
         if isHoliday {
             return .white
         }

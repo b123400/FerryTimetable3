@@ -39,7 +39,7 @@ class Schedule {
         return futureFerriesFromYesterday + upcoming
     }
 
-    private func upcomingFerriesWithoutYesterday(date: Date, island: Island, direction: Direction, count: Int) -> [Ferry<Date>] {
+    private func upcomingFerriesWithoutYesterday(date: Date, island: Island, direction: Direction, count: Int, depth: Int = 0) -> [Ferry<Date>] {
         let timetables = routesForIsland(island: island)
             .flatMap { $0.timetables }
             .filter { $0.direction == direction }
@@ -62,7 +62,10 @@ class Schedule {
         }
 
         let tomorrow = midnight(date: date.addingTimeInterval(86400))
-        let upcoming = upcomingFerriesWithoutYesterday(date: tomorrow, island: island, direction: direction, count: nextCount)
+        let upcoming =
+            depth < 365
+                ? upcomingFerriesWithoutYesterday(date: tomorrow, island: island, direction: direction, count: nextCount, depth: depth + 1)
+                : [];
         return fs + upcoming
     }
 

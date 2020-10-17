@@ -21,6 +21,12 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    var showsTypeHint = true {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,18 +68,50 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if self.showsTypeHint {
+            return sectionedFerries.count + 1
+        }
         return sectionedFerries.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sectionedFerries[section].count
+        if self.showsTypeHint {
+            if section == 0 {
+                return 3
+            }
+            return sectionedFerries[section - 1].count
+        }
+        return sectionedFerries[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let ferrySection = self.showsTypeHint ? indexPath.section - 1 : indexPath.section
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         if let c = cell as? FerriesTableViewCell {
-            let ferry = sectionedFerries[indexPath.section][indexPath.row]
+            if indexPath.section == 0 && showsTypeHint {
+                c.subLabel.text = ""
+                switch indexPath.row {
+                case 0:
+                    c.timeLabel.text = NSLocalizedString("Green for ordinary ferry", comment: "")
+                    c.colorView.backgroundColor = .systemGreen
+                    break;
+                case 1:
+                    c.timeLabel.text = NSLocalizedString("Red for ordinary ferry", comment: "")
+                    c.colorView.backgroundColor = .systemRed
+                    break;
+                case 2:
+                    c.timeLabel.text = NSLocalizedString("Yellow for optional ferry", comment: "")
+                    c.colorView.backgroundColor = .systemYellow
+                    break;
+                default:
+                    break;
+                }
+                return c
+            }
+            
+            let ferry = sectionedFerries[ferrySection][row]
             c.apply(model: FerryCell(ferry: ferry))
         }
 
@@ -81,9 +119,13 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let ferry = sectionedFerries[section].first as? Ferry<Date> {
+        let ferrySection = self.showsTypeHint ? section - 1 : section
+        if section == 0 && showsTypeHint {
+            return nil
+        }
+        if let ferry = sectionedFerries[ferrySection].first as? Ferry<Date> {
             if midnight(date: ferry.time) == midnight(date: Date()) {
-                return nil
+                return NSLocalizedString("Today", comment: "")
             }
             let df = DateFormatter()
             df.timeStyle = .none

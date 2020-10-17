@@ -26,7 +26,7 @@
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController id="JEX-9P-axG" customClass="DetailViewController" customModule="FerryTimetable3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JEX-9P-axG" customClass="DetailViewController" customModule="HK_Ferry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,12 +102,12 @@
         <!--Master View Controller-->
         <scene sceneID="sQm-df-acR">
             <objects>
-                <collectionViewController id="7Bz-ki-aLw" customClass="MasterViewController" customModule="FerryTimetable3" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oga-YV-TqR">
+                <collectionViewController id="7Bz-ki-aLw" customClass="MasterViewController" customModule="HK_Ferry" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="oga-YV-TqR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewLayout key="collectionViewLayout" id="9xK-l2-5Wh" customClass="LeftAlignedCollectionViewFlowLayout" customModule="FerryTimetable3" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="9xK-l2-5Wh" customClass="LeftAlignedCollectionViewFlowLayout" customModule="HK_Ferry" customModuleProvider="target"/>
                         <cells/>
                         <connections>
                             <outlet property="dataSource" destination="7Bz-ki-aLw" id="2n0-KJ-8ej"/>

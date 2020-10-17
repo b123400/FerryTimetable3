@@ -8,8 +8,9 @@
 
 import UIKit
 import BottomHalfModal
+import PDTSimpleCalendar
 
-class DetailViewController: UIViewController, UIScrollViewDelegate {
+class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePickerViewControllerDelegate, UIPopoverPresentationControllerDelegate {
     var island: Island? {
         didSet {
             configureView()
@@ -116,23 +117,28 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func showDatePicker() {
-        let vc = FerryDatePickerViewController()
-        if let d = self.fromVC?.date {
-            vc.datePicker.date = d
+        let calendarViewController = FerryDatePickerViewController()
+        calendarViewController.calendarDelegate = self
+        
+        let nav = UINavigationController(rootViewController: calendarViewController)
+        nav.modalPresentationStyle = .popover
+        let popPC = nav.popoverPresentationController
+        if popPC == nil {
+            return
         }
-        vc.callback = { [weak self] date in
-            self?.fromVC?.date = date
-            self?.toVC?.date = date
-        }
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .popover
-            nav.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            self.present(nav, animated: true, completion: nil)
-        } else {
-            let nav = BottomHalfModalNavigationController(rootViewController: vc)
-            presentBottomHalfModal(nav, animated: true, completion: nil)
-        }
+        popPC!.barButtonItem = self.navigationItem.rightBarButtonItem
+        popPC!.permittedArrowDirections = .any
+        popPC!.delegate = self
+        present(nav, animated: true, completion: nil)
+    }
+    
+    func didSelect(date: Date) {
+        self.fromVC?.date = date;
+        self.fromVC?.date = date;
+    }
+    func didSelectNow() {
+        self.fromVC?.date = Date();
+        self.fromVC?.date = Date();
     }
 }
 

@@ -1,0 +1,16 @@
+PODS:
+  - PDTSimpleCalendar (0.7.1)
+
+DEPENDENCIES:
+  - PDTSimpleCalendar (~> 0.7.0)
+
+SPEC REPOS:
+  trunk:
+    - PDTSimpleCalendar
+
+SPEC CHECKSUMS:
+  PDTSimpleCalendar: de2964236def053e9cde508ae10e576e61fa5b88
+
+PODFILE CHECKSUM: e19cf96b36f10f84d720934411b4273e52baa203
+
+COCOAPODS: 1.9.3

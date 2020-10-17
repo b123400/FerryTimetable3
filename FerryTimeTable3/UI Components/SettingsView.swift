@@ -22,12 +22,6 @@ struct SettingsView: View {
 
     var body: some View {
         List {
-            Section(header: Text(NSLocalizedString("Colour legend", comment: ""))) {
-                Colour(text: NSLocalizedString("Slow ferry", comment: ""), colour: Color.green)
-                Colour(text: NSLocalizedString("Fast ferry", comment: ""), colour: Color.red)
-                Colour(text: NSLocalizedString("Optional ferry", comment: ""), colour: Color.yellow)
-            }
-            
             NavigationLink(destination: ReorderFerryView()) {
                 Text(NSLocalizedString("Reorder routes", comment: ""))
             }

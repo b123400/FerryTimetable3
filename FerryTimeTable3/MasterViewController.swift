@@ -22,7 +22,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
             showsTypeHint && showsDetails
         }
     }
-    var showsDetails = false {
+    var showsDetails = ModelManager.shared.showsRichMenu {
         didSet {
             self.collectionView.reloadData()
             setupRightBarButtonItem()
@@ -89,6 +89,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     
     @objc func toggleShowsDetail() {
         showsDetails = !showsDetails
+        ModelManager.shared.showsRichMenu = showsDetails
     }
     
     @objc func openSettings() {

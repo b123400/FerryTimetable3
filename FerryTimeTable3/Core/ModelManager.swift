@@ -12,6 +12,7 @@ import Alamofire
 extension Notification.Name {
     static let islandsUpdated = Notification.Name("islandUpdated")
     static let timetableUpdated = Notification.Name("timetableUpdated")
+    static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
 }
 
 class ModelManager {
@@ -90,6 +91,16 @@ class ModelManager {
                     // whatever
                 }
             }
+        }
+    }
+    
+    var showsRichMenu: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "showsRichMenu")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "showsRichMenu")
+            NotificationCenter.default.post(Notification(name: .showsRichMenuUpdated))
         }
     }
 

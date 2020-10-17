@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BottomHalfModal
 import PDTSimpleCalendar
 
 class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePickerViewControllerDelegate, UIPopoverPresentationControllerDelegate {
@@ -67,6 +66,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePic
             }
             self.fromVC = fromVC
             self.toVC = toVC
+
+            let childrenShowTypeHint = !ModelManager.shared.showsRichMenu
+            self.fromVC?.showsTypeHint = childrenShowTypeHint
+            self.toVC?.showsTypeHint = childrenShowTypeHint
         }
     }
 
@@ -95,6 +98,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePic
         }
         
         configureView()
+        
+        NotificationCenter.default.addObserver(forName: .showsRichMenuUpdated, object: nil, queue: .main) { (notification) in
+            let childrenShowTypeHint = !ModelManager.shared.showsRichMenu
+            self.fromVC?.showsTypeHint = childrenShowTypeHint
+            self.toVC?.showsTypeHint = childrenShowTypeHint
+        }
     }
     
     override func viewDidLayoutSubviews() {

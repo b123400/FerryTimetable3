@@ -100,3 +100,12 @@
 /* No comment provided by engineer. */
 "Yung Shue Wan" = "榕樹灣";
 
+"Green for ordinary ferry" = "綠色指慢船";
+
+"Red for ordinary ferry" = "紅色指快船";
+
+"Yellow for optional ferry" = "黃色指加班服務";
+
+"Today" = "今天";
+
+"Cancel" = "取消";

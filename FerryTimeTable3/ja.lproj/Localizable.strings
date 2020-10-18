@@ -46,3 +46,12 @@
 /* No comment provided by engineer. */
 "Widget" = "ウイジェット";
 
+"Green for ordinary ferry" = "緑色は低速船";
+
+"Red for ordinary ferry" = "赤色は高速船";
+
+"Yellow for optional ferry" = "黃色はオプショナル便";
+
+"Today" = "今天";
+
+"Cancel" = "キャンセル";

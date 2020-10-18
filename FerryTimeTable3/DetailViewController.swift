@@ -160,7 +160,7 @@ class DetailViewController:
         let _ = self.view.frame.size.width
         //////
         
-        if self.splitViewController?.displayMode == .some(.allVisible) || self.splitViewController?.isCollapsed ?? false {
+        if self.splitViewController?.displayMode == .some(.allVisible) || !(self.splitViewController?.isCollapsed ?? false) {
             return !ModelManager.shared.showsRichMenu
         } else {
             return true

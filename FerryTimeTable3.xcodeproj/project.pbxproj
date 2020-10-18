@@ -31,6 +31,7 @@
 		CF5A5AE424CB757300DDF6BB /* CurrentScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */; };
 		CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */; };
 		CF716EC524C72A43007EA415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF716EC424C72A43007EA415 /* SnapKit */; };
+		CF73374C253C3D160039A709 /* FerryTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */; };
 		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
 		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
 		CFA35E03253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */; };
@@ -127,6 +128,7 @@
 		CF5A5AE124CB70D700DDF6BB /* Ferry Timetable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ferry Timetable.entitlements"; sourceTree = "<group>"; };
 		CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentScheduleView.swift; sourceTree = "<group>"; };
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTypeTableViewCell.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerrySimpleCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFADD6BC24D875E900473F8D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
@@ -357,12 +359,13 @@
 			children = (
 				CF547F8624C3598A007DCF39 /* ViewModel */,
 				CFB5808224AB884F00DC3C63 /* MenuCollectionViewCell.swift */,
+				CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */,
 				CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */,
+				CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */,
 				CFCC219524C97F080007ECA5 /* DirectionSwitchingView.swift */,
 				CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */,
 				CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */,
 				CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */,
-				CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				CFD7A77C24C814E20082D9A3 /* FerriesViewController.swift in Sources */,
 				CFE1044C24CAB69B00AB1B80 /* SettingsView.swift in Sources */,
 				CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */,
+				CF73374C253C3D160039A709 /* FerryTypeTableViewCell.swift in Sources */,
 				CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */,
 				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
 				CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */,

@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol DatedFerriesTableViewControllerDelegate {
+    func shouldShowTypeHintFor(ferries: [Ferry<Date>]) -> Bool
+}
+
 class DatedFerriesTableViewController: FerriesViewController<Date> {
     let direction: Direction
     let island: Island
+    var delegate: DatedFerriesTableViewControllerDelegate?
     
     // No date = now, date = the "day", not related to time
     var date: Date? {
@@ -32,6 +37,7 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
             self?.configureFerries()
         }
+        reloadTypeHints()
     }
     
     required init?(coder: NSCoder) {
@@ -48,6 +54,12 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
             ferries = schedule.upcomingFerries(island: island, direction: direction, count: 20)
         }
         self.ferries = ferries
+    }
+    
+    func reloadTypeHints() {
+        if let d = self.delegate {
+            super.showsTypeHint = d.shouldShowTypeHintFor(ferries: ferries)
+        }
     }
     
     func loadMoreFerries() {

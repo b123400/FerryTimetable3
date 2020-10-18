@@ -9,7 +9,13 @@
 import UIKit
 import PDTSimpleCalendar
 
-class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePickerViewControllerDelegate, UIPopoverPresentationControllerDelegate {
+class DetailViewController:
+    UIViewController,
+    UIScrollViewDelegate,
+    FerryDatePickerViewControllerDelegate,
+    DatedFerriesTableViewControllerDelegate,
+    UIPopoverPresentationControllerDelegate {
+    
     var island: Island? {
         didSet {
             configureView()
@@ -66,10 +72,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePic
             }
             self.fromVC = fromVC
             self.toVC = toVC
+            self.fromVC?.delegate = self
+            self.toVC?.delegate = self
 
-            let childrenShowTypeHint = !ModelManager.shared.showsRichMenu
-            self.fromVC?.showsTypeHint = childrenShowTypeHint
-            self.toVC?.showsTypeHint = childrenShowTypeHint
+            updateChildrenShowsTypeHint()
         }
     }
 
@@ -99,10 +105,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePic
         
         configureView()
         
-        NotificationCenter.default.addObserver(forName: .showsRichMenuUpdated, object: nil, queue: .main) { (notification) in
-            let childrenShowTypeHint = !ModelManager.shared.showsRichMenu
-            self.fromVC?.showsTypeHint = childrenShowTypeHint
-            self.toVC?.showsTypeHint = childrenShowTypeHint
+        NotificationCenter.default.addObserver(forName: .showsRichMenuUpdated, object: nil, queue: .main) { [weak self] (notification) in
+            self?.updateChildrenShowsTypeHint()
         }
     }
     
@@ -139,6 +143,28 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, FerryDatePic
         popPC!.permittedArrowDirections = .any
         popPC!.delegate = self
         present(nav, animated: true, completion: nil)
+    }
+    
+    func updateChildrenShowsTypeHint() {
+        self.fromVC?.reloadTypeHints()
+        self.toVC?.reloadTypeHints()
+    }
+    
+    func shouldShowTypeHintFor(ferries: [Ferry<Date>]) -> Bool {
+        let routeHasSpeedDifference = ferries.first?.modifiers.contains { [.fastFerry, .slowFerry, .optionalFerry].contains($0) } ?? false
+        if !routeHasSpeedDifference {
+            return false
+        }
+        /* Not sure why but we need this to detect the display type correctly */
+        let _ = self.splitViewController?.view.frame.size.width
+        let _ = self.view.frame.size.width
+        //////
+        
+        if self.splitViewController?.displayMode == .some(.allVisible) || self.splitViewController?.isCollapsed ?? false {
+            return !ModelManager.shared.showsRichMenu
+        } else {
+            return true
+        }
     }
     
     func didSelect(date: Date) {

@@ -32,6 +32,7 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.register(FerriesTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(FerryTypeTableViewCell.self, forCellReuseIdentifier: "type-cell")
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableView.automaticDimension
     }
@@ -87,30 +88,31 @@ class FerriesViewController<T: RenderTime>: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let ferrySection = self.showsTypeHint ? indexPath.section - 1 : indexPath.section
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        if let c = cell as? FerriesTableViewCell {
-            if indexPath.section == 0 && showsTypeHint {
-                c.subLabel.text = ""
+        if indexPath.section == 0 && showsTypeHint {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "type-cell", for: indexPath)
+            if let c = cell as? FerryTypeTableViewCell {
                 switch indexPath.row {
                 case 0:
-                    c.timeLabel.text = NSLocalizedString("Green for ordinary ferry", comment: "")
+                    c.label.text = NSLocalizedString("Green for ordinary ferry", comment: "")
                     c.colorView.backgroundColor = .systemGreen
                     break;
                 case 1:
-                    c.timeLabel.text = NSLocalizedString("Red for ordinary ferry", comment: "")
+                    c.label.text = NSLocalizedString("Red for ordinary ferry", comment: "")
                     c.colorView.backgroundColor = .systemRed
                     break;
                 case 2:
-                    c.timeLabel.text = NSLocalizedString("Yellow for optional ferry", comment: "")
+                    c.label.text = NSLocalizedString("Yellow for optional ferry", comment: "")
                     c.colorView.backgroundColor = .systemYellow
                     break;
                 default:
                     break;
                 }
-                return c
             }
-            
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if let c = cell as? FerriesTableViewCell {
             let ferry = sectionedFerries[ferrySection][row]
             c.apply(model: FerryCell(ferry: ferry))
         }

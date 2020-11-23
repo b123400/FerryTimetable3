@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .allVisible
         ModelManager.shared.saveHolidays()
+        ModelManager.shared.saveMetadatas()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

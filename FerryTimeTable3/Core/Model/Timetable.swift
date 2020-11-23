@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum Island: String, Codable, CaseIterable, Identifiable {
+enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
     var id: String { rawValue }
     
     case centralCheungChau = "central-cheungchau"
@@ -87,6 +87,24 @@ enum Island: String, Codable, CaseIterable, Identifiable {
             return NSLocalizedString("Tung Lung Island", comment: "")
         }
     }
+    
+    static func toKeyedDict<T>(strDict: [String: T]) -> [Island: T] {
+        var dict: [Island: T] = [:]
+        for (key, value) in strDict {
+            if let i = Island(stringValue: key) {
+                dict[i] = value
+            }
+        }
+        return dict
+    }
+    
+    static func fromKeyedDict<T>(dict: [Island: T]) -> [String: T] {
+        var strDict: [String: T] = [:]
+        for (key, value) in dict {
+            strDict[key.rawValue] = value
+        }
+        return strDict
+    }
 }
 
 enum Direction: String, Codable {
@@ -149,7 +167,7 @@ extension Ferry: Codable where T: Codable {}
 extension Timetable: Codable where T: Codable {}
 extension Route: Codable where T: Codable {}
 
-enum Modifier: String, Codable {
+enum Modifier: String, Codable, Equatable {
     case fastFerry = "FastFerry"
     case slowFerry = "SlowFerry"
     case optionalFerry = "OptionalFerry"

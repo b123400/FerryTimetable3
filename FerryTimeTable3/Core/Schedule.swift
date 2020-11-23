@@ -24,7 +24,7 @@ class Schedule {
             .filter { $0.direction == direction }
 
         let yesterday = date.addingTimeInterval(-86400)
-        let yesterdaysTimetable = timetables.first { $0.days.contains(dateToModelDay(date: yesterday)) }
+        let yesterdaysTimetable = timetables.first { $0.days.contains(Schedule.dateToModelDay(date: yesterday)) }
         let yesterdaysFerries = yesterdaysTimetable.map { $0.ferries } ?? []
         let futureFerriesFromYesterday = yesterdaysFerries.map { $0.toAbsolute(date: yesterday) }.filter { $0.time >= date }
 
@@ -49,7 +49,7 @@ class Schedule {
             return []
         }
 
-        let todaysTimetables = timetables.first { $0.days.contains(dateToModelDay(date: date)) }
+        let todaysTimetables = timetables.first { $0.days.contains(Schedule.dateToModelDay(date: date)) }
         let todaysFerries = todaysTimetables.map { $0.ferries } ?? []
         let fs = todaysFerries.map { $0.toAbsolute(date: date) }.filter { $0.time >= date }
 
@@ -73,7 +73,7 @@ class Schedule {
         raws.filter { $0.island == island }
     }
 
-    private func dateToModelDay(date: Date) -> Day {
+    public static func dateToModelDay(date: Date) -> Day {
         let dayStart = midnight(date: date)
         let isHoliday = ModelManager.shared.holidays.contains { (holiday) -> Bool in
             holiday.day.midnight == dayStart

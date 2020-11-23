@@ -1,0 +1,1724 @@
+{
+    "central-cheungchau": {
+        "fares": [
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.6,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 21.3,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 26.8,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 20.2,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 38.8,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 6.8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 10.7,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.4,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 10.1,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 15.5,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.4,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 6.8,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 10.7,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.4,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 10.1,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 15.5,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.4,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 6.8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 10.7,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.4,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 10.1,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 15.5,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.4,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 27.2,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 42.6,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 53.6,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 13.6,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.4,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.8,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 13.6,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.4,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.8,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 13.6,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.4,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.8,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 532,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 532,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 272,
+                "passenger": "Multi-ride Ticket",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 272,
+                "passenger": "Multi-ride Ticket",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 22.6,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 22.6,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 205.7,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 205.7,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            }
+        ],
+        "durations": [
+            {
+                "ferryType": "FastFerry",
+                "duration": 2100
+            },
+            {
+                "ferryType": null,
+                "duration": 3000
+            }
+        ]
+    },
+    "central-muiwo": {
+        "fares": [
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 15.9,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 26.2,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 31.3,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 23.5,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 38.4,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 44.9,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.1,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 15.7,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.2,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 22.5,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.1,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 15.7,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.8,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.2,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 22.5,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 13.1,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 15.7,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 19.2,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 22.5,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31.8,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 52.4,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 62.6,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.2,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31.4,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.2,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31.4,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 26.2,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31.4,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryDeluxeClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 554,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 554,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 21.5,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.5,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 196.6,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 196.6,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            }
+        ],
+        "durations": [
+            {
+                "ferryType": "FastFerry",
+                "duration": 2400
+            },
+            {
+                "ferryType": null,
+                "duration": 3300
+            }
+        ]
+    },
+    "central-pengchau": {
+        "fares": [
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 15.9,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 29.6,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 22.8,
+                "passenger": "Single Journey - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 43.5,
+                "passenger": "Single Journey - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 14.8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.4,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.8,
+                "passenger": "Single Journey - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 14.8,
+                "passenger": "Single Journey - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.4,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.8,
+                "passenger": "Single Journey - Passenger aged 65 or above ",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 14.8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 11.4,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 21.8,
+                "passenger": "Single Journey - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Single Journey - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 31.8,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 59.2,
+                "passenger": "Holiday Return Ticket - Adult",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 29.6,
+                "passenger": "Holiday Return Ticket - Child (aged 3 years old or above and under 12 years old)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 29.6,
+                "passenger": "Holiday Return Ticket - Passenger aged 65 or above",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 16,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 29.6,
+                "passenger": "Holiday Return Ticket - Passenger with disabilities",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [
+                    "FromSecondaryOnly"
+                ],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 0,
+                "passenger": "Holiday Return Ticket - Child under 3 years old (accompanied by adult)",
+                "type": "FastFerry"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 597,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 597,
+                "passenger": "Monthly Ticket ",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 12.5,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 12.5,
+                "passenger": "Bicycle (per bicycle)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday"
+                ],
+                "fare": 115,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            },
+            {
+                "modifiers": [],
+                "days": [
+                    "sunday",
+                    "holiday"
+                ],
+                "fare": 115,
+                "passenger": "Freight (per cubic metre)",
+                "type": "SlowFerryOrdinaryClass"
+            }
+        ],
+        "durations": [
+            {
+                "ferryType": "FastFerry",
+                "duration": 1800
+            },
+            {
+                "ferryType": null,
+                "duration": 2400
+            }
+        ]
+    }
+}

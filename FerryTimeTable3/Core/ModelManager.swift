@@ -12,6 +12,7 @@ import Alamofire
 extension Notification.Name {
     static let islandsUpdated = Notification.Name("islandUpdated")
     static let timetableUpdated = Notification.Name("timetableUpdated")
+    static let metadataUpdated = Notification.Name("metadataUpdated")
     static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
 }
 
@@ -115,6 +116,10 @@ class ModelManager {
         self.documentURL.appendingPathComponent("raws.json")
     }
     
+    var metadatasURL: URL {
+        self.documentURL.appendingPathComponent("metadatas.json")
+    }
+    
     var islandsURL: URL {
         self.documentURL.appendingPathComponent("islands.json")
     }
@@ -178,6 +183,68 @@ class ModelManager {
                     }
                 }
                 callback(okRoutes)
+            }
+        }
+    }
+    
+    private var _metadata: [Island: Metadata]?
+    func getMetadatas() -> [Island: Metadata] {
+        if let m = _metadata {
+            return m
+        }
+        do {
+            let fm = FileManager.default
+            if fm.fileExists(atPath: self.metadatasURL.path) {
+                let data = try Data(contentsOf: self.metadatasURL)
+                let m = try JSONDecoder().decode([String: Metadata].self, from: data)
+                let islandMap = Island.toKeyedDict(strDict: m)
+                _metadata = islandMap
+                return islandMap
+            }
+            let url = Bundle.main.url(forResource: "metadatas", withExtension: "json")!
+            let data = try Data(contentsOf: url)
+            let m = try JSONDecoder().decode([String: Metadata].self, from: data)
+            let islandMap = Island.toKeyedDict(strDict: m)
+            _metadata = islandMap
+            return islandMap
+        } catch {
+            print(error.localizedDescription)
+        }
+        return [:]
+    }
+
+    func saveMetadatas(callback: (([Island: Metadata])-> Void)? = nil) {
+        fetchMetadatas { (metadatas) in
+            self._metadata = metadatas
+            NotificationCenter.default.post(Notification(name: .metadataUpdated))
+            DispatchQueue.global().async {
+                do {
+                    let encoder = JSONEncoder()
+                    let strMap = Island.fromKeyedDict(dict: metadatas)
+                    let encoded = try encoder.encode(strMap)
+                    let dataPath = self.metadatasURL
+                    try encoded.write(to: dataPath)
+                } catch {
+                    print(error.localizedDescription);
+                }
+            }
+            callback?(metadatas)
+        }
+    }
+    
+    func fetchMetadatas(callback: @escaping ([Island : Metadata])-> Void) {
+        AF.request("https://ferry.b123400.net/metadata").responseDecodable(of: [String : FailableJson<Metadata>].self) { (response) in
+            switch response.result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let metadata):
+                let okMetadatas = Island.toKeyedDict(strDict: metadata).compactMapValues { (failable:FailableJson<Metadata>) -> Metadata? in
+                    switch failable {
+                    case .fail(_): return .none
+                    case .success(let x): return .some(x)
+                    }
+                }
+                callback(okMetadatas)
             }
         }
     }

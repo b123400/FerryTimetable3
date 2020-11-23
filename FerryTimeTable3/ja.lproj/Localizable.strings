@@ -1,8 +1,20 @@
 /* No comment provided by engineer. */
-"Colour legend" = "色の意味";
+"%d min" = "%d 分";
 
 /* No comment provided by engineer. */
-"Fast ferry" = "高速船";
+"Arrival" = "到着時間";
+
+/* No comment provided by engineer. */
+"Cancel" = "キャンセル";
+
+/* No comment provided by engineer. */
+"Deluxe" = "デラックス";
+
+/* No comment provided by engineer. */
+"Duration" = "航行時間";
+
+/* No comment provided by engineer. */
+"Green for ordinary ferry" = "緑色は低速船";
 
 /* No comment provided by engineer. */
 "HK Ferries" = "香港フェリー時刻表";
@@ -32,13 +44,13 @@
 "Now" = "現在";
 
 /* No comment provided by engineer. */
-"Optional ferry" = "オプショナル便";
+"Red for ordinary ferry" = "赤色は高速船";
 
 /* No comment provided by engineer. */
 "Reorder routes" = "順番設定";
 
 /* No comment provided by engineer. */
-"Slow ferry" = "低速船";
+"Today" = "今天";
 
 /* No comment provided by engineer. */
 "Update timetable data" = "時刻表をアップデート";
@@ -46,12 +58,6 @@
 /* No comment provided by engineer. */
 "Widget" = "ウイジェット";
 
-"Green for ordinary ferry" = "緑色は低速船";
-
-"Red for ordinary ferry" = "赤色は高速船";
-
+/* No comment provided by engineer. */
 "Yellow for optional ferry" = "黃色はオプショナル便";
 
-"Today" = "今天";
-
-"Cancel" = "キャンセル";

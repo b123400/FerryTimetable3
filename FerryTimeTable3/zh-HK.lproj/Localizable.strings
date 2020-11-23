@@ -1,5 +1,14 @@
 /* No comment provided by engineer. */
+"%d min" = "%d 分鐘";
+
+/* No comment provided by engineer. */
 "Aberdeen" = "香港仔";
+
+/* No comment provided by engineer. */
+"Arrival" = "抵達時間";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
 
 /* No comment provided by engineer. */
 "Central" = "中環";
@@ -8,13 +17,15 @@
 "Cheung Chau" = "長洲";
 
 /* No comment provided by engineer. */
-"Colour legend" = "顏色嘅意思";
+"Deluxe" = "豪華位";
+
+"Duration" = "所需時間";
 
 /* No comment provided by engineer. */
 "Discovery Bay" = "愉景灣";
 
 /* No comment provided by engineer. */
-"Fast ferry" = "快船";
+"Green for ordinary ferry" = "綠色指慢船";
 
 /* No comment provided by engineer. */
 "Hei Ling Chau" = "喜靈洲";
@@ -65,10 +76,10 @@
 "Now" = "現在";
 
 /* No comment provided by engineer. */
-"Optional ferry" = "加班服務";
+"Peng Chau" = "坪洲";
 
 /* No comment provided by engineer. */
-"Peng Chau" = "坪洲";
+"Red for ordinary ferry" = "紅色指快船";
 
 /* No comment provided by engineer. */
 "Reorder routes" = "排序設定";
@@ -80,10 +91,10 @@
 "Sam Ka Tsuen" = "三家村";
 
 /* No comment provided by engineer. */
-"Slow ferry" = "慢船";
+"Sok Kwu Wan" = "索罟灣";
 
 /* No comment provided by engineer. */
-"Sok Kwu Wan" = "索罟灣";
+"Today" = "今天";
 
 /* No comment provided by engineer. */
 "Tsuen Wan" = "荃灣";
@@ -98,14 +109,8 @@
 "Widget" = "Today Widget";
 
 /* No comment provided by engineer. */
-"Yung Shue Wan" = "榕樹灣";
-
-"Green for ordinary ferry" = "綠色指慢船";
-
-"Red for ordinary ferry" = "紅色指快船";
-
 "Yellow for optional ferry" = "黃色指加班服務";
 
-"Today" = "今天";
+/* No comment provided by engineer. */
+"Yung Shue Wan" = "榕樹灣";
 
-"Cancel" = "取消";

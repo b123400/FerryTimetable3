@@ -82,4 +82,15 @@ class DatedFerriesTableViewController: FerriesViewController<Date> {
             loadMoreFerries()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let ferry = self.ferries[indexPath.row]
+        let vc = MetadataViewController()
+        let metadata = ModelManager.shared.getMetadatas()[self.island]
+        if metadata != nil {
+            vc.updateFerry(ferry: ferry, island: self.island)
+            let nav = UINavigationController(rootViewController: vc)
+            present(nav, animated: true, completion: nil)
+        }
+    }
 }

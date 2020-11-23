@@ -36,7 +36,9 @@
 		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
 		CFA0543D256AD89400351CE3 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA0543C256AD89400351CE3 /* Metadata.swift */; };
 		CFA0543E256AD89400351CE3 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA0543C256AD89400351CE3 /* Metadata.swift */; };
+		CFA05444256B7EE800351CE3 /* MetadataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA05443256B7EE800351CE3 /* MetadataViewController.swift */; };
 		CFA0544A256B90CF00351CE3 /* metadatas.json in Resources */ = {isa = PBXBuildFile; fileRef = CFA05449256B90CF00351CE3 /* metadatas.json */; };
+		CFA05454256BA96E00351CE3 /* FareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA05453256BA96E00351CE3 /* FareTableViewCell.swift */; };
 		CFA35E03253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */; };
 		CFADD6BD24D875E900473F8D /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD6BC24D875E900473F8D /* Holiday.swift */; };
 		CFADD6BE24D8780000473F8D /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD6BC24D875E900473F8D /* Holiday.swift */; };
@@ -134,7 +136,9 @@
 		CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTypeTableViewCell.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		CFA0543C256AD89400351CE3 /* Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		CFA05443256B7EE800351CE3 /* MetadataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataViewController.swift; sourceTree = "<group>"; };
 		CFA05449256B90CF00351CE3 /* metadatas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadatas.json; sourceTree = "<group>"; };
+		CFA05453256BA96E00351CE3 /* FareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareTableViewCell.swift; sourceTree = "<group>"; };
 		CFA35E02253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerrySimpleCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFADD6BC24D875E900473F8D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		CFADD6BF24D878D500473F8D /* holidays.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = holidays.json; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				CFCC219124C83D370007ECA5 /* DatedFerriesTableViewController.swift */,
 				CF1E4A4224ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift */,
 				CFCC219724C9A9EF0007ECA5 /* SettingsViewController.swift */,
+				CFA05443256B7EE800351CE3 /* MetadataViewController.swift */,
 				CF8CABCB24ACEBE500E7FCB4 /* Core */,
 				CFB5808424AB8C1C00DC3C63 /* UI Components */,
 				CFB5805824AB7AE000DC3C63 /* Main.storyboard */,
@@ -373,6 +378,7 @@
 				CFCC219924C9C90D0007ECA5 /* FerryDatePickerViewController.swift */,
 				CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */,
 				CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */,
+				CFA05453256BA96E00351CE3 /* FareTableViewCell.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -723,10 +729,12 @@
 				CFA0543D256AD89400351CE3 /* Metadata.swift in Sources */,
 				CFADD6BD24D875E900473F8D /* Holiday.swift in Sources */,
 				CFCC219A24C9C90D0007ECA5 /* FerryDatePickerViewController.swift in Sources */,
+				CFA05454256BA96E00351CE3 /* FareTableViewCell.swift in Sources */,
 				CF1E4A4324ACDC9300D98F41 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CFA35E03253B2C1500B10A4C /* FerrySimpleCollectionViewCell.swift in Sources */,
 				CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */,
 				CFB5805524AB7AE000DC3C63 /* MasterViewController.swift in Sources */,
+				CFA05444256B7EE800351CE3 /* MetadataViewController.swift in Sources */,
 				CF5A5AE324CB757300DDF6BB /* CurrentScheduleView.swift in Sources */,
 				CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */,
 				CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */,

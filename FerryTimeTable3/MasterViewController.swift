@@ -150,7 +150,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
                     c.colorView.backgroundColor = .systemGreen
                     break;
                 case 1:
-                    c.label.text = NSLocalizedString("Red for ordinary ferry", comment: "")
+                    c.label.text = NSLocalizedString("Red for fast ferry", comment: "")
                     c.colorView.backgroundColor = .systemRed
                     break;
                 case 2:

@@ -79,7 +79,7 @@
 "Peng Chau" = "坪洲";
 
 /* No comment provided by engineer. */
-"Red for ordinary ferry" = "紅色指快船";
+"Red for fast ferry" = "紅色指快船";
 
 /* No comment provided by engineer. */
 "Reorder routes" = "排序設定";
@@ -114,3 +114,6 @@
 /* No comment provided by engineer. */
 "Yung Shue Wan" = "榕樹灣";
 
+"Fast Ferry" = "快船";
+"Slow Ferry" = "慢船";
+"Optional Ferry" = "加班服務";

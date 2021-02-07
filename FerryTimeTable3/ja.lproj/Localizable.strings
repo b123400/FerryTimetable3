@@ -44,7 +44,7 @@
 "Now" = "現在";
 
 /* No comment provided by engineer. */
-"Red for ordinary ferry" = "赤色は高速船";
+"Red for fast ferry" = "赤色は高速船";
 
 /* No comment provided by engineer. */
 "Reorder routes" = "順番設定";
@@ -61,3 +61,6 @@
 /* No comment provided by engineer. */
 "Yellow for optional ferry" = "黃色はオプショナル便";
 
+"Fast Ferry" = "高速船";
+"Slow Ferry" = "低速船";
+"Optional Ferry" = "オプショナル便";

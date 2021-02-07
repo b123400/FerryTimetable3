@@ -172,6 +172,41 @@ enum Modifier: String, Codable, Equatable {
     case slowFerry = "SlowFerry"
     case optionalFerry = "OptionalFerry"
     case freight = "Freight"
+    
+    func toString() -> String {
+        switch self {
+        case .fastFerry:
+            return NSLocalizedString("Fast Ferry", comment: "")
+        case .slowFerry:
+            return NSLocalizedString("Slow Ferry", comment: "")
+        case .optionalFerry:
+            return NSLocalizedString("Optional Ferry", comment: "")
+        case .freight:
+            return NSLocalizedString("Freight", comment: "")
+        }
+    }
+    
+    func toAttributedString() -> NSAttributedString {
+        switch self {
+        case .fastFerry:
+            return NSAttributedString(string: self.toString(),
+                                      attributes: [.backgroundColor : UIColor.systemRed,
+                                                   .foregroundColor: UIColor.white
+                                      ])
+        case .slowFerry:
+            return NSAttributedString(string: self.toString(),
+                                      attributes: [.backgroundColor : UIColor.systemGreen,
+                                                   .foregroundColor: UIColor.white
+                                      ])
+        case .optionalFerry:
+            return NSAttributedString(string: self.toString(),
+                                      attributes: [.backgroundColor : UIColor.systemYellow,
+                                                   .foregroundColor: UIColor.white
+                                      ])
+        case .freight:
+            return NSAttributedString(string: self.toString())
+        }
+    }
 }
 
 enum DayOfWeek: String, Codable {

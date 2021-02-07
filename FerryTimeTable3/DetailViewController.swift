@@ -77,6 +77,19 @@ class DetailViewController:
 
             updateChildrenShowsTypeHint()
         }
+        
+        do {
+            // Navigation items
+            self.navigationItem.rightBarButtonItems = []
+            if let i = island, let _ = ModelManager.shared.getMetadatas()[i] {
+                self.navigationItem.rightBarButtonItems?.append(
+                    UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showInfo))
+                )
+            }
+            self.navigationItem.rightBarButtonItems?.append(
+                UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(showDatePicker))
+            )
+        }
     }
 
     override func viewDidLoad() {
@@ -86,8 +99,6 @@ class DetailViewController:
         let a = UINavigationBarAppearance()
         a.configureWithTransparentBackground()
         self.navigationItem.standardAppearance = a
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(showDatePicker))
         
         self.view.addSubview(titleView)
         self.view.addSubview(scrollView)
@@ -143,6 +154,16 @@ class DetailViewController:
         popPC!.permittedArrowDirections = .any
         popPC!.delegate = self
         present(nav, animated: true, completion: nil)
+    }
+    
+    @objc func showInfo() {
+        if let i = self.island, let _ = ModelManager.shared.getMetadatas()[i] {
+            let vc = MetadataViewController()
+            vc.updateFerry(ferry: nil, island: i)
+            vc.showsTypeHint = self.fromVC?.showsTypeHint ?? true
+            let nav = UINavigationController(rootViewController: vc)
+            present(nav, animated: true, completion: nil)
+        }
     }
     
     func updateChildrenShowsTypeHint() {

@@ -25,6 +25,15 @@ enum FareType: String, Codable, CaseIterable {
     case slowFerryOrdinaryClass = "SlowFerryOrdinaryClass"
     case slowFerryDeluxeClass = "SlowFerryDeluxeClass"
     case fastFerry = "FastFerry"
+    
+    func toModifier() -> Modifier {
+        switch self {
+        case .fastFerry:
+            return Modifier.fastFerry
+        case .slowFerryDeluxeClass, .slowFerryOrdinaryClass:
+            return Modifier.slowFerry
+        }
+    }
 }
 
 enum FareModifier: String, Codable, CaseIterable {
@@ -34,16 +43,6 @@ enum FareModifier: String, Codable, CaseIterable {
 struct Duration: Codable {
     let ferryType: Optional<Modifier>
     let duration: TimeInterval
-}
-
-func isFareTypeOfModifier(fareType: FareType, modifier: Modifier) -> Bool {
-    switch fareType {
-    case .fastFerry:
-        return modifier == Modifier.fastFerry
-    case .slowFerryDeluxeClass, .slowFerryOrdinaryClass:
-        return modifier == Modifier.slowFerry
-    }
-    return false
 }
 
 func filterMetadataWithDate(metadata: Metadata, date: Date) -> Metadata {
@@ -77,7 +76,7 @@ func filterMetadataWithFerry<T>(metadata: Metadata, ferry: Ferry<T>) -> Metadata
         let speed = ferry.modifiers.first { $0 == .fastFerry || $0 == .slowFerry }
         let typeMatch: Bool
         if let s = speed {
-            typeMatch = isFareTypeOfModifier(fareType: fare.type, modifier: s)
+            typeMatch = fare.type.toModifier() == s
         } else {
             typeMatch = true
         }

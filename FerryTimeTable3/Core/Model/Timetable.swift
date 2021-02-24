@@ -17,6 +17,7 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
     case centralPengChau = "central-pengchau"
     case centralYungShueWan = "central-yungshuewan"
     case centralSokKwuWan = "central-sokkwuwan"
+    case centralMaWan = "central-mawan"
     case northPointHungHom = "northpoint-hunghom"
     case northPointKowloonCity  = "northpoint-kowlooncity"
     case pengChauHeiLingChau = "pengchau-heilingchau"
@@ -38,6 +39,7 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
         case .centralPengChau: fallthrough
         case .centralYungShueWan: fallthrough
         case .centralSokKwuWan: fallthrough
+        case .centralMaWan: fallthrough
         case .centralDiscoveryBay:
             return NSLocalizedString("Central", comment: "")
         case .northPointHungHom: fallthrough
@@ -69,6 +71,8 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
         case .centralSokKwuWan: fallthrough
         case .aberdeenSokKwuWan:
             return NSLocalizedString("Sok Kwu Wan", comment: "")
+        case .centralMaWan:
+            return NSLocalizedString("Ma Wan", comment: "")
         case .centralDiscoveryBay:
             return NSLocalizedString("Discovery Bay", comment: "")
         case .northPointHungHom:

@@ -38,6 +38,7 @@ enum FareType: String, Codable, CaseIterable {
 
 enum FareModifier: String, Codable, CaseIterable {
     case fromSecondaryOnly = "FromSecondaryOnly"
+    case registeredUser = "RegisteredUser"
 }
 
 struct Duration: Codable {

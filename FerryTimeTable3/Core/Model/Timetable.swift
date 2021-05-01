@@ -451,7 +451,7 @@ func timeLeft(interval: TimeInterval) -> String {
     }
     let hour = min / 60
     if hour < 24 {
-        return String(format: NSLocalizedString("In %d hours", comment: ""), Int(hour))
+        return String(format: NSLocalizedString("In %dh %dm", comment: ""), Int(hour), Int(min) % 60)
     }
     let day = hour / 24
     return String(format: NSLocalizedString("In %d days", comment: ""), Int(day))

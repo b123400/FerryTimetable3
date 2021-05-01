@@ -25,6 +25,8 @@
 /* No comment provided by engineer. */
 "In %d hours" = "あと %d 時間";
 
+"In %dh %dm" = "あと %d時間 %d分";
+
 /* No comment provided by engineer. */
 "In %d mins" = "あと %d 分";
 

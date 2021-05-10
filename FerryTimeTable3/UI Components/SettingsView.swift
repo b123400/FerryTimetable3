@@ -32,9 +32,10 @@ struct SettingsView: View {
             Section(footer: Text(String(format: NSLocalizedString("Last updated: %@", comment: ""), lastUpdateString))) {
                 Button(action: {
                     self.updating = true
-                    ModelManager.shared.saveRaws { _ in
-                        self.updating = false
-                    }
+                    _ = ModelManager.shared.saveRaws()
+                        .sink(receiveCompletion: { _ in
+                            self.updating = false
+                        }, receiveValue: { _ in })
                 }) {
                     Text(
                         self.updating

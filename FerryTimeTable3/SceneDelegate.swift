@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDelegate {
 
@@ -21,9 +22,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         guard let splitViewController = window.rootViewController as? UISplitViewController else { return }
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .allVisible
-        ModelManager.shared.saveHolidays()
-        ModelManager.shared.saveMetadatas()
-        ModelManager.shared.saveRaws()
+        
+        _ = Publishers.CombineLatest3(
+            ModelManager.shared.saveHolidays().mapError { $0 as Error },
+            ModelManager.shared.saveMetadatas(),
+            ModelManager.shared.saveRaws()
+        )
+        .sink { completion in
+            print("Saving done \(completion)")
+        } receiveValue: { (holidays, metadatas, routes) in
+            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

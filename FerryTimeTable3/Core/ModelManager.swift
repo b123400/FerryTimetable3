@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 extension Notification.Name {
     static let islandsUpdated = Notification.Name("islandUpdated")
@@ -152,37 +153,46 @@ class ModelManager {
         return []
     }
 
-    func saveRaws(callback: (([Route<TimeInterval>])-> Void)? = nil) {
-        fetchRaws { (routes) in
-            self._raws = routes
-            NotificationCenter.default.post(Notification(name: .timetableUpdated))
-            DispatchQueue.global().async {
-                do {
-                    let encoder = JSONEncoder()
-                    let encoded = try encoder.encode(routes)
-                    let dataPath = self.rawsURL
-                    try encoded.write(to: dataPath)
-                } catch {
-                    print(error.localizedDescription);
-                }
-            }
-            callback?(routes)
-        }
-    }
-
-    func fetchRaws(callback: @escaping ([Route<TimeInterval>])-> Void) {
-        AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [FailableJson<Route<TimeInterval>>].self) { (response) in
-            switch response.result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let routes):
-                let okRoutes = routes.compactMap { (r) -> Route<TimeInterval>? in
-                    switch r {
-                        case .success(let x): return x
-                        case .fail(_): return .none
+    func saveRaws() -> AnyPublisher<[Route<TimeInterval>], Error> {
+        fetchRaws()
+            .mapError { $0 }
+            .flatMap { routes in
+                Future { promise in
+                    self._raws = routes
+                    NotificationCenter.default.post(Notification(name: .timetableUpdated))
+                    DispatchQueue.global().async {
+                        do {
+                            let encoder = JSONEncoder()
+                            let encoded = try encoder.encode(routes)
+                            let dataPath = self.rawsURL
+                            try encoded.write(to: dataPath)
+                            promise(.success(routes))
+                        } catch {
+                            print(error.localizedDescription);
+                            promise(.failure(error))
+                        }
                     }
                 }
-                callback(okRoutes)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func fetchRaws() -> Future<[Route<TimeInterval>], AFError> {
+        Future { promise in
+            AF.request("https://ferry.b123400.net/raws").responseDecodable(of: [FailableJson<Route<TimeInterval>>].self) { (response) in
+                switch response.result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    promise(.failure(error))
+                case .success(let routes):
+                    let okRoutes = routes.compactMap { (r) -> Route<TimeInterval>? in
+                        switch r {
+                            case .success(let x): return x
+                            case .fail(_): return .none
+                        }
+                    }
+                    promise(.success(okRoutes))
+                }
             }
         }
     }
@@ -213,58 +223,70 @@ class ModelManager {
         return [:]
     }
 
-    func saveMetadatas(callback: (([Island: Metadata])-> Void)? = nil) {
-        fetchMetadatas { (metadatas) in
-            self._metadata = metadatas
-            NotificationCenter.default.post(Notification(name: .metadataUpdated))
-            DispatchQueue.global().async {
-                do {
-                    let encoder = JSONEncoder()
-                    let strMap = Island.fromKeyedDict(dict: metadatas)
-                    let encoded = try encoder.encode(strMap)
-                    let dataPath = self.metadatasURL
-                    try encoded.write(to: dataPath)
-                } catch {
-                    print(error.localizedDescription);
-                }
-            }
-            callback?(metadatas)
-        }
-    }
-    
-    func fetchMetadatas(callback: @escaping ([Island : Metadata])-> Void) {
-        AF.request("https://ferry.b123400.net/metadata").responseDecodable(of: [String : FailableJson<Metadata>].self) { (response) in
-            switch response.result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let metadata):
-                let okMetadatas = Island.toKeyedDict(strDict: metadata).compactMapValues { (failable:FailableJson<Metadata>) -> Metadata? in
-                    switch failable {
-                    case .fail(_): return .none
-                    case .success(let x): return .some(x)
+    func saveMetadatas() -> AnyPublisher<[Island: Metadata], Error> {
+        fetchMetadatas()
+            .mapError({ $0 })
+            .flatMap { metadatas in
+                Future { promise in
+                    self._metadata = metadatas
+                    NotificationCenter.default.post(Notification(name: .metadataUpdated))
+                    DispatchQueue.global().async {
+                        do {
+                            let encoder = JSONEncoder()
+                            let strMap = Island.fromKeyedDict(dict: metadatas)
+                            let encoded = try encoder.encode(strMap)
+                            let dataPath = self.metadatasURL
+                            try encoded.write(to: dataPath)
+                            promise(.success(metadatas))
+                        } catch {
+                            print(error.localizedDescription);
+                            promise(.failure(error))
+                        }
                     }
                 }
-                callback(okMetadatas)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchMetadatas() -> Future<[Island : Metadata], AFError> {
+        Future { promise in
+            AF.request("https://ferry.b123400.net/metadata").responseDecodable(of: [String : FailableJson<Metadata>].self) { (response) in
+                switch response.result {
+                case .failure(let error):
+                    promise(.failure(error))
+                case .success(let metadata):
+                    let okMetadatas = Island.toKeyedDict(strDict: metadata).compactMapValues { (failable:FailableJson<Metadata>) -> Metadata? in
+                        switch failable {
+                        case .fail(_): return .none
+                        case .success(let x): return .some(x)
+                        }
+                    }
+                    promise(.success(okMetadatas))
+                }
             }
         }
     }
     
-    func fetchHolidays(callback: @escaping ([Holiday])-> Void) {
-        AF.request("https://ferry.b123400.net/holidays").responseDecodable(of: [Holiday].self) { (response) in
-            switch response.result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let holidays):
-                callback(holidays)
+    func fetchHolidays() -> Future<[Holiday], AFError> {
+        Future { promise in
+            AF.request("https://ferry.b123400.net/holidays").responseDecodable(of: [Holiday].self) { (response) in
+                switch response.result {
+                case .failure(let error):
+                    promise(.failure(error))
+                case .success(let holidays):
+                    promise(.success(holidays))
+                }
             }
         }
     }
     
-    func saveHolidays(callback: (([Holiday])-> Void)? = nil) {
-        fetchHolidays { (holidays) in
-            self.holidays = holidays
-            callback?(holidays)
-        }
+    func saveHolidays()-> AnyPublisher<[Holiday], AFError> {
+        fetchHolidays()
+            .map { (holidays: [Holiday]) -> [Holiday] in
+                self.holidays = holidays
+                return holidays
+            }
+            .eraseToAnyPublisher()
     }
     
     var lastUpdate: Date? {

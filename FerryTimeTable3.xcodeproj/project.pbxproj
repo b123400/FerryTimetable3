@@ -65,6 +65,8 @@
 		CFD7A77C24C814E20082D9A3 /* FerriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */; };
 		CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */; };
 		CFD7A78024C81A340082D9A3 /* FerryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7A77F24C81A340082D9A3 /* FerryCell.swift */; };
+		CFDAF407265A6308000E973A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDAF406265A6308000E973A /* CoreLocation.framework */; };
+		CFDAF408265A6312000E973A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDAF406265A6308000E973A /* CoreLocation.framework */; };
 		CFE1044C24CAB69B00AB1B80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */; };
 		CFEF2C1424CADCCE00DA70A4 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF2C1324CADCCE00DA70A4 /* Json.swift */; };
 		FD342830DA4812F7F903F66C /* Pods_FerryTimetable3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F085409AD139E84060EF67C8 /* Pods_FerryTimetable3.framework */; };
@@ -178,6 +180,7 @@
 		CFD7A77B24C814E20082D9A3 /* FerriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesViewController.swift; sourceTree = "<group>"; };
 		CFD7A77D24C81A1E0082D9A3 /* FerriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerriesTableViewCell.swift; sourceTree = "<group>"; };
 		CFD7A77F24C81A340082D9A3 /* FerryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryCell.swift; sourceTree = "<group>"; };
+		CFDAF406265A6308000E973A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CFEF2C1324CADCCE00DA70A4 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		E6698103004970AB6AC217F5 /* Pods_FerryTimetable3_FerryTimetable3UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FerryTimetable3_FerryTimetable3UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDAF408265A6312000E973A /* CoreLocation.framework in Frameworks */,
 				CF5A5ADC24CAFBE600DDF6BB /* SnapKit in Frameworks */,
 				CF0FF14124CAEE5300CB9676 /* NotificationCenter.framework in Frameworks */,
 				CF5A5ADA24CAFBE200DDF6BB /* Alamofire in Frameworks */,
@@ -200,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDAF407265A6308000E973A /* CoreLocation.framework in Frameworks */,
 				CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */,
 				CF716EC524C72A43007EA415 /* SnapKit in Frameworks */,
 				FD342830DA4812F7F903F66C /* Pods_FerryTimetable3.framework in Frameworks */,
@@ -243,6 +248,7 @@
 		CF0FF13F24CAEE5300CB9676 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFDAF406265A6308000E973A /* CoreLocation.framework */,
 				CF0FF14024CAEE5300CB9676 /* NotificationCenter.framework */,
 				651A9080258F8BFFA627DE18 /* Pods_Ferry_widget.framework */,
 				F085409AD139E84060EF67C8 /* Pods_FerryTimetable3.framework */,

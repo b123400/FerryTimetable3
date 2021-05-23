@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
     var id: String { rawValue }
@@ -108,6 +109,64 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
             strDict[key.rawValue] = value
         }
         return strDict
+    }
+}
+
+enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
+    var id: String { rawValue }
+
+    case cheungChau = "central-cheungchau"
+    case muiWo = "central-muiwo"
+    case pengChau = "central-pengchau"
+    case yungShueWan = "central-yungshuewan"
+    case sokKwuWan = "central-sokkwuwan"
+    case centralMaWan = "central-mawan"
+    case discoveryBay = "central-discoverybay"
+    case maWanTsuenWan = "mawan-tsuenwawn"
+    
+    func region() -> CLRegion {
+        switch self {
+        case .cheungChau:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.2096247, longitude: 114.0204817),
+                                    radius: CLLocationDistance(2000),
+                                    identifier: "cheungChau")
+        case .muiWo:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.2656168, longitude: 113.9850852),
+                                    radius: CLLocationDistance(2000),
+                                    identifier: "muiWo")
+        case .pengChau:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.285715, longitude: 114.039798),
+                                    radius: CLLocationDistance(1000),
+                                    identifier: "pengChau")
+        case .yungShueWan:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.205635, longitude: 114.124731),
+                                    radius: CLLocationDistance(3500),
+                                    identifier: "yungShueWan")
+        case .sokKwuWan:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.205635, longitude: 114.124731),
+                                    radius: CLLocationDistance(3500),
+                                    identifier: "sokKwuWan")
+        case .centralMaWan:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.349398, longitude: 114.059617),
+                                    radius: CLLocationDistance(1000),
+                                    identifier: "centralMaWan")
+        case .discoveryBay:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.291232, longitude: 114.014930),
+                                    radius: CLLocationDistance(3500),
+                                    identifier: "discoveryBay")
+        case .maWanTsuenWan:
+            return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.349398, longitude: 114.059617),
+                                    radius: CLLocationDistance(1000),
+                                    identifier: "maWanTsuenWan")
+        }
+    }
+    func regionIsPrimary() -> Bool {
+        switch self {
+        case .maWanTsuenWan:
+            return true
+        default:
+            return false
+        }
     }
 }
 

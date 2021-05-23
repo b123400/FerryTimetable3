@@ -17,7 +17,7 @@ extension Notification.Name {
     static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
 }
 
-class ModelManager {
+class ModelManager: ObservableObject {
     static let shared = ModelManager()
     private init() {}
     
@@ -167,6 +167,7 @@ class ModelManager {
                             let dataPath = self.rawsURL
                             try encoded.write(to: dataPath)
                             promise(.success(routes))
+                            self.objectWillChange.send()
                         } catch {
                             print(error.localizedDescription);
                             promise(.failure(error))
@@ -299,6 +300,29 @@ class ModelManager {
             return r.contentModificationDate
         } catch {
             return nil
+        }
+    }
+
+    var residentMode: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "residentMode")
+        }
+        set {
+            self.objectWillChange.send()
+            UserDefaults.standard.set(newValue, forKey: "residentMode")
+        }
+    }
+    var selectedResidence: Residence? {
+        get {
+            UserDefaults.standard.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
+        }
+        set {
+            self.objectWillChange.send()
+            if let v = newValue {
+                UserDefaults.standard.set(v.rawValue, forKey: "residence")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "residence")
+            }
         }
     }
 }

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class MasterViewController: UITableViewController {
     var objects = [MenuCell]()
     
     var showsTypeHint = true {
         didSet {
-            self.collectionView.reloadData()
+            self.tableView.reloadData()
             setupRightBarButtonItem()
         }
     }
@@ -24,7 +24,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     }
     var showsDetails = ModelManager.shared.showsRichMenu {
         didSet {
-            self.collectionView.reloadData()
+            self.tableView.reloadData()
             setupRightBarButtonItem()
         }
     }
@@ -36,9 +36,9 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
 
-        self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.collectionView.register(FerrySimpleCollectionViewCell.self, forCellWithReuseIdentifier: "simple-cell")
-        
+        self.tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(FerrySimpleTableViewCell.self, forCellReuseIdentifier: "simple-cell")
+
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.leftBarButtonItem = settingsButton
         setupRightBarButtonItem()
@@ -66,11 +66,6 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let layout = self.collectionViewLayout as? LeftAlignedCollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: self.view.frame.width - 24, height: 200)
-            layout.sectionInset.left = 12
-            layout.minimumInteritemSpacing = 30
-        }
     }
     
     func setupRightBarButtonItem() {
@@ -103,7 +98,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = collectionView.indexPathsForSelectedItems?.last {
+            if let indexPath = tableView.indexPathForSelectedRow {
                 let i = ModelManager.shared.islands[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.island = i
@@ -113,7 +108,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
 
     func prepareObjects() {
         self.objects = ModelManager.shared.islands.map(self.menuCellForIsland)
-        self.collectionView.reloadData()
+        self.tableView.reloadData()
     }
 
     func menuCellForIsland(island: Island) -> MenuCell {
@@ -126,12 +121,13 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
 
     // MARK: - Table View
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
+    override func numberOfSections(in tableView: UITableView) -> Int {
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            // type hints
             if self.needsToShowTypeHint {
                 return 3
             }
@@ -139,11 +135,11 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
         }
         return self.objects.count
     }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "simple-cell", for: indexPath)
-            if let c = cell as? FerrySimpleCollectionViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
+            if let c = cell as? FerrySimpleTableViewCell {
                 switch indexPath.row {
                 case 0:
                     c.label.text = NSLocalizedString("Green for ordinary ferry", comment: "")
@@ -164,34 +160,37 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
             return cell
         }
         if !showsDetails {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "simple-cell", for: indexPath)
-            if let c = cell as? FerrySimpleCollectionViewCell {
                 c.apply(model: self.objects[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
+            if let c = cell as? FerrySimpleTableViewCell {
             }
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        if let c = cell as? MenuCollectionViewCell {
             c.apply(model: self.objects[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if let c = cell as? MenuTableViewCell {
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if (needsToShowTypeHint && indexPath.section == 0) || !showsDetails {
-            return CGSize(width: self.view.frame.width - 24, height: 34)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section != 0 && showsDetails {
+            return 220
+        }
+        return UITableView.automaticDimension
+    }
         }
         return CGSize(width: self.view.frame.width - 24, height: 200)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             return
         }
         self.performSegue(withIdentifier: "showDetail", sender: self)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if needsToShowTypeHint && indexPath.section == 0 {
             return false
         }
@@ -200,9 +199,9 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     
     func showIsland(island: Island) {
         if let index = ModelManager.shared.islands.firstIndex(of: island) {
-            let indexPath =  IndexPath(row: index, section: 0)
-            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+            let indexPath =  IndexPath(row: index, section: 2)
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
+            self.tableView(self.tableView, didSelectRowAt: indexPath)
         }
     }
 }

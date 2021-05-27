@@ -168,6 +168,26 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
             return false
         }
     }
+    func toIsland() -> Island {
+        switch self {
+        case .cheungChau:
+            return .centralCheungChau
+        case .muiWo:
+            return .centralMuiWo
+        case .pengChau:
+            return .centralPengChau
+        case .yungShueWan:
+            return .centralYungShueWan
+        case .sokKwuWan:
+            return .centralSokKwuWan
+        case .centralMaWan:
+            return .centralMaWan
+        case .discoveryBay:
+            return .centralDiscoveryBay
+        case .maWanTsuenWan:
+            return .maWanTsuenWan
+        }
+    }
 }
 
 enum Direction: String, Codable {

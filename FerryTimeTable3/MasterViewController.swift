@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class MasterViewController: UITableViewController {
     var objects = [MenuCell]()
@@ -56,6 +57,12 @@ class MasterViewController: UITableViewController {
                                                queue: OperationQueue.main) { [weak self] (_) in
                                                 self?.prepareObjects()
         }
+        // TODO: make island update && timetable updated to use combine
+        ModelManager.shared.objectWillChange.receive(subscriber: Subscribers.Sink(receiveCompletion: { _ in
+            
+        }, receiveValue: { [weak self] _ in
+            self?.prepareObjects()
+        }))
         prepareObjects()
     }
 
@@ -121,8 +128,8 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Table View
 
-        return 2
     override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -132,6 +139,14 @@ class MasterViewController: UITableViewController {
                 return 3
             }
             return 0
+        }
+        if section == 1 {
+//            home route
+            if ModelManager.shared.residentModeReady {
+                return 1
+            } else {
+                return 0
+            }
         }
         return self.objects.count
     }
@@ -159,16 +174,22 @@ class MasterViewController: UITableViewController {
             }
             return cell
         }
+        let rowModel: MenuCell
+        if indexPath.section == 1 {
+            rowModel = (ModelManager.shared.selectedResidence?.toIsland()).map { self.menuCellForIsland(island: $0) } ?? self.objects[0]
+        } else {
+            rowModel = self.objects[indexPath.row]
+        }
         if !showsDetails {
-                c.apply(model: self.objects[indexPath.row])
             let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
             if let c = cell as? FerrySimpleTableViewCell {
+                c.apply(model: rowModel)
             }
             return cell
         }
-            c.apply(model: self.objects[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if let c = cell as? MenuTableViewCell {
+            c.apply(model: rowModel)
         }
         return cell
     }
@@ -179,8 +200,12 @@ class MasterViewController: UITableViewController {
         }
         return UITableView.automaticDimension
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return NSLocalizedString("Home", comment: "")
         }
-        return CGSize(width: self.view.frame.width - 24, height: 200)
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

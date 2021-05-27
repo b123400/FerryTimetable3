@@ -27,5 +27,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Show schedules for relevant route based on your location.</string>
 </dict>
 </plist>

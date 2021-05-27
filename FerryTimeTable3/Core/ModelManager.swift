@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import Alamofire
 import Combine
 
@@ -17,9 +18,13 @@ extension Notification.Name {
     static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
 }
 
-class ModelManager: ObservableObject {
+class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = ModelManager()
-    private init() {}
+    let locationManager = CLLocationManager()
+    private override init() {
+        super.init()
+        locationManager.delegate = self
+    }
     
     private var _islands: [Island]?
     var islands: [Island] {
@@ -308,6 +313,11 @@ class ModelManager: ObservableObject {
             UserDefaults.standard.bool(forKey: "residentMode")
         }
         set {
+            if newValue {
+                if CLLocationManager.authorizationStatus() == .notDetermined {
+                    locationManager.requestWhenInUseAuthorization()
+                }
+            }
             self.objectWillChange.send()
             UserDefaults.standard.set(newValue, forKey: "residentMode")
         }
@@ -323,6 +333,20 @@ class ModelManager: ObservableObject {
             } else {
                 UserDefaults.standard.removeObject(forKey: "residence")
             }
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.objectWillChange.send()
+    }
+    var hasLocationPermission: Bool {
+        get {
+            let status = CLLocationManager.authorizationStatus()
+            return status == .authorizedWhenInUse || status == .authorizedAlways
+        }
+    }
+    var residentModeReady: Bool {
+        get {
+            self.residentMode && self.selectedResidence != nil && hasLocationPermission
         }
     }
 }

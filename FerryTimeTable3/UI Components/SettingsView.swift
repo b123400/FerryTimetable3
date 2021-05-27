@@ -125,27 +125,30 @@ struct ResidentModeView: View {
     
     var body: some View {
         List {
-            Section(header: Text(NSLocalizedString("Resident mode", comment: "")), footer: Text(NSLocalizedString("If you frequently use a route, you may find Resident Mode useful. It shows you the most relative information based on your location.", comment: ""))) {
+            Section(header: Text(NSLocalizedString("Resident mode", comment: "")), footer: Text(NSLocalizedString("Resident mode shows you the most relative information based on your location.", comment: ""))) {
                 Toggle(isOn: .init(get: { modelManager.residentMode }, set: { modelManager.residentMode = $0 }), label: {
                     Text(NSLocalizedString("Enabled", comment: ""))
                 })
             }
             
             if modelManager.residentMode {
-                Section {
-                    HStack {
-                        Text(NSLocalizedString("Location Permission", comment: ""))
-                        Spacer()
-                        Image(systemName:"checkmark.circle.fill")
-                            .renderingMode(.original)
+                if modelManager.hasLocationPermission {
+                    Section {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"checkmark.circle.fill")
+                                .renderingMode(.original)
+                        }
                     }
-                }
-                Section(footer: Text(NSLocalizedString("Please enable Location in the Settings App to use Resident Mode", comment: ""))) {
-                    HStack {
-                        Text(NSLocalizedString("Location Permission", comment: ""))
-                        Spacer()
-                        Image(systemName:"xmark.circle.fill")
-                            .foregroundColor(.red)
+                } else {
+                    Section(footer: Text(NSLocalizedString("Please enable Location in the Settings App to use Resident Mode", comment: ""))) {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"xmark.circle.fill")
+                                .foregroundColor(.red)
+                        }
                     }
                 }
                 Section {

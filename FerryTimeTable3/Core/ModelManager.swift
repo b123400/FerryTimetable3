@@ -11,13 +11,6 @@ import CoreLocation
 import Alamofire
 import Combine
 
-extension Notification.Name {
-    static let islandsUpdated = Notification.Name("islandUpdated")
-    static let timetableUpdated = Notification.Name("timetableUpdated")
-    static let metadataUpdated = Notification.Name("metadataUpdated")
-    static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
-}
-
 class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = ModelManager()
     let locationManager = CLLocationManager()
@@ -49,8 +42,8 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
         set {
+            self.objectWillChange.send()
             _islands = newValue
-            NotificationCenter.default.post(Notification(name: .islandsUpdated))
             DispatchQueue.global().async {
                 do {
                     let j = JSONEncoder()
@@ -107,7 +100,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "showsRichMenu")
-            NotificationCenter.default.post(Notification(name: .showsRichMenuUpdated))
+            self.objectWillChange.send()
         }
     }
 
@@ -164,7 +157,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             .flatMap { routes in
                 Future { promise in
                     self._raws = routes
-                    NotificationCenter.default.post(Notification(name: .timetableUpdated))
+                    self.objectWillChange.send()
                     DispatchQueue.global().async {
                         do {
                             let encoder = JSONEncoder()
@@ -234,8 +227,8 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             .mapError({ $0 })
             .flatMap { metadatas in
                 Future { promise in
+                    self.objectWillChange.send()
                     self._metadata = metadatas
-                    NotificationCenter.default.post(Notification(name: .metadataUpdated))
                     DispatchQueue.global().async {
                         do {
                             let encoder = JSONEncoder()
@@ -318,8 +311,8 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     locationManager.requestWhenInUseAuthorization()
                 }
             }
-            self.objectWillChange.send()
             UserDefaults.standard.set(newValue, forKey: "residentMode")
+            self.objectWillChange.send()
         }
     }
     var selectedResidence: Residence? {
@@ -327,12 +320,21 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             UserDefaults.standard.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
         }
         set {
-            self.objectWillChange.send()
             if let v = newValue {
                 UserDefaults.standard.set(v.rawValue, forKey: "residence")
             } else {
                 UserDefaults.standard.removeObject(forKey: "residence")
             }
+            self.objectWillChange.send()
+        }
+    }
+    var autoShowResidence: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "autoShowResidence")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "autoShowResidence")
+            self.objectWillChange.send()
         }
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -348,6 +350,25 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         get {
             self.residentMode && self.selectedResidence != nil && hasLocationPermission
         }
+    }
+
+    func residenceDirectionWith(location: CLLocation) -> Direction? {
+        if let residence = self.selectedResidence {
+            if (residence.region.contains(location.coordinate)) {
+                if (residence.regionIsPrimary) {
+                    return .fromPrimary
+                } else {
+                    return .toPrimary
+                }
+            } else {
+                if (residence.regionIsPrimary) {
+                    return .toPrimary
+                } else {
+                    return .fromPrimary
+                }
+            }
+        }
+        return nil
     }
 }
 

@@ -8,10 +8,34 @@
 
 import UIKit
 import Combine
+import CoreLocation
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, CLLocationManagerDelegate {
     var objects = [MenuCell]()
-    
+    var residenceModel: ResidenceSchedulesView.Model? = nil
+    lazy var locationManager: CLLocationManager = {
+        let m = CLLocationManager()
+        m.delegate = self
+        return m
+    }()
+    var location: CLLocation? = nil {
+        didSet {
+            self.prepareObjects()
+            
+            if ModelManager.shared.autoShowResidence && oldValue == nil,
+               let model = self.residenceModel,
+               let detailNav = (self.splitViewController?.viewControllers.count ?? 0) > 1
+                ? (self.splitViewController?.viewControllers[1] as? UINavigationController)
+                : (self.navigationController?.topViewController as? UINavigationController),
+               let detail = detailNav.topViewController as? DetailViewController {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    detail.initialDirection = model.direction
+                    detail.scrollToDirection(direction: model.direction)
+                }
+            }
+        }
+    }
+
     var showsTypeHint = true {
         didSet {
             self.tableView.reloadData()
@@ -39,6 +63,7 @@ class MasterViewController: UITableViewController {
 
         self.tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.register(FerrySimpleTableViewCell.self, forCellReuseIdentifier: "simple-cell")
+        self.tableView.register(ResidenceTableViewCell.self, forCellReuseIdentifier: "residence-cell")
 
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.leftBarButtonItem = settingsButton
@@ -47,28 +72,33 @@ class MasterViewController: UITableViewController {
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
             self?.prepareObjects()
         }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.islandsUpdated,
-                                               object: nil,
-                                               queue: OperationQueue.main) { [weak self] (_) in
-                                                self?.prepareObjects()
-        }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.timetableUpdated,
-                                               object: nil,
-                                               queue: OperationQueue.main) { [weak self] (_) in
-                                                self?.prepareObjects()
-        }
-        // TODO: make island update && timetable updated to use combine
         ModelManager.shared.objectWillChange.receive(subscriber: Subscribers.Sink(receiveCompletion: { _ in
             
         }, receiveValue: { [weak self] _ in
-            self?.prepareObjects()
+            DispatchQueue.main.async {
+                self?.prepareObjects()
+                if ModelManager.shared.residentModeReady && self?.location == nil {
+                    _ = self?.tryFetchUserLocation()
+                }
+            }
         }))
         prepareObjects()
+        
+        if ModelManager.shared.residentModeReady && (!(self.splitViewController?.isCollapsed ?? true) || ModelManager.shared.autoShowResidence) {
+            if let r = ModelManager.shared.selectedResidence {
+                showIsland(island: r.island)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        _ = tryFetchUserLocation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,16 +135,38 @@ class MasterViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             if let indexPath = tableView.indexPathForSelectedRow {
-                let i = ModelManager.shared.islands[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.island = i
+                if indexPath.section == 1,
+                   let i = ModelManager.shared.selectedResidence?.island {
+                    controller.island = i
+                    if let m = self.residenceModel {
+                        controller.initialDirection = m.direction
+                    }
+                } else {
+                    let i = ModelManager.shared.islands[indexPath.row]
+                    controller.island = i
+                }
             }
         }
     }
 
     func prepareObjects() {
         self.objects = ModelManager.shared.islands.map(self.menuCellForIsland)
+        if let l = location,
+           let island = ModelManager.shared.selectedResidence?.island,
+           let d = ModelManager.shared.residenceDirectionWith(location: l) {
+            let raws = ModelManager.shared.getRaws()
+            let schedule = Schedule(raws: raws)
+            let ferries = schedule.upcomingFerries(island: island, direction: d, count: 4)
+            residenceModel = ResidenceSchedulesView.Model(
+                        island: island,
+                        direction: d,
+                        ferries: ferries
+            )
+        } else {
+            residenceModel = nil
+        }
         self.tableView.reloadData()
     }
 
@@ -174,12 +226,18 @@ class MasterViewController: UITableViewController {
             }
             return cell
         }
-        let rowModel: MenuCell
+        
         if indexPath.section == 1 {
-            rowModel = (ModelManager.shared.selectedResidence?.toIsland()).map { self.menuCellForIsland(island: $0) } ?? self.objects[0]
-        } else {
-            rowModel = self.objects[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "residence-cell", for: indexPath)
+            if let c = cell as? ResidenceTableViewCell {
+                if let model = residenceModel {
+                    c.apply(model: model)
+                }
+                return c
+            }
         }
+
+        let rowModel = self.objects[indexPath.row]
         if !showsDetails {
             let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
             if let c = cell as? FerrySimpleTableViewCell {
@@ -202,7 +260,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
+        if section == 1 && ModelManager.shared.residentModeReady {
             return NSLocalizedString("Home", comment: "")
         }
         return nil
@@ -224,10 +282,29 @@ class MasterViewController: UITableViewController {
     
     func showIsland(island: Island) {
         if let index = ModelManager.shared.islands.firstIndex(of: island) {
-            let indexPath =  IndexPath(row: index, section: 2)
+            let indexPath =
+                ModelManager.shared.residentModeReady && ModelManager.shared.selectedResidence?.island == island
+                ? IndexPath(row: 0, section: 1)
+                : IndexPath(row: index, section: 2)
             self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
             self.tableView(self.tableView, didSelectRowAt: indexPath)
         }
+    }
+    
+    func tryFetchUserLocation() -> Bool {
+        if ModelManager.shared.residentModeReady {
+            locationManager.requestLocation()
+            return true
+        }
+        return false
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.location = locations.first
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Cannot get location \(error)")
     }
 }
 

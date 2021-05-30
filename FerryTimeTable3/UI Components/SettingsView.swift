@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct SettingsNav: View {
     var body: some View {
@@ -37,16 +38,28 @@ struct SettingsView: View {
             Section(footer: Text(String(format: NSLocalizedString("Last updated: %@", comment: ""), lastUpdateString))) {
                 Button(action: {
                     self.updating = true
-                    _ = ModelManager.shared.saveRaws()
-                        .sink(receiveCompletion: { _ in
-                            self.updating = false
-                        }, receiveValue: { _ in })
+                    Publishers.CombineLatest3(
+                        ModelManager.shared.saveHolidays().mapError { $0 as Error },
+                        ModelManager.shared.saveMetadatas(),
+                        ModelManager.shared.saveRaws()
+                    ).receive(subscriber: Subscribers.Sink(receiveCompletion: { completion in
+                        self.updating = false
+                    }, receiveValue: { _ in
+                        
+                    }))
                 }) {
-                    Text(
-                        self.updating
-                            ? NSLocalizedString("Loading", comment: "")
-                            : NSLocalizedString("Update timetable data", comment: "")
-                    )
+                    HStack {
+                        if #available(iOS 14.0, *) {
+                            if self.updating {
+                                ProgressView()
+                            }
+                        }
+                        Text(
+                            self.updating
+                                ? NSLocalizedString("Loading", comment: "")
+                                : NSLocalizedString("Update timetable data", comment: "")
+                        )
+                    }
                 }
                 .disabled(self.updating)
             }
@@ -157,10 +170,17 @@ struct ResidentModeView: View {
                         Spacer()
                         let residence = ModelManager.shared.selectedResidence
                         if let r = residence {
-                            Text(r.rawValue).foregroundColor(.secondary)
+                            Text(r.name).foregroundColor(.secondary)
                         } else {
                             Text(NSLocalizedString("None", comment: "")).foregroundColor(.secondary)
                         }
+                    }
+                }
+                if UIDevice.current.userInterfaceIdiom != .pad {
+                    Section {
+                        Toggle(isOn: .init(get: { modelManager.autoShowResidence }, set: { modelManager.autoShowResidence = $0 }), label: {
+                            Text(NSLocalizedString("Auto show home route", comment: ""))
+                        })
                     }
                 }
             }
@@ -185,7 +205,7 @@ struct ResidenceSelectionView: View {
                 self._selectedPlace = place
             }) {
                 HStack {
-                    Text(place.rawValue)
+                    Text(place.name)
                         .foregroundColor(Color(UIColor.label))
                     Spacer()
                     if place == self.selectedPlace() {

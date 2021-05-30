@@ -23,16 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .allVisible
         
-        _ = Publishers.CombineLatest3(
+        Publishers.CombineLatest3(
             ModelManager.shared.saveHolidays().mapError { $0 as Error },
             ModelManager.shared.saveMetadatas(),
             ModelManager.shared.saveRaws()
-        )
-        .sink { completion in
+        ).receive(subscriber: Subscribers.Sink(receiveCompletion: { completion in
             print("Saving done \(completion)")
-        } receiveValue: { (holidays, metadatas, routes) in
+        }, receiveValue: { _ in
             
-        }
+        }))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

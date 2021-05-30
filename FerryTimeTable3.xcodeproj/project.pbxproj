@@ -33,6 +33,8 @@
 		CF716EC524C72A43007EA415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF716EC424C72A43007EA415 /* SnapKit */; };
 		CF73374C253C3D160039A709 /* FerryTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */; };
 		CF8CABCD24ACFD4700E7FCB4 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */; };
+		CF9A58B02663BA67003FDFFA /* ResidenceSchedulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A58AF2663BA67003FDFFA /* ResidenceSchedulesView.swift */; };
+		CF9A58B22663C0DA003FDFFA /* ResidenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A58B12663C0DA003FDFFA /* ResidenceTableViewCell.swift */; };
 		CF9C10F024AE58F8001D13EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C10EF24AE58F8001D13EC /* Alamofire */; };
 		CFA0543D256AD89400351CE3 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA0543C256AD89400351CE3 /* Metadata.swift */; };
 		CFA0543E256AD89400351CE3 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA0543C256AD89400351CE3 /* Metadata.swift */; };
@@ -137,6 +139,8 @@
 		CF6B6EEC24AF1A9600C18FD2 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CF73374B253C3D160039A709 /* FerryTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerryTypeTableViewCell.swift; sourceTree = "<group>"; };
 		CF8CABCC24ACFD4700E7FCB4 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		CF9A58AF2663BA67003FDFFA /* ResidenceSchedulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidenceSchedulesView.swift; sourceTree = "<group>"; };
+		CF9A58B12663C0DA003FDFFA /* ResidenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidenceTableViewCell.swift; sourceTree = "<group>"; };
 		CFA0543C256AD89400351CE3 /* Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
 		CFA05443256B7EE800351CE3 /* MetadataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataViewController.swift; sourceTree = "<group>"; };
 		CFA05449256B90CF00351CE3 /* metadatas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadatas.json; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 				CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */,
 				CF5A5AE224CB757300DDF6BB /* CurrentScheduleView.swift */,
 				CFA05453256BA96E00351CE3 /* FareTableViewCell.swift */,
+				CF9A58AF2663BA67003FDFFA /* ResidenceSchedulesView.swift */,
+				CF9A58B12663C0DA003FDFFA /* ResidenceTableViewCell.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 				CFE1044C24CAB69B00AB1B80 /* SettingsView.swift in Sources */,
 				CFB5805324AB7AE000DC3C63 /* SceneDelegate.swift in Sources */,
 				CF73374C253C3D160039A709 /* FerryTypeTableViewCell.swift in Sources */,
+				CF9A58B02663BA67003FDFFA /* ResidenceSchedulesView.swift in Sources */,
 				CFD7A77E24C81A1E0082D9A3 /* FerriesTableViewCell.swift in Sources */,
 				CF547F8524C33C46007DCF39 /* Schedule.swift in Sources */,
 				CFCC219624C97F080007ECA5 /* DirectionSwitchingView.swift in Sources */,
@@ -745,6 +752,7 @@
 				CF547F8824C359A0007DCF39 /* MenuCell.swift in Sources */,
 				CF6B6EED24AF1A9600C18FD2 /* Timetable.swift in Sources */,
 				CFB5805724AB7AE000DC3C63 /* DetailViewController.swift in Sources */,
+				CF9A58B22663C0DA003FDFFA /* ResidenceTableViewCell.swift in Sources */,
 				CFEF2C1424CADCCE00DA70A4 /* Json.swift in Sources */,
 				CFB5808324AB884F00DC3C63 /* MenuTableViewCell.swift in Sources */,
 				CFCC219224C83D370007ECA5 /* DatedFerriesTableViewController.swift in Sources */,

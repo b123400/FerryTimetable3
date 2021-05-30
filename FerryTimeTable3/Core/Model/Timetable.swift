@@ -93,6 +93,15 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
         }
     }
     
+    func nameForDirection(direction: Direction) -> String {
+        switch direction {
+        case .fromPrimary:
+            return self.primaryName + "→" + self.secondaryName
+        case .toPrimary:
+            return self.primaryName + "←" + self.secondaryName
+        }
+    }
+    
     static func toKeyedDict<T>(strDict: [String: T]) -> [Island: T] {
         var dict: [Island: T] = [:]
         for (key, value) in strDict {
@@ -124,7 +133,7 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
     case discoveryBay = "central-discoverybay"
     case maWanTsuenWan = "mawan-tsuenwawn"
     
-    func region() -> CLRegion {
+    var region: CLCircularRegion {
         switch self {
         case .cheungChau:
             return CLCircularRegion(center: CLLocationCoordinate2D(latitude: 22.2096247, longitude: 114.0204817),
@@ -160,7 +169,7 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
                                     identifier: "maWanTsuenWan")
         }
     }
-    func regionIsPrimary() -> Bool {
+    var regionIsPrimary: Bool {
         switch self {
         case .maWanTsuenWan:
             return true
@@ -168,7 +177,7 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
             return false
         }
     }
-    func toIsland() -> Island {
+    var island: Island {
         switch self {
         case .cheungChau:
             return .centralCheungChau
@@ -186,6 +195,15 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
             return .centralDiscoveryBay
         case .maWanTsuenWan:
             return .maWanTsuenWan
+        }
+    }
+    var name: String {
+        switch self {
+        case .maWanTsuenWan: fallthrough
+        case .centralMaWan:
+            return self.island.fullName
+        default:
+            return self.island.secondaryName
         }
     }
 }
@@ -369,6 +387,9 @@ extension Date: RenderTime {
         let cal = Calendar(identifier: .gregorian)
         let components = cal.dateComponents(in: TimeZone(identifier: "Asia/Hong_Kong")!, from: self)
         return String(format: "%02d", components.minute ?? 0)
+    }
+    var timeString: String {
+        "\(self.hourString):\(self.minuteString)"
     }
     func getTimeIntervalSince(_ date: Date) -> TimeInterval? {
         self.timeIntervalSince(date)

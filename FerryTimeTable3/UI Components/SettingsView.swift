@@ -49,16 +49,17 @@ struct SettingsView: View {
                     }))
                 }) {
                     HStack {
-                        if #available(iOS 14.0, *) {
-                            if self.updating {
-                                ProgressView()
-                            }
-                        }
                         Text(
                             self.updating
                                 ? NSLocalizedString("Loading", comment: "")
                                 : NSLocalizedString("Update timetable data", comment: "")
                         )
+                        if #available(iOS 14.0, *) {
+                            if self.updating {
+                                Spacer()
+                                ProgressView()
+                            }
+                        }
                     }
                 }
                 .disabled(self.updating)

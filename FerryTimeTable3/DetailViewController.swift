@@ -35,6 +35,7 @@ class DetailViewController:
         v.showsHorizontalScrollIndicator = false
         v.clipsToBounds = false
         v.delegate = self
+        v.contentInsetAdjustmentBehavior = .never
         return v
     }()
 

@@ -20,16 +20,19 @@ struct SettingsNav: View {
 
 struct SettingsView: View {
     @State var updating = false
+    @ObservedObject private var modelManager: ModelManager = ModelManager.shared
 
     var body: some View {
         List {
             NavigationLink(destination: ReorderFerryView()) {
                 Text(NSLocalizedString("Reorder routes", comment: ""))
             }
-            NavigationLink(destination: WidgetRouteSelectionView()) {
-                Text(NSLocalizedString("Widget", comment: ""))
-                Spacer()
-                Text(getWidgetIsland().fullName).foregroundColor(.secondary)
+            if !modelManager.residentModeReady {
+                NavigationLink(destination: WidgetRouteSelectionView()) {
+                    Text(NSLocalizedString("Widget", comment: ""))
+                    Spacer()
+                    Text(getWidgetIsland().fullName).foregroundColor(.secondary)
+                }
             }
             NavigationLink(destination: ResidentModeView()) {
                 Text(NSLocalizedString("Resident Mode", comment: ""))

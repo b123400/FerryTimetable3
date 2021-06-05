@@ -256,6 +256,9 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
         if indexPath.section != 0 && showsDetails {
             return 220
         }
+        if indexPath.section == 1 {
+            return 220
+        }
         return UITableView.automaticDimension
     }
     

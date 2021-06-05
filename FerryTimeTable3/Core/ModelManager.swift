@@ -94,17 +94,28 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    var sharedUserDefaults: UserDefaults {
+        get {
+            UserDefaults(suiteName: "group.net.b123400.ferriestimetable")!
+        }
+    }
+    
     var showsRichMenu: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "showsRichMenu")
+            sharedUserDefaults.bool(forKey: "showsRichMenu")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "showsRichMenu")
+            sharedUserDefaults.set(newValue, forKey: "showsRichMenu")
             self.objectWillChange.send()
         }
     }
 
     var documentURL: URL {
+        let fileManager = FileManager.default
+        let url = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.net.b123400.ferriestimetable")
+        if let u = url {
+            return u
+        }
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let docURL = URL(fileURLWithPath: documentsDirectory)
@@ -303,7 +314,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     var residentMode: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "residentMode")
+            sharedUserDefaults.bool(forKey: "residentMode")
         }
         set {
             if newValue {
@@ -311,29 +322,29 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     locationManager.requestWhenInUseAuthorization()
                 }
             }
-            UserDefaults.standard.set(newValue, forKey: "residentMode")
+            sharedUserDefaults.set(newValue, forKey: "residentMode")
             self.objectWillChange.send()
         }
     }
     var selectedResidence: Residence? {
         get {
-            UserDefaults.standard.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
+            sharedUserDefaults.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
         }
         set {
             if let v = newValue {
-                UserDefaults.standard.set(v.rawValue, forKey: "residence")
+                sharedUserDefaults.set(v.rawValue, forKey: "residence")
             } else {
-                UserDefaults.standard.removeObject(forKey: "residence")
+                sharedUserDefaults.removeObject(forKey: "residence")
             }
             self.objectWillChange.send()
         }
     }
     var autoShowResidence: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "autoShowResidence")
+            sharedUserDefaults.bool(forKey: "autoShowResidence")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "autoShowResidence")
+            sharedUserDefaults.set(newValue, forKey: "autoShowResidence")
             self.objectWillChange.send()
         }
     }

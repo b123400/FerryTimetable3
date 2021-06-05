@@ -71,6 +71,7 @@
 		CFDAF408265A6312000E973A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDAF406265A6308000E973A /* CoreLocation.framework */; };
 		CFE1044C24CAB69B00AB1B80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE1044B24CAB69B00AB1B80 /* SettingsView.swift */; };
 		CFEF2C1424CADCCE00DA70A4 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF2C1324CADCCE00DA70A4 /* Json.swift */; };
+		CFF0A8D0266B9304002AC7FE /* ResidenceSchedulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9A58AF2663BA67003FDFFA /* ResidenceSchedulesView.swift */; };
 		FD342830DA4812F7F903F66C /* Pods_FerryTimetable3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F085409AD139E84060EF67C8 /* Pods_FerryTimetable3.framework */; };
 /* End PBXBuildFile section */
 
@@ -721,6 +722,7 @@
 				CF5A5AD424CAFA2500DDF6BB /* MenuCell.swift in Sources */,
 				CF5A5AD724CAFA8900DDF6BB /* Timetable.swift in Sources */,
 				CF5A5AE424CB757300DDF6BB /* CurrentScheduleView.swift in Sources */,
+				CFF0A8D0266B9304002AC7FE /* ResidenceSchedulesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

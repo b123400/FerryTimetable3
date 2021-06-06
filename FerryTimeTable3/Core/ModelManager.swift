@@ -106,6 +106,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         set {
             sharedUserDefaults.set(newValue, forKey: "showsRichMenu")
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }
     }
@@ -312,6 +313,17 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
+    var widgetIsland: Island? {
+        get {
+            sharedUserDefaults.string(forKey: "widgetIsland").flatMap { Island(rawValue: $0) }
+        }
+        set {
+            sharedUserDefaults.set(newValue?.rawValue, forKey: "widgetIsland")
+            sharedUserDefaults.synchronize()
+            self.objectWillChange.send()
+        }
+    }
+
     var residentMode: Bool {
         get {
             sharedUserDefaults.bool(forKey: "residentMode")
@@ -323,6 +335,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
             }
             sharedUserDefaults.set(newValue, forKey: "residentMode")
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }
     }
@@ -336,6 +349,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             } else {
                 sharedUserDefaults.removeObject(forKey: "residence")
             }
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }
     }
@@ -345,6 +359,7 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         set {
             sharedUserDefaults.set(newValue, forKey: "autoShowResidence")
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }
     }

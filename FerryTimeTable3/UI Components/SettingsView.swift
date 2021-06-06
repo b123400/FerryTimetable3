@@ -116,9 +116,7 @@ struct WidgetRouteSelectionView: View {
     var body: some View {
         List(islands) { island in
             Button(action: {
-                let userDefaults = sharedUserDefaults()
-                userDefaults?.setValue(island.rawValue, forKey: "widget-island")
-                userDefaults?.synchronize()
+                ModelManager.shared.widgetIsland = island
                 self._selectedIsland = island
             }) {
                 HStack {
@@ -257,10 +255,6 @@ struct ResidentModeView_Previews: PreviewProvider {
     }
 }
 
-func sharedUserDefaults()-> UserDefaults? {
-    return UserDefaults(suiteName: "group.net.b123400.ferriestimetable")
-}
-
 func getWidgetIsland() -> Island {
-    return sharedUserDefaults()?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+    return ModelManager.shared.widgetIsland ?? .centralCheungChau
 }

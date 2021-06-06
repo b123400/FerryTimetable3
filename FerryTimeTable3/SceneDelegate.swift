@@ -65,8 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let urlContext = URLContexts.first {
             if urlContext.url.host == "widget" {
-                let shared = sharedUserDefaults()
-                let island = shared?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+                let island = ModelManager.shared.widgetIsland ?? .centralCheungChau
                 
                 if let root = window?.rootViewController as? UISplitViewController,
                     let nav = root.viewControllers.last as? UINavigationController {

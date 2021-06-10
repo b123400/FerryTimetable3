@@ -24,18 +24,49 @@ struct SettingsView: View {
 
     var body: some View {
         List {
-            NavigationLink(destination: ReorderFerryView()) {
-                Text(NSLocalizedString("Reorder routes", comment: ""))
-            }
-            if !modelManager.residentModeReady {
-                NavigationLink(destination: WidgetRouteSelectionView()) {
-                    Text(NSLocalizedString("Widget", comment: ""))
-                    Spacer()
-                    Text(getWidgetIsland().fullName).foregroundColor(.secondary)
+            Section {
+                NavigationLink(destination: ReorderFerryView()) {
+                    Text(NSLocalizedString("Reorder routes", comment: ""))
                 }
             }
-            NavigationLink(destination: ResidentModeView()) {
-                Text(NSLocalizedString("Resident Mode", comment: ""))
+            
+            Section(footer: !modelManager.hasLocationPermission ? Text(NSLocalizedString("With location permission, this app can show you more relevant informations", comment: "")) : Text("")) {
+                NavigationLink(destination: HomeRouteSelectionView()) {
+                    Text(NSLocalizedString("Home Route", comment: ""))
+                    Spacer().layoutPriority(0)
+                    if let i = modelManager.homeRoute {
+                        Text(i.fullName).foregroundColor(.secondary).layoutPriority(5)
+                    } else {
+                        Text(NSLocalizedString("None", comment: "")).foregroundColor(.secondary)
+                    }
+                }
+                
+                if modelManager.selectedResidence != nil {
+                    if !modelManager.hasLocationPermissionDetermined {
+                        Button(action: { modelManager.requestLocationPermission() }, label: {
+                            Text(NSLocalizedString("Grant location permission", comment: ""))
+                        })
+                    } else if modelManager.hasLocationPermission {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"checkmark.circle.fill")
+                                .renderingMode(.original)
+                        }
+                    } else {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"xmark.circle.fill")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Toggle(isOn: .init(get: { modelManager.autoShowResidence }, set: { modelManager.autoShowResidence = $0 }), label: {
+                            Text(NSLocalizedString("Auto show home route", comment: ""))
+                        })
+                    }
+                }
             }
             
             Section(footer: Text(String(format: NSLocalizedString("Last updated: %@", comment: ""), lastUpdateString))) {
@@ -105,119 +136,47 @@ struct ReorderFerryView: View {
     }
 }
 
-struct WidgetRouteSelectionView: View {
+struct HomeRouteSelectionView: View {
     @State var islands = ModelManager.shared.islands
     
     @State var _selectedIsland: Island?
-    func selectedIsland() -> Island {
-        self._selectedIsland ?? getWidgetIsland()
+    func selectedIsland() -> Island? {
+        self._selectedIsland ?? ModelManager.shared.homeRoute
     }
-    
-    var body: some View {
-        List(islands) { island in
-            Button(action: {
-                ModelManager.shared.widgetIsland = island
-                self._selectedIsland = island
-            }) {
-                HStack {
-                    Text(island.fullName)
-                        .foregroundColor(Color(UIColor.label))
-                    Spacer()
-                    if island == self.selectedIsland() {
-                        Image(systemName: "checkmark")
-                    }
-                }
-            }
-        }
-        .listStyle(GroupedListStyle())
-        .navigationBarTitle(NSLocalizedString("Widget", comment: ""))
-    }
-}
-
-struct ResidentModeView: View {
-    @State private var enabled = false
-    @ObservedObject private var modelManager: ModelManager = ModelManager.shared
     
     var body: some View {
         List {
-            Section(header: Text(NSLocalizedString("Resident mode", comment: "")), footer: Text(NSLocalizedString("Resident mode shows you the most relative information based on your location.", comment: ""))) {
-                Toggle(isOn: .init(get: { modelManager.residentMode }, set: { modelManager.residentMode = $0 }), label: {
-                    Text(NSLocalizedString("Enabled", comment: ""))
-                })
-            }
-            
-            if modelManager.residentMode {
-                if modelManager.hasLocationPermission {
-                    Section {
-                        HStack {
-                            Text(NSLocalizedString("Location Permission", comment: ""))
-                            Spacer()
-                            Image(systemName:"checkmark.circle.fill")
-                                .renderingMode(.original)
-                        }
-                    }
-                } else {
-                    Section(footer: Text(NSLocalizedString("Please enable Location in the Settings App to use Resident Mode", comment: ""))) {
-                        HStack {
-                            Text(NSLocalizedString("Location Permission", comment: ""))
-                            Spacer()
-                            Image(systemName:"xmark.circle.fill")
-                                .foregroundColor(.red)
-                        }
-                    }
-                }
-                Section {
-                    NavigationLink(destination: ResidenceSelectionView()) {
-                        Text(NSLocalizedString("Home", comment: ""))
-                        Spacer()
-                        let residence = ModelManager.shared.selectedResidence
-                        if let r = residence {
-                            Text(r.name).foregroundColor(.secondary)
-                        } else {
-                            Text(NSLocalizedString("None", comment: "")).foregroundColor(.secondary)
-                        }
-                    }
-                }
-                if UIDevice.current.userInterfaceIdiom != .pad {
-                    Section {
-                        Toggle(isOn: .init(get: { modelManager.autoShowResidence }, set: { modelManager.autoShowResidence = $0 }), label: {
-                            Text(NSLocalizedString("Auto show home route", comment: ""))
-                        })
-                    }
-                }
-            }
-        }
-        .listStyle(GroupedListStyle())
-        .animation(.easeInOut)
-        .navigationBarTitle(NSLocalizedString("Resident Mode", comment: ""))
-    }
-}
-
-struct ResidenceSelectionView: View {
-    @ObservedObject private var modelManager: ModelManager = ModelManager.shared
-    @State var _selectedPlace: Residence?
-    func selectedPlace() -> Residence? {
-        self._selectedPlace ?? ModelManager.shared.selectedResidence
-    }
-    
-    var body: some View {
-        List(Residence.allCases) { place in
             Button(action: {
-                modelManager.selectedResidence = place
-                self._selectedPlace = place
+                ModelManager.shared.homeRoute = nil
+                self._selectedIsland = nil
             }) {
                 HStack {
-                    Text(place.name)
+                    Text(NSLocalizedString("None", comment: ""))
                         .foregroundColor(Color(UIColor.label))
                     Spacer()
-                    if place == self.selectedPlace() {
+                    if ModelManager.shared.homeRoute == nil {
                         Image(systemName: "checkmark")
                     }
                 }
             }
+            ForEach(islands) { island in
+                Button(action: {
+                    ModelManager.shared.homeRoute = island
+                    self._selectedIsland = island
+                }) {
+                    HStack {
+                        Text(island.fullName)
+                            .foregroundColor(Color(UIColor.label))
+                        Spacer()
+                        if island == self.selectedIsland() {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                }
+            }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle(NSLocalizedString("Resident Mode", comment: ""))
+        .navigationBarTitle(NSLocalizedString("Home Route", comment: ""))
     }
 }
 
@@ -247,14 +206,4 @@ struct Reorder_Previews: PreviewProvider {
     static var previews: some View {
         ReorderFerryView()
     }
-}
-
-struct ResidentModeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResidentModeView()
-    }
-}
-
-func getWidgetIsland() -> Island {
-    return ModelManager.shared.widgetIsland ?? .centralCheungChau
 }

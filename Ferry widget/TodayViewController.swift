@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     }()
     
     lazy var residentScheduleView = {
-        ResidenceSchedulesView(frame: .zero)
+        WidgetResidenceSchedulesView(frame: .zero)
     }()
     var location: CLLocation? = nil {
         didSet {
@@ -48,8 +48,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     }
     
     func reload() {
-        let island = UserDefaults(suiteName: "group.net.b123400.ferriestimetable")?.string(forKey: "widget-island")
-            .flatMap { Island.init(rawValue:$0) } ?? Island.centralCheungChau
+        let island = ModelManager.shared.homeRoute ?? .centralCheungChau
         let schedule = Schedule(raws: ModelManager.shared.getRaws())
         
         if ModelManager.shared.residentModeReady, let l = location, let direction = ModelManager.shared.residenceDirectionWith(location: l) {
@@ -59,7 +58,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                 self.scheduleView.removeFromSuperview()
             }
             let ferries = schedule.upcomingFerries(island: island, direction: direction, count: 4)
-            residentScheduleView.apply(model: ResidenceSchedulesView.Model(
+            residentScheduleView.apply(model: WidgetResidenceSchedulesView.Model(
                 island: island,
                 direction: direction,
                 ferries: ferries

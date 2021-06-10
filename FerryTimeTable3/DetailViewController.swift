@@ -8,6 +8,7 @@
 
 import UIKit
 import PDTSimpleCalendar
+import Combine
 
 class DetailViewController:
     UIViewController,
@@ -24,6 +25,7 @@ class DetailViewController:
     
     var fromVC: DatedFerriesTableViewController?
     var toVC: DatedFerriesTableViewController?
+    var initialDirection: Direction?
     
     lazy var titleView = DirectionSwitchingView()
     
@@ -33,6 +35,7 @@ class DetailViewController:
         v.showsHorizontalScrollIndicator = false
         v.clipsToBounds = false
         v.delegate = self
+        v.contentInsetAdjustmentBehavior = .never
         return v
     }()
 
@@ -115,10 +118,14 @@ class DetailViewController:
         }
         
         configureView()
-        
-        NotificationCenter.default.addObserver(forName: .showsRichMenuUpdated, object: nil, queue: .main) { [weak self] (notification) in
-            self?.updateChildrenShowsTypeHint()
-        }
+
+        ModelManager.shared.objectWillChange.receive(subscriber: Subscribers.Sink(receiveCompletion: { _ in
+            
+        }, receiveValue: { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.updateChildrenShowsTypeHint()
+            }
+        }))
     }
     
     override func viewDidLayoutSubviews() {
@@ -135,9 +142,28 @@ class DetailViewController:
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let d = initialDirection {
+            scrollToDirection(direction: d)
+            initialDirection = nil
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.width)
         self.titleView.progress = index
+    }
+    
+    func scrollToDirection(direction: Direction) {
+        switch direction {
+        case .fromPrimary:
+            scrollView.setContentOffset(CGPoint.zero, animated: true)
+            self.titleView.progress = 0
+        case .toPrimary:
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: true)
+            self.titleView.progress = 1
+        }
     }
     
     @objc func showDatePicker() {

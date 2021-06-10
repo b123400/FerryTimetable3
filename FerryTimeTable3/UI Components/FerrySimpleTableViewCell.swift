@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FerrySimpleCollectionViewCell: UICollectionViewCell {
+class FerrySimpleTableViewCell: UITableViewCell {
     var label: UILabel = {
         let l = UILabel()
         return l
@@ -21,10 +21,9 @@ class FerrySimpleCollectionViewCell: UICollectionViewCell {
     }()
     
     var canSelect = false
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(label)
         self.contentView.addSubview(colorView)
         

@@ -7,19 +7,18 @@
 //
 
 import Foundation
+import UIKit
+import CoreLocation
 import Alamofire
 import Combine
 
-extension Notification.Name {
-    static let islandsUpdated = Notification.Name("islandUpdated")
-    static let timetableUpdated = Notification.Name("timetableUpdated")
-    static let metadataUpdated = Notification.Name("metadataUpdated")
-    static let showsRichMenuUpdated = Notification.Name("showsRichMenuUpdated")
-}
-
-class ModelManager: ObservableObject {
+class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = ModelManager()
-    private init() {}
+    let locationManager = CLLocationManager()
+    private override init() {
+        super.init()
+        locationManager.delegate = self
+    }
     
     private var _islands: [Island]?
     var islands: [Island] {
@@ -44,8 +43,8 @@ class ModelManager: ObservableObject {
             }
         }
         set {
+            self.objectWillChange.send()
             _islands = newValue
-            NotificationCenter.default.post(Notification(name: .islandsUpdated))
             DispatchQueue.global().async {
                 do {
                     let j = JSONEncoder()
@@ -96,17 +95,29 @@ class ModelManager: ObservableObject {
         }
     }
     
+    var sharedUserDefaults: UserDefaults {
+        get {
+            UserDefaults(suiteName: "group.net.b123400.ferriestimetable")!
+        }
+    }
+    
     var showsRichMenu: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "showsRichMenu")
+            sharedUserDefaults.bool(forKey: "showsRichMenu")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "showsRichMenu")
-            NotificationCenter.default.post(Notification(name: .showsRichMenuUpdated))
+            sharedUserDefaults.set(newValue, forKey: "showsRichMenu")
+            sharedUserDefaults.synchronize()
+            self.objectWillChange.send()
         }
     }
 
     var documentURL: URL {
+        let fileManager = FileManager.default
+        let url = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.net.b123400.ferriestimetable")
+        if let u = url {
+            return u
+        }
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let docURL = URL(fileURLWithPath: documentsDirectory)
@@ -159,7 +170,7 @@ class ModelManager: ObservableObject {
             .flatMap { routes in
                 Future { promise in
                     self._raws = routes
-                    NotificationCenter.default.post(Notification(name: .timetableUpdated))
+                    self.objectWillChange.send()
                     DispatchQueue.global().async {
                         do {
                             let encoder = JSONEncoder()
@@ -229,8 +240,8 @@ class ModelManager: ObservableObject {
             .mapError({ $0 })
             .flatMap { metadatas in
                 Future { promise in
+                    self.objectWillChange.send()
                     self._metadata = metadatas
-                    NotificationCenter.default.post(Notification(name: .metadataUpdated))
                     DispatchQueue.global().async {
                         do {
                             let encoder = JSONEncoder()
@@ -303,27 +314,81 @@ class ModelManager: ObservableObject {
         }
     }
 
-    var residentMode: Bool {
+    var homeRoute: Island? {
         get {
-            UserDefaults.standard.bool(forKey: "residentMode")
+            if let s = sharedUserDefaults.string(forKey: "widgetIsland") {
+                sharedUserDefaults.set(s, forKey: "homeRoute")
+                sharedUserDefaults.removeObject(forKey: "widgetIsland")
+                sharedUserDefaults.synchronize()
+            }
+            return sharedUserDefaults.string(forKey: "homeRoute").flatMap { Island(rawValue: $0) }
         }
         set {
+            sharedUserDefaults.set(newValue?.rawValue, forKey: "homeRoute")
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
-            UserDefaults.standard.set(newValue, forKey: "residentMode")
         }
+    }
+
+    func requestLocationPermission() {
+        locationManager.requestWhenInUseAuthorization()
     }
     var selectedResidence: Residence? {
         get {
-            UserDefaults.standard.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
+            homeRoute.flatMap { Residence(island: $0) }
+        }
+    }
+    var autoShowResidence: Bool {
+        get {
+            // Otherwise the detail view shows nothing anyway
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return true
+            }
+            return sharedUserDefaults.bool(forKey: "autoShowResidence")
         }
         set {
+            sharedUserDefaults.set(newValue, forKey: "autoShowResidence")
+            sharedUserDefaults.synchronize()
             self.objectWillChange.send()
-            if let v = newValue {
-                UserDefaults.standard.set(v.rawValue, forKey: "residence")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.objectWillChange.send()
+    }
+    var hasLocationPermission: Bool {
+        get {
+            let status = CLLocationManager.authorizationStatus()
+            return status == .authorizedWhenInUse || status == .authorizedAlways
+        }
+    }
+    var hasLocationPermissionDetermined: Bool {
+        get {
+            return CLLocationManager.authorizationStatus() != .notDetermined
+        }
+    }
+    var residentModeReady: Bool {
+        get {
+            self.selectedResidence != nil && hasLocationPermission
+        }
+    }
+
+    func residenceDirectionWith(location: CLLocation) -> Direction? {
+        if let residence = self.selectedResidence {
+            if (residence.region.contains(location.coordinate)) {
+                if (residence.regionIsPrimary) {
+                    return .fromPrimary
+                } else {
+                    return .toPrimary
+                }
             } else {
-                UserDefaults.standard.removeObject(forKey: "residence")
+                if (residence.regionIsPrimary) {
+                    return .toPrimary
+                } else {
+                    return .fromPrimary
+                }
             }
         }
+        return nil
     }
 }
 

@@ -7,13 +7,38 @@
 //
 
 import UIKit
+import Combine
+import CoreLocation
 
-class MasterViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class MasterViewController: UITableViewController, CLLocationManagerDelegate {
     var objects = [MenuCell]()
-    
+    var residenceModel: ResidenceSchedulesView.Model? = nil
+    lazy var locationManager: CLLocationManager = {
+        let m = CLLocationManager()
+        m.delegate = self
+        return m
+    }()
+    var location: CLLocation? = nil {
+        didSet {
+            self.prepareObjects()
+            
+            if ModelManager.shared.autoShowResidence && oldValue == nil,
+               let model = self.residenceModel,
+               let detailNav = (self.splitViewController?.viewControllers.count ?? 0) > 1
+                ? (self.splitViewController?.viewControllers[1] as? UINavigationController)
+                : (self.navigationController?.topViewController as? UINavigationController),
+               let detail = detailNav.topViewController as? DetailViewController {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    detail.initialDirection = model.direction
+                    detail.scrollToDirection(direction: model.direction)
+                }
+            }
+        }
+    }
+
     var showsTypeHint = true {
         didSet {
-            self.collectionView.reloadData()
+            self.tableView.reloadData()
             setupRightBarButtonItem()
         }
     }
@@ -24,7 +49,7 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     }
     var showsDetails = ModelManager.shared.showsRichMenu {
         didSet {
-            self.collectionView.reloadData()
+            self.tableView.reloadData()
             setupRightBarButtonItem()
         }
     }
@@ -36,9 +61,10 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
 
-        self.collectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.collectionView.register(FerrySimpleCollectionViewCell.self, forCellWithReuseIdentifier: "simple-cell")
-        
+        self.tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(FerrySimpleTableViewCell.self, forCellReuseIdentifier: "simple-cell")
+        self.tableView.register(ResidenceTableViewCell.self, forCellReuseIdentifier: "residence-cell")
+
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(openSettings))
         navigationItem.leftBarButtonItem = settingsButton
         setupRightBarButtonItem()
@@ -46,17 +72,23 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] (timer) in
             self?.prepareObjects()
         }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.islandsUpdated,
-                                               object: nil,
-                                               queue: OperationQueue.main) { [weak self] (_) in
-                                                self?.prepareObjects()
-        }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.timetableUpdated,
-                                               object: nil,
-                                               queue: OperationQueue.main) { [weak self] (_) in
-                                                self?.prepareObjects()
-        }
+        ModelManager.shared.objectWillChange.receive(subscriber: Subscribers.Sink(receiveCompletion: { _ in
+            
+        }, receiveValue: { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.prepareObjects()
+                if ModelManager.shared.residentModeReady && self?.location == nil {
+                    _ = self?.tryFetchUserLocation()
+                }
+            }
+        }))
         prepareObjects()
+        
+        if ModelManager.shared.residentModeReady && (!(self.splitViewController?.isCollapsed ?? true) || ModelManager.shared.autoShowResidence) {
+            if let r = ModelManager.shared.selectedResidence {
+                showIsland(island: r.island)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,13 +96,13 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
         super.viewWillAppear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        _ = tryFetchUserLocation()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let layout = self.collectionViewLayout as? LeftAlignedCollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: self.view.frame.width - 24, height: 200)
-            layout.sectionInset.left = 12
-            layout.minimumInteritemSpacing = 30
-        }
     }
     
     func setupRightBarButtonItem() {
@@ -103,17 +135,39 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = collectionView.indexPathsForSelectedItems?.last {
-                let i = ModelManager.shared.islands[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.island = i
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if indexPath.section == 1,
+                   let i = ModelManager.shared.selectedResidence?.island {
+                    controller.island = i
+                    if let m = self.residenceModel {
+                        controller.initialDirection = m.direction
+                    }
+                } else {
+                    let i = ModelManager.shared.islands[indexPath.row]
+                    controller.island = i
+                }
             }
         }
     }
 
     func prepareObjects() {
         self.objects = ModelManager.shared.islands.map(self.menuCellForIsland)
-        self.collectionView.reloadData()
+        if let l = location,
+           let island = ModelManager.shared.selectedResidence?.island,
+           let d = ModelManager.shared.residenceDirectionWith(location: l) {
+            let raws = ModelManager.shared.getRaws()
+            let schedule = Schedule(raws: raws)
+            let ferries = schedule.upcomingFerries(island: island, direction: d, count: 4)
+            residenceModel = ResidenceSchedulesView.Model(
+                        island: island,
+                        direction: d,
+                        ferries: ferries
+            )
+        } else {
+            residenceModel = nil
+        }
+        self.tableView.reloadData()
     }
 
     func menuCellForIsland(island: Island) -> MenuCell {
@@ -126,24 +180,33 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
 
     // MARK: - Table View
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            // type hints
             if self.needsToShowTypeHint {
                 return 3
             }
             return 0
         }
+        if section == 1 {
+//            home route
+            if ModelManager.shared.residentModeReady {
+                return 1
+            } else {
+                return 0
+            }
+        }
         return self.objects.count
     }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "simple-cell", for: indexPath)
-            if let c = cell as? FerrySimpleCollectionViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
+            if let c = cell as? FerrySimpleTableViewCell {
                 switch indexPath.row {
                 case 0:
                     c.label.text = NSLocalizedString("Green for ordinary ferry", comment: "")
@@ -163,35 +226,57 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
             }
             return cell
         }
+        
+        if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "residence-cell", for: indexPath)
+            if let c = cell as? ResidenceTableViewCell {
+                if let model = residenceModel {
+                    c.apply(model: model)
+                }
+                return c
+            }
+        }
+
+        let rowModel = self.objects[indexPath.row]
         if !showsDetails {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "simple-cell", for: indexPath)
-            if let c = cell as? FerrySimpleCollectionViewCell {
-                c.apply(model: self.objects[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simple-cell", for: indexPath)
+            if let c = cell as? FerrySimpleTableViewCell {
+                c.apply(model: rowModel)
             }
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        if let c = cell as? MenuCollectionViewCell {
-            c.apply(model: self.objects[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if let c = cell as? MenuTableViewCell {
+            c.apply(model: rowModel)
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if (needsToShowTypeHint && indexPath.section == 0) || !showsDetails {
-            return CGSize(width: self.view.frame.width - 24, height: 34)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section != 0 && showsDetails {
+            return 220
         }
-        return CGSize(width: self.view.frame.width - 24, height: 200)
+        if indexPath.section == 1 {
+            return 220
+        }
+        return UITableView.automaticDimension
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 && ModelManager.shared.residentModeReady {
+            return NSLocalizedString("Home", comment: "")
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             return
         }
         self.performSegue(withIdentifier: "showDetail", sender: self)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if needsToShowTypeHint && indexPath.section == 0 {
             return false
         }
@@ -200,10 +285,29 @@ class MasterViewController: UICollectionViewController, UICollectionViewDelegate
     
     func showIsland(island: Island) {
         if let index = ModelManager.shared.islands.firstIndex(of: island) {
-            let indexPath =  IndexPath(row: index, section: 0)
-            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+            let indexPath =
+                ModelManager.shared.residentModeReady && ModelManager.shared.selectedResidence?.island == island
+                ? IndexPath(row: 0, section: 1)
+                : IndexPath(row: index, section: 2)
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
+            self.tableView(self.tableView, didSelectRowAt: indexPath)
         }
+    }
+    
+    func tryFetchUserLocation() -> Bool {
+        if ModelManager.shared.residentModeReady {
+            locationManager.requestLocation()
+            return true
+        }
+        return false
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.location = locations.first
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Cannot get location \(error)")
     }
 }
 

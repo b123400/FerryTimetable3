@@ -33,7 +33,7 @@ struct MenuCell {
 
         if fromFerries.count >= 1 {
             let f = fromFerries[0]
-            fromPrimary1 = MenuCell.timeString(f.time)
+            fromPrimary1 = f.time.timeString
             fromPrimarySub1 = timeLeft(date: f.time)
             fromPrimaryColor1 = f.color
         } else {
@@ -43,7 +43,7 @@ struct MenuCell {
         }
         if fromFerries.count >= 2 {
             let f = fromFerries[1]
-            fromPrimary2 = MenuCell.timeString(f.time)
+            fromPrimary2 = f.time.timeString
             fromPrimarySub2 = timeLeft(date: f.time)
             fromPrimaryColor2 = f.color
         } else {
@@ -53,7 +53,7 @@ struct MenuCell {
         }
         if toFerries.count >= 1 {
             let f = toFerries[0]
-            toPrimary1 = MenuCell.timeString(f.time)
+            toPrimary1 = f.time.timeString
             toPrimarySub1 = timeLeft(date: f.time)
             toPrimaryColor1 = f.color
         } else {
@@ -63,7 +63,7 @@ struct MenuCell {
         }
         if toFerries.count >= 2 {
             let f = toFerries[1]
-            toPrimary2 = MenuCell.timeString(f.time)
+            toPrimary2 = f.time.timeString
             toPrimarySub2 = timeLeft(date: f.time)
             toPrimaryColor2 = f.color
         } else {
@@ -71,9 +71,5 @@ struct MenuCell {
             toPrimarySub2 = ""
             toPrimaryColor2 = .clear
         }
-    }
-    
-    private static func timeString(_ date: Date)-> String {
-        "\(date.hourString):\(date.minuteString)"
     }
 }

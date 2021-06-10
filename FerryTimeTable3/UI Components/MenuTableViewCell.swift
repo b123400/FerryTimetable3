@@ -9,21 +9,27 @@
 import UIKit
 import SnapKit
 
-class MenuCollectionViewCell: UICollectionViewCell {
+class MenuTableViewCell: UITableViewCell {
     let scheduleView: CurrentScheduleView
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
-        scheduleView = CurrentScheduleView(frame: frame)
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        scheduleView = CurrentScheduleView()
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(scheduleView)
         
         scheduleView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
         }
+        let v = UIView()
+        v.layer.borderWidth = 3
+        v.layer.borderColor = UIColor.systemBlue.cgColor
+        v.layer.cornerRadius = 10
+        self.selectedBackgroundView = v
     }
 
     func apply(model: MenuCell) {

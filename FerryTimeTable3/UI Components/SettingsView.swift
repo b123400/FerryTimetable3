@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct SettingsNav: View {
     var body: some View {
@@ -19,29 +20,81 @@ struct SettingsNav: View {
 
 struct SettingsView: View {
     @State var updating = false
+    @ObservedObject private var modelManager: ModelManager = ModelManager.shared
 
     var body: some View {
         List {
-            NavigationLink(destination: ReorderFerryView()) {
-                Text(NSLocalizedString("Reorder routes", comment: ""))
+            Section {
+                NavigationLink(destination: ReorderFerryView()) {
+                    Text(NSLocalizedString("Reorder routes", comment: ""))
+                }
             }
-            NavigationLink(destination: WidgetRouteSelectionView()) {
-                Text(NSLocalizedString("Widget", comment: ""))
+            
+            Section(footer: !modelManager.hasLocationPermission ? Text(NSLocalizedString("With location permission, this app can show you more relevant informations", comment: "")) : Text("")) {
+                NavigationLink(destination: HomeRouteSelectionView()) {
+                    Text(NSLocalizedString("Home Route", comment: ""))
+                    Spacer().layoutPriority(0)
+                    if let i = modelManager.homeRoute {
+                        Text(i.fullName).foregroundColor(.secondary).layoutPriority(5)
+                    } else {
+                        Text(NSLocalizedString("None", comment: "")).foregroundColor(.secondary)
+                    }
+                }
+                
+                if modelManager.selectedResidence != nil {
+                    if !modelManager.hasLocationPermissionDetermined {
+                        Button(action: { modelManager.requestLocationPermission() }, label: {
+                            Text(NSLocalizedString("Grant location permission", comment: ""))
+                        })
+                    } else if modelManager.hasLocationPermission {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"checkmark.circle.fill")
+                                .renderingMode(.original)
+                        }
+                    } else {
+                        HStack {
+                            Text(NSLocalizedString("Location Permission", comment: ""))
+                            Spacer()
+                            Image(systemName:"xmark.circle.fill")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Toggle(isOn: .init(get: { modelManager.autoShowResidence }, set: { modelManager.autoShowResidence = $0 }), label: {
+                            Text(NSLocalizedString("Auto show home route", comment: ""))
+                        })
+                    }
+                }
             }
             
             Section(footer: Text(String(format: NSLocalizedString("Last updated: %@", comment: ""), lastUpdateString))) {
                 Button(action: {
                     self.updating = true
-                    _ = ModelManager.shared.saveRaws()
-                        .sink(receiveCompletion: { _ in
-                            self.updating = false
-                        }, receiveValue: { _ in })
+                    Publishers.CombineLatest3(
+                        ModelManager.shared.saveHolidays().mapError { $0 as Error },
+                        ModelManager.shared.saveMetadatas(),
+                        ModelManager.shared.saveRaws()
+                    ).receive(subscriber: Subscribers.Sink(receiveCompletion: { completion in
+                        self.updating = false
+                    }, receiveValue: { _ in
+                        
+                    }))
                 }) {
-                    Text(
-                        self.updating
-                            ? NSLocalizedString("Loading", comment: "")
-                            : NSLocalizedString("Update timetable data", comment: "")
-                    )
+                    HStack {
+                        Text(
+                            self.updating
+                                ? NSLocalizedString("Loading", comment: "")
+                                : NSLocalizedString("Update timetable data", comment: "")
+                        )
+                        if #available(iOS 14.0, *) {
+                            if self.updating {
+                                Spacer()
+                                ProgressView()
+                            }
+                        }
+                    }
                 }
                 .disabled(self.updating)
             }
@@ -83,35 +136,47 @@ struct ReorderFerryView: View {
     }
 }
 
-struct WidgetRouteSelectionView: View {
+struct HomeRouteSelectionView: View {
     @State var islands = ModelManager.shared.islands
     
     @State var _selectedIsland: Island?
-    func selectedIsland() -> Island {
-        self._selectedIsland ??
-        sharedUserDefaults()?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+    func selectedIsland() -> Island? {
+        self._selectedIsland ?? ModelManager.shared.homeRoute
     }
     
     var body: some View {
-        List(islands) { island in
+        List {
             Button(action: {
-                let userDefaults = sharedUserDefaults()
-                userDefaults?.setValue(island.rawValue, forKey: "widget-island")
-                userDefaults?.synchronize()
-                self._selectedIsland = island
+                ModelManager.shared.homeRoute = nil
+                self._selectedIsland = nil
             }) {
                 HStack {
-                    Text(island.fullName)
+                    Text(NSLocalizedString("None", comment: ""))
                         .foregroundColor(Color(UIColor.label))
                     Spacer()
-                    if island == self.selectedIsland() {
+                    if ModelManager.shared.homeRoute == nil {
                         Image(systemName: "checkmark")
+                    }
+                }
+            }
+            ForEach(islands) { island in
+                Button(action: {
+                    ModelManager.shared.homeRoute = island
+                    self._selectedIsland = island
+                }) {
+                    HStack {
+                        Text(island.fullName)
+                            .foregroundColor(Color(UIColor.label))
+                        Spacer()
+                        if island == self.selectedIsland() {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
             }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle(NSLocalizedString("Widget", comment: ""))
+        .navigationBarTitle(NSLocalizedString("Home Route", comment: ""))
     }
 }
 
@@ -141,8 +206,4 @@ struct Reorder_Previews: PreviewProvider {
     static var previews: some View {
         ReorderFerryView()
     }
-}
-
-func sharedUserDefaults()-> UserDefaults? {
-    return UserDefaults(suiteName: "group.net.b123400.ferriestimetable")
 }

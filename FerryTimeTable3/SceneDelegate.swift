@@ -23,16 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .allVisible
         
-        _ = Publishers.CombineLatest3(
+        Publishers.CombineLatest3(
             ModelManager.shared.saveHolidays().mapError { $0 as Error },
             ModelManager.shared.saveMetadatas(),
             ModelManager.shared.saveRaws()
-        )
-        .sink { completion in
+        ).receive(subscriber: Subscribers.Sink(receiveCompletion: { completion in
             print("Saving done \(completion)")
-        } receiveValue: { (holidays, metadatas, routes) in
+        }, receiveValue: { _ in
             
-        }
+        }))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -66,8 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let urlContext = URLContexts.first {
             if urlContext.url.host == "widget" {
-                let shared = sharedUserDefaults()
-                let island = shared?.string(forKey: "widget-island").flatMap { Island(rawValue: $0) } ?? Island.centralCheungChau
+                let island = ModelManager.shared.homeRoute ?? .centralCheungChau
                 
                 if let root = window?.rootViewController as? UISplitViewController,
                     let nav = root.viewControllers.last as? UINavigationController {

@@ -133,6 +133,29 @@ enum Residence: String, Codable, CaseIterable, Identifiable, CodingKey {
     case discoveryBay = "central-discoverybay"
     case maWanTsuenWan = "mawan-tsuenwawn"
     
+    init?(island: Island) {
+        switch island {
+        case .centralCheungChau:
+            self = .cheungChau
+        case .centralMuiWo:
+            self = .muiWo
+        case .centralPengChau:
+            self = .pengChau
+        case .centralYungShueWan:
+            self = .yungShueWan
+        case .centralSokKwuWan:
+            self = .sokKwuWan
+        case .centralMaWan:
+            self = .centralMaWan
+        case .centralDiscoveryBay:
+            self = .discoveryBay
+        case .maWanTsuenWan:
+            self = .maWanTsuenWan
+        default:
+            return nil
+        }
+    }
+    
     var region: CLCircularRegion {
         switch self {
         case .cheungChau:

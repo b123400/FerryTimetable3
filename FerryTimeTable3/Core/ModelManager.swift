@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
 import Alamofire
 import Combine
@@ -313,49 +314,37 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    var widgetIsland: Island? {
+    var homeRoute: Island? {
         get {
-            sharedUserDefaults.string(forKey: "widgetIsland").flatMap { Island(rawValue: $0) }
+            if let s = sharedUserDefaults.string(forKey: "widgetIsland") {
+                sharedUserDefaults.set(s, forKey: "homeRoute")
+                sharedUserDefaults.removeObject(forKey: "widgetIsland")
+                sharedUserDefaults.synchronize()
+            }
+            return sharedUserDefaults.string(forKey: "homeRoute").flatMap { Island(rawValue: $0) }
         }
         set {
-            sharedUserDefaults.set(newValue?.rawValue, forKey: "widgetIsland")
+            sharedUserDefaults.set(newValue?.rawValue, forKey: "homeRoute")
             sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }
     }
 
-    var residentMode: Bool {
-        get {
-            sharedUserDefaults.bool(forKey: "residentMode")
-        }
-        set {
-            if newValue {
-                if CLLocationManager.authorizationStatus() == .notDetermined {
-                    locationManager.requestWhenInUseAuthorization()
-                }
-            }
-            sharedUserDefaults.set(newValue, forKey: "residentMode")
-            sharedUserDefaults.synchronize()
-            self.objectWillChange.send()
-        }
+    func requestLocationPermission() {
+        locationManager.requestWhenInUseAuthorization()
     }
     var selectedResidence: Residence? {
         get {
-            sharedUserDefaults.string(forKey: "residence").flatMap { Residence(rawValue: $0) }
-        }
-        set {
-            if let v = newValue {
-                sharedUserDefaults.set(v.rawValue, forKey: "residence")
-            } else {
-                sharedUserDefaults.removeObject(forKey: "residence")
-            }
-            sharedUserDefaults.synchronize()
-            self.objectWillChange.send()
+            homeRoute.flatMap { Residence(island: $0) }
         }
     }
     var autoShowResidence: Bool {
         get {
-            sharedUserDefaults.bool(forKey: "autoShowResidence")
+            // Otherwise the detail view shows nothing anyway
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return true
+            }
+            return sharedUserDefaults.bool(forKey: "autoShowResidence")
         }
         set {
             sharedUserDefaults.set(newValue, forKey: "autoShowResidence")
@@ -372,9 +361,14 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return status == .authorizedWhenInUse || status == .authorizedAlways
         }
     }
+    var hasLocationPermissionDetermined: Bool {
+        get {
+            return CLLocationManager.authorizationStatus() != .notDetermined
+        }
+    }
     var residentModeReady: Bool {
         get {
-            self.residentMode && self.selectedResidence != nil && hasLocationPermission
+            self.selectedResidence != nil && hasLocationPermission
         }
     }
 

@@ -324,7 +324,11 @@ class ModelManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return sharedUserDefaults.string(forKey: "homeRoute").flatMap { Island(rawValue: $0) }
         }
         set {
-            sharedUserDefaults.set(newValue?.rawValue, forKey: "homeRoute")
+            if newValue == nil {
+                sharedUserDefaults.removeObject(forKey: "homeRoute")
+            } else {
+                sharedUserDefaults.set(newValue?.rawValue, forKey: "homeRoute")
+            }
             sharedUserDefaults.synchronize()
             self.objectWillChange.send()
         }

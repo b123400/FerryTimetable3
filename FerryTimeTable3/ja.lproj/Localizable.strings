@@ -5,6 +5,9 @@
 "Arrival" = "到着時間";
 
 /* No comment provided by engineer. */
+"Auto show home route" = "このルートを自動的に表示する";
+
+/* No comment provided by engineer. */
 "Cancel" = "キャンセル";
 
 /* No comment provided by engineer. */
@@ -14,21 +17,34 @@
 "Duration" = "航行時間";
 
 /* No comment provided by engineer. */
+"Fast Ferry" = "高速船";
+
+/* No comment provided by engineer. */
+"Freight" = "貨物";
+
+/* No comment provided by engineer. */
+"Grant location permission" = "位置情報の権限を与える";
+
+/* No comment provided by engineer. */
 "Green for ordinary ferry" = "緑色は低速船";
 
 /* No comment provided by engineer. */
 "HK Ferries" = "香港フェリー時刻表";
 
 /* No comment provided by engineer. */
+"Home" = "よく使うルート";
+
+/* No comment provided by engineer. */
+"Home Route" = "よく使うルート";
+
+/* No comment provided by engineer. */
 "In %d days" = "あと %d 日";
 
 /* No comment provided by engineer. */
-"In %d hours" = "あと %d 時間";
-
-"In %dh %dm" = "あと %d時間 %d分";
+"In %d mins" = "あと %d 分";
 
 /* No comment provided by engineer. */
-"In %d mins" = "あと %d 分";
+"In %dh %dm" = "あと %d時間 %d分";
 
 /* No comment provided by engineer. */
 "Info" = "情報";
@@ -39,11 +55,20 @@
 /* No comment provided by engineer. */
 "Loading" = "読み込み中";
 
+/* No comment provided by engineer. */
+"Location Permission" = "位置情報権限";
+
 /* Last update: never */
 "Never" = "-";
 
 /* No comment provided by engineer. */
+"None" = "ない";
+
+/* No comment provided by engineer. */
 "Now" = "現在";
+
+/* No comment provided by engineer. */
+"Optional Ferry" = "オプショナル便";
 
 /* No comment provided by engineer. */
 "Red for fast ferry" = "赤色は高速船";
@@ -52,17 +77,17 @@
 "Reorder routes" = "順番設定";
 
 /* No comment provided by engineer. */
+"Slow Ferry" = "低速船";
+
+/* No comment provided by engineer. */
 "Today" = "今天";
 
 /* No comment provided by engineer. */
 "Update timetable data" = "時刻表をアップデート";
 
 /* No comment provided by engineer. */
-"Widget" = "ウイジェット";
+"With location permission, this app can show you more relevant informations" = "位置情報の権限があればより詳しいスケジュールを表示できます";
 
 /* No comment provided by engineer. */
 "Yellow for optional ferry" = "黃色はオプショナル便";
 
-"Fast Ferry" = "高速船";
-"Slow Ferry" = "低速船";
-"Optional Ferry" = "オプショナル便";

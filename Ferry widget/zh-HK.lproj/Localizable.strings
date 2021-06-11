@@ -11,6 +11,12 @@
 "Discovery Bay" = "愉景灣";
 
 /* No comment provided by engineer. */
+"Fast Ferry" = "快船";
+
+/* No comment provided by engineer. */
+"Freight" = "貨物";
+
+/* No comment provided by engineer. */
 "Hei Ling Chau" = "喜靈洲";
 
 /* No comment provided by engineer. */
@@ -20,11 +26,9 @@
 "In %d days" = "%d 日後";
 
 /* No comment provided by engineer. */
-"In %d hours" = "%d 小時後";
-
-/* No comment provided by engineer. */
 "In %d mins" = "%d 分鐘後";
 
+/* No comment provided by engineer. */
 "In %dh %dm" = "%d小時 %d分鐘後";
 
 /* No comment provided by engineer. */
@@ -46,6 +50,9 @@
 "Now" = "現在";
 
 /* No comment provided by engineer. */
+"Optional Ferry" = "加班服務";
+
+/* No comment provided by engineer. */
 "Peng Chau" = "坪洲";
 
 /* No comment provided by engineer. */
@@ -53,6 +60,9 @@
 
 /* No comment provided by engineer. */
 "Sam Ka Tsuen" = "三家村";
+
+/* No comment provided by engineer. */
+"Slow Ferry" = "慢船";
 
 /* No comment provided by engineer. */
 "Sok Kwu Wan" = "索罟灣";

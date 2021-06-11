@@ -1,11 +1,24 @@
 /* No comment provided by engineer. */
+"Fast Ferry" = "高速船";
+
+/* No comment provided by engineer. */
+"Freight" = "貨物";
+
+/* No comment provided by engineer. */
 "In %d days" = "あと %d 日";
 
 /* No comment provided by engineer. */
-"In %d hours" = "あと %d 時間";
+"In %d mins" = "あと %d 分";
 
+/* No comment provided by engineer. */
 "In %dh %dm" = "あと %d時間 %d分";
 
 /* No comment provided by engineer. */
-"In %d mins" = "あと %d 分";
+"Now" = "現在";
+
+/* No comment provided by engineer. */
+"Optional Ferry" = "オプショナル便";
+
+/* No comment provided by engineer. */
+"Slow Ferry" = "低速船";
 

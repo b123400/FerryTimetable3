@@ -8,6 +8,9 @@
 "Arrival" = "抵達時間";
 
 /* No comment provided by engineer. */
+"Auto show home route" = "自動顯示常用航線";
+
+/* No comment provided by engineer. */
 "Cancel" = "取消";
 
 /* No comment provided by engineer. */
@@ -19,10 +22,20 @@
 /* No comment provided by engineer. */
 "Deluxe" = "豪華位";
 
+/* No comment provided by engineer. */
+"Discovery Bay" = "愉景灣";
+
+/* No comment provided by engineer. */
 "Duration" = "所需時間";
 
 /* No comment provided by engineer. */
-"Discovery Bay" = "愉景灣";
+"Fast Ferry" = "快船";
+
+/* No comment provided by engineer. */
+"Freight" = "貨物";
+
+/* No comment provided by engineer. */
+"Grant location permission" = "給予位置權限";
 
 /* No comment provided by engineer. */
 "Green for ordinary ferry" = "綠色指慢船";
@@ -34,17 +47,21 @@
 "HK Ferries" = "船期表";
 
 /* No comment provided by engineer. */
+"Home" = "常用航線";
+
+/* No comment provided by engineer. */
+"Home Route" = "常用航線";
+
+/* No comment provided by engineer. */
 "Hung Hom" = "紅磡";
 
 /* No comment provided by engineer. */
 "In %d days" = "%d 日後";
 
 /* No comment provided by engineer. */
-"In %d hours" = "%d 小時後";
-
-/* No comment provided by engineer. */
 "In %d mins" = "%d 分鐘後";
 
+/* No comment provided by engineer. */
 "In %dh %dm" = "%d小時 %d分鐘後";
 
 /* No comment provided by engineer. */
@@ -63,6 +80,9 @@
 "Loading" = "載入中";
 
 /* No comment provided by engineer. */
+"Location Permission" = "位置權限";
+
+/* No comment provided by engineer. */
 "Ma Wan" = "馬灣";
 
 /* No comment provided by engineer. */
@@ -72,10 +92,16 @@
 "Never" = "從未";
 
 /* No comment provided by engineer. */
+"None" = "冇";
+
+/* No comment provided by engineer. */
 "North Point" = "北角";
 
 /* No comment provided by engineer. */
 "Now" = "現在";
+
+/* No comment provided by engineer. */
+"Optional Ferry" = "加班服務";
 
 /* No comment provided by engineer. */
 "Peng Chau" = "坪洲";
@@ -93,6 +119,9 @@
 "Sam Ka Tsuen" = "三家村";
 
 /* No comment provided by engineer. */
+"Slow Ferry" = "慢船";
+
+/* No comment provided by engineer. */
 "Sok Kwu Wan" = "索罟灣";
 
 /* No comment provided by engineer. */
@@ -108,7 +137,7 @@
 "Update timetable data" = "更新時間表";
 
 /* No comment provided by engineer. */
-"Widget" = "Today Widget";
+"With location permission, this app can show you more relevant informations" = "有位置權限的話，這個app可以顯示更加詳細的航班資料";
 
 /* No comment provided by engineer. */
 "Yellow for optional ferry" = "黃色指加班服務";
@@ -116,6 +145,3 @@
 /* No comment provided by engineer. */
 "Yung Shue Wan" = "榕樹灣";
 
-"Fast Ferry" = "快船";
-"Slow Ferry" = "慢船";
-"Optional Ferry" = "加班服務";

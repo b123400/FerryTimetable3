@@ -150,6 +150,7 @@
 		CFA35E02253B2C1500B10A4C /* FerrySimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FerrySimpleTableViewCell.swift; sourceTree = "<group>"; };
 		CFADD6BC24D875E900473F8D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		CFADD6BF24D878D500473F8D /* holidays.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = holidays.json; sourceTree = "<group>"; };
+		CFB148E726737CEE00CE5AE4 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		CFB5804D24AB7AE000DC3C63 /* HK Ferry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HK Ferry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB5805024AB7AE000DC3C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB5805224AB7AE000DC3C63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -861,6 +862,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CFC73E6B24D8391A00CA4F41 /* ja */,
+				CFB148E726737CEE00CE5AE4 /* zh-HK */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

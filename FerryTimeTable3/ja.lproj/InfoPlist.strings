@@ -1,3 +1,6 @@
 /* Bundle name */
 "CFBundleName" = "香港フェリー時刻表";
 
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "位置情報でより詳しいスケジュールを表示できます";
+

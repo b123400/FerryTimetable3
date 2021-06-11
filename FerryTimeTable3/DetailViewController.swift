@@ -126,6 +126,12 @@ class DetailViewController:
                 self?.updateChildrenShowsTypeHint()
             }
         }))
+
+        let activity = NSUserActivity(activityType: "net.b123400.ferriestimetable.browse")
+        activity.isEligibleForHandoff = true
+        activity.webpageURL = URL(string: "https://ferry.b123400.net/" + (self.island?.rawValue ?? ""))
+        activity.becomeCurrent()
+        self.userActivity = activity
     }
     
     override func viewDidLayoutSubviews() {
@@ -221,6 +227,12 @@ class DetailViewController:
     func didSelectNow() {
         self.fromVC?.date = Date();
         self.fromVC?.date = Date();
+    }
+    
+    override func updateUserActivityState(_ activity: NSUserActivity) {
+        if activity.activityType == "net.b123400.ferriestimetable.browse" {
+            activity.webpageURL = URL(string: "https://ferry.b123400.net/" + (self.island?.rawValue ?? ""))
+        }
     }
 }
 

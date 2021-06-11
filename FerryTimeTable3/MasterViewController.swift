@@ -89,6 +89,12 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
                 showIsland(island: r.island)
             }
         }
+        
+        let activity = NSUserActivity(activityType: "net.b123400.ferriestimetable.browse")
+        activity.isEligibleForHandoff = true
+        activity.webpageURL = URL(string: "https://ferry.b123400.net/")
+        activity.becomeCurrent()
+        self.userActivity = activity
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +105,7 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         _ = tryFetchUserLocation()
+        self.userActivity?.becomeCurrent()
     }
     
     override func viewDidLayoutSubviews() {

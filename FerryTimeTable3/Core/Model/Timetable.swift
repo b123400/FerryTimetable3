@@ -98,7 +98,7 @@ enum Island: String, Codable, CaseIterable, Identifiable, CodingKey {
         case .fromPrimary:
             return self.primaryName + "→" + self.secondaryName
         case .toPrimary:
-            return self.primaryName + "←" + self.secondaryName
+            return self.secondaryName + "→" + self.primaryName
         }
     }
     
